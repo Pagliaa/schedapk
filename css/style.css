@@ -1,0 +1,227 @@
+/* Colori Tipi Pokémon */
+:root {
+  --type-normal: #A8A878;
+  --type-fire: #F08030;
+  --type-water: #6890F0;
+  --type-grass: #78C850;
+  --type-electric: #F8D030;
+  --type-ice: #98D8D8;
+  --type-fighting: #C03028;
+  --type-poison: #A040A0;
+  --type-ground: #E0C068;
+  --type-flying: #A890F0;
+  --type-psychic: #F85888;
+  --type-bug: #A8B820;
+  --type-rock: #B8A038;
+  --type-ghost: #705898;
+  --type-dragon: #7038F8;
+  --type-dark: #705848;
+  --type-steel: #B8B8D0;
+  --type-fairy: #EE99AC;
+  --type-typeless: #68a090;
+  /* Colori del tema */
+  --bg-primary: #f5f5f0;
+  --bg-secondary: #ffffff;
+  --bg-card: #e8e8dc;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --border-color: #bdc3c7;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --accent: #e74c3c;
+  --success: #27ae60;
+  /* Font */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Type Colors */
+.type-normal,
+.type-normale {
+  background: var(--type-normal);
+}
+
+.type-fire,
+.type-fuoco {
+  background: var(--type-fire);
+}
+
+.type-water,
+.type-acqua {
+  background: var(--type-water);
+}
+
+.type-grass,
+.type-erba {
+  background: var(--type-grass);
+}
+
+.type-electric,
+.type-elettro {
+  background: var(--type-electric);
+  color: #333;
+}
+
+.type-ice,
+.type-ghiaccio {
+  background: var(--type-ice);
+}
+
+.type-fighting,
+.type-lotta {
+  background: var(--type-fighting);
+}
+
+.type-poison,
+.type-veleno {
+  background: var(--type-poison);
+}
+
+.type-ground,
+.type-terra {
+  background: var(--type-ground);
+}
+
+.type-flying,
+.type-volante {
+  background: var(--type-flying);
+}
+
+.type-psychic,
+.type-psichico {
+  background: var(--type-psychic);
+}
+
+.type-bug,
+.type-coleottero {
+  background: var(--type-bug);
+}
+
+.type-rock,
+.type-roccia {
+  background: var(--type-rock);
+}
+
+.type-ghost,
+.type-spettro {
+  background: var(--type-ghost);
+}
+
+.type-dragon,
+.type-drago {
+  background: var(--type-dragon);
+}
+
+.type-dark,
+.type-buio {
+  background: var(--type-dark);
+}
+
+.type-steel,
+.type-acciaio {
+  background: var(--type-steel);
+}
+
+.type-fairy,
+.type-folletto {
+  background: var(--type-fairy);
+}
+
+.type-typeless {
+  background: var(--type-typeless);
+}
+
+body {
+  background-color: #333;
+}
+
+div {
+  float: left;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  text-align: center;
+  background-color: #eee;
+  height: 98%;
+  overflow-y: auto;
+}
+
+/* List styling */
+.popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup ul li {
+  padding: 5px;
+  border: 2px solid black;
+  margin: 2px;
+  text-transform: capitalize;
+}
+
+.popup ul li a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.div-title {
+  width: 100%;
+  max-width: 952px;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  padding: 6px;
+}
+
+.full {
+  width: 100%;
+  /* display: inline-block; */
+}
+
+.spa-dex {
+  border: none;
+  background: none;
+  font-size: 20px;
+}
+
+.spa-dexname {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+ì .spa-dexnr {
+  text-align: right;
+}
+
+.btn-noborder {
+  border: none;
+  background: none;
+}
+
+.div-propic {
+  float: right;
+}
+
+.img-propic {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transition: transform 0.2s ease-in-out;
+}
+
+.spa-type {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 8px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
