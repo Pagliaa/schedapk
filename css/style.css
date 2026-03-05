@@ -178,6 +178,11 @@ div {
   padding: 6px;
 }
 
+.div-data {
+  display: flex;
+  flex-direction: column;
+}
+
 .full {
   width: 100%;
   /* display: inline-block; */
@@ -224,4 +229,5 @@ div {
   letter-spacing: 0.5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   position: relative;
+
 }
