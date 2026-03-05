@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheda Pokémon</title>
+    <!--<link rel="stylesheet" href="css/style.css">-->
+    <style>
+        :root {
+            /* Colori Tipi Pokémon */
+            --type-normal: #A8A878;
+            --type-fire: #F08030;
+            --type-water: #6890F0;
+            --type-grass: #78C850;
+            --type-electric: #F8D030;
+            --type-ice: #98D8D8;
+            --type-fighting: #C03028;
+            --type-poison: #A040A0;
+            --type-ground: #E0C068;
+            --type-flying: #A890F0;
+            --type-psychic: #F85888;
+            --type-bug: #A8B820;
+            --type-rock: #B8A038;
+            --type-ghost: #705898;
+            --type-dragon: #7038F8;
+            --type-dark: #705848;
+            --type-steel: #B8B8D0;
+            --type-fairy: #EE99AC;
+            /* Colori del tema */
+            --bg-primary: #f5f5f0;
+            --bg-secondary: #ffffff;
+            --bg-card: #e8e8dc;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #bdc3c7;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --accent: #e74c3c;
+            --success: #27ae60;
+        }
+
+        /* Type Colors */
+        .type-normal {
+            background: var(--type-normal);
+        }
+
+        .type-fire {
+            background: var(--type-fire);
+        }
+
+        .type-water {
+            background: var(--type-water);
+        }
+
+        .type-grass {
+            background: var(--type-grass);
+        }
+
+        .type-electric {
+            background: var(--type-electric);
+            color: #333;
+        }
+
+        .type-ice {
+            background: var(--type-ice);
+        }
+
+        .type-fighting {
+            background: var(--type-fighting);
+        }
+
+        .type-poison {
+            background: var(--type-poison);
+        }
+
+        .type-ground {
+            background: var(--type-ground);
+        }
+
+        .type-flying {
+            background: var(--type-flying);
+        }
+
+        .type-psychic {
+            background: var(--type-psychic);
+        }
+
+        .type-bug {
+            background: var(--type-bug);
+        }
+
+        .type-rock {
+            background: var(--type-rock);
+        }
+
+        .type-ghost {
+            background: var(--type-ghost);
+        }
+
+        .type-dragon {
+            background: var(--type-dragon);
+        }
+
+        .type-dark {
+            background: var(--type-dark);
+        }
+
+        .type-steel {
+            background: var(--type-steel);
+        }
+
+        .type-fairy {
+            background: var(--type-fairy);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #e8e8dc;
+            color: var(--text-primary);
+            line-height: 1.6;
+            #display: block;
+            width: 90%; */
+            background-color: #eeeecd;
+            background-image: url("https://www.transparenttextures.com/patterns/textured-paper.png");
+            padding-bottom: 150px;
+        }
+
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+        }
+
+        /*.center {
+            #width: 100%;
+            text-align: center;
+        }
+
+        .image {
+            width: 20%;
+        }*/
+
+        .title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-number {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 700;
+            /* margin-bottom: 0.25rem; */
+            margin-right: 0.5rem;
+        }
+
+        .top {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 1%;
+        }
+
+        .topleft {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            /* width: fit-content; */
+            min-width: 175px;
+            width: 49%;
+        }
+
+        .stat-topright {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.5rem;
+            /* margin-left: 2rem; */
+            min-width: 175px;
+            width: 49%;
+        }
+
+        .box {
+            display: flex;
+            width: 100%;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .type-box {
+            padding: 0.7rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background: #444;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .type-box-half {
+            width: 50%;
+        }
+
+        .type-box-accessory {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box-title {
+            margin-bottom: 0.5rem;
+        }
+
+        .box-accessory-top {
+            display: inline;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .box-accessory-bot {
+            width: 18%;
+            border-radius: 5px;
+        }
+
+        .box-input {
+            border-radius: 5px;
+        }
+
+        .box-input-half {
+            width: -webkit-fill-available;
+            max-width: 68px;
+            border-radius: 5px;
+        }
+
+        .modal-pokemon-detail {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            /* grid-template-columns: 1fr 1fr; */
+            gap: 1%;
+        }
+
+        .modal-left {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: space-between;
+            min-width: 175px;
+            width: 49%;
+        }
+
+        .modal-right {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: space-between;
+            min-width: 175px;
+            width: 49%;
+        }
+
+        .modal-pokemon-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .modal-pokemon-rank {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .type-badge {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .pokemon-types {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .card-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+            padding: 0.3rem 0;
+            flex-direction: column;
+        }
+
+        .stat-ref {
+            display: flex;
+            align-items: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .ref-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            min-width: 80px;
+        }
+
+        .stat-value {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .type-check {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .checkbox-round {
+            width: 0.9rem;
+            height: 0.9rem;
+            background-color: white;
+            border-radius: 50%;
+            vertical-align: middle;
+            border: 2px solid #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+            margin: 3px;
+        }
+
+        .checkbox-round-s {
+            width: 0.7rem;
+            height: 0.7rem;
+            background-color: white;
+            border-radius: 50%;
+            vertical-align: middle;
+            border: 2px solid #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+            margin: 2px;
+        }
+
+        .checkbox-round:checked,
+        .checkbox-round-s:checked {
+            background-color: #444;
+        }
+
+        .type-three-col {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .type-col-ref {
+            width: 32%;
+        }
+
+        .type-abilities {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .type-abil-box {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+        }
+
+        .abil-check {
+            padding: 0 0.2rem;
+        }
+
+        .type-moves {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .moves-line {
+            display: flex;
+            width: 100%;
+        }
+
+        .moves-box {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Title -->
+    <div class="title">
+        <div class="card-number">#446</div>
+        <h2>Munchlax</h2>
+    </div>
+
+    <!-- Top -->
+    <div class="top">
+
+        <!-- Top Left -->
+        <div class="topleft">
+            <img src="https://static.wikia.nocookie.net/pkmnshuffle/images/8/8e/Munchlax.png/revision/latest?cb=20170409020411"
+                alt="Munchlax" class="modal-pokemon-image"
+                onerror="this.src='https://archives.bulbagarden.net/media/upload/1/14/Ten_Question_Marks_III.png'">
+            <img src="https://media.pokemoncentral.it/wiki/4/4c/Pok%C3%A9_Ball_III_Sprite_Zaino.png"
+                class="modal-pokemon-rank">
+            <h3 class="name">Dalax</h3>
+            <div class="pokemon-types" style="justify-content: center;">
+                <span class="type-badge type-normal">Normal</span>
+            </div>
+            <div class="box" style="justify-content: center;">
+                <div class="type-box type-box-half">
+                    <span class="box-title">Weight</span>
+                    <input name="weight" class="box-input-half">
+                </div>
+                <div class="type-box type-box-half">
+                    <span class="box-title">Size</span>
+                    <input name="size" class="box-input-half">
+                </div>
+            </div>
+            <div class="type-box">
+                <span class="box-title">Logic</span>
+                <div class="type-check">
+                    <input name="cb_l1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_l2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_l3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_l4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_l5" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Right -->
+        <div class="stat-topright">
+            <div class="type-box">
+                <span class="box-title">HP</span>
+                <div class="type-check">
+                    <input name="cb_hp1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_hp2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_hp3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_hp4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_hp5" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+            <div class="type-box">
+                <span class="box-title">WILL</span>
+                <div class="type-check">
+                    <input name="cb_wi1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_wi2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_wi3" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+            <div class="type-box">
+                <span class="box-title">NATURE</span>
+                <input name="nat" class="box-input">
+            </div>
+            <div class="type-box">
+                <span class="box-title">CONFIDENCE</span>
+                <!-- <input name="conf" class="box-input"> -->
+            </div>
+            <div class="box" style="justify-content: center;">
+                <div class="type-box type-box-half">
+                    <span class="box-title">Battles</span>
+                    <input name="battles" class="box-input-half">
+                </div>
+                <div class="type-box type-box-half">
+                    <span class="box-title">Victories</span>
+                    <input name="victories" class="box-input-half">
+                </div>
+            </div>
+            <div class="type-box">
+                <span class="box-title">Instinct</span>
+                <div class="type-check">
+                    <input name="cb_i1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_i2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_i3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_i4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_i5" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle -->
+    <div id="modalBody">
+        <div class="modal-pokemon-detail">
+
+            <!-- Middle Left -->
+            <div class="modal-left">
+                <div class="card-stats" style="margin: 1rem 0;">
+                    <div class="stat-item">
+                        <span class="ref-label">Item</span>
+                        <input name="item" class="box-input">
+                    </div>
+                    <div class="stat-item">
+                        <span class="ref-label">Status</span>
+                        <input name="status" class="box-input">
+                    </div>
+                    <h4>Quick References</h4>
+                    <div class="stat-ref">
+                        <span class="ref-label">Initiative</span>
+                        <input name="init" class="box-input-half">
+                    </div>
+                    <div class="stat-ref">
+                        <span class="ref-label">Accuracy</span>
+                        <input name="accu" class="box-input-half">
+                    </div>
+                    <div class="stat-ref">
+                        <span class="ref-label">Damage</span>
+                        <input name="dam" class="box-input-half">
+                    </div>
+                    <div class="stat-ref">
+                        <span class="ref-label">Evasion</span>
+                        <input name="evas" class="box-input-half">
+                    </div>
+                    <div class="stat-ref">
+                        <span class="ref-label">Clash</span>
+                        <input name="clash" class="box-input-half">
+                    </div>
+                    <div class="stat-ref">
+                        <span class="ref-label">Def/SpDef</span>
+                        <input name="def" class="box-input-half">
+                    </div>
+                </div>
+                <div class="box" style="justify-content: center;">
+                    <div class="type-box type-box-half">
+                        <span class="box-title">Weapon</span>
+                        <input name="weapon" class="box-input-half">
+                    </div>
+                    <div class="type-box type-box-half">
+                        <span class="box-title">Shield</span>
+                        <input name="shield" class="box-input-half">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Right -->
+            <div class="modal-right">
+                <div class="card-stats" style="margin: 1rem 0;">
+                    <h4>Statistiche</h4>
+                    <div class="stat-item">
+                        <span class="stat-label">Strength</span>
+                        <div class="type-check">
+                            <input name="cb_str1" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str2" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str3" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str4" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str5" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str6" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str7" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str8" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str9" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str10" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str11" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_str12" type="checkbox" class="checkbox-round-s" />
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Dexterity</span>
+                        <div class="type-check">
+                            <input name="cb_dex1" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex2" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex3" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex4" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex5" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex6" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex7" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex8" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex9" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex10" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex11" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_dex12" type="checkbox" class="checkbox-round-s" />
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Vitality</span>
+                        <div class="type-check">
+                            <input name="cb_vit1" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit2" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit3" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit4" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit5" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit6" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit7" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit8" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit9" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit10" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit11" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_vit12" type="checkbox" class="checkbox-round-s" />
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Special</span>
+                        <div class="type-check">
+                            <input name="cb_spe1" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe2" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe3" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe4" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe5" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe6" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe7" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe8" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe9" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe10" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe11" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_spe12" type="checkbox" class="checkbox-round-s" />
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Insight</span>
+                        <div class="type-check">
+                            <input name="cb_ins1" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins2" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins3" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins4" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins5" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins6" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins7" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins8" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins9" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins10" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins11" type="checkbox" class="checkbox-round-s" />
+                            <input name="cb_ins12" type="checkbox" class="checkbox-round-s" />
+                        </div>
+                    </div>
+                </div>
+                <div class="type-box">
+                    <span class="box-title">Accessory</span>
+                    <textarea name="acc1" rows="3" class="box-accessory-top"></textarea>
+                    <div class="type-box-accessory">
+                        <input name="acc_b1" class="box-accessory-bot">
+                        <input name="acc_b2" class="box-accessory-bot">
+                        <input name="acc_b3" class="box-accessory-bot">
+                        <input name="acc_b4" class="box-accessory-bot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 colonne -->
+    <!-- <div class="type-three-col">
+
+        <div class="type-col-ref">
+
+        </div>
+
+        <div class="type-col-ref">
+
+        </div>
+
+        <div class="type-col-ref">
+
+        </div>
+    </div> -->
+
+    <!-- Abilities -->
+    <div class="type-abilities">
+
+        <!-- Fight -->
+        <div class="type-abil-box">
+            <span class="box-title">Fight</span>
+            <div class="type-abil-box-list">
+                <div class="abil-item">
+                    <span class="stat-label">Brawl</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_bra1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_bra2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_bra3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_bra4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_bra5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Channel</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_cha1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_cha2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_cha3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_cha4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_cha5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Clash</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_cla1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_cla2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_cla3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_cla4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_cla5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Evasion</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_eva1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_eva2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_eva3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_eva4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_eva5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Survival -->
+        <div class="type-abil-box">
+            <span class="box-title">Survival</span>
+            <div class="type-abil-box-list">
+                <div class="abil-item">
+                    <span class="stat-label">Alert</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_ale1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ale2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ale3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ale4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ale5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Athletic</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_ath1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ath2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ath3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ath4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ath5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Nature</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_nat1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_nat2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_nat3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_nat4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_nat5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Stealth</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_ste1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ste2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ste3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ste4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_ste5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social -->
+        <div class="type-abil-box">
+            <span class="box-title">Social</span>
+            <div class="type-abil-box-list">
+                <div class="abil-item">
+                    <span class="stat-label">Allure</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_all1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_all2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_all3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_all4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_all5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Etiquette</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_eti1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_eti2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_eti3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_eti4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_eti5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Intimidate</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_int1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_int2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_int3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_int4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_int5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+                <div class="abil-item">
+                    <span class="stat-label">Perform</span>
+                    <div class="type-check abil-check">
+                        <input name="cb_per1" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_per2" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_per3" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_per4" type="checkbox" class="checkbox-round-s" />
+                        <input name="cb_per5" type="checkbox" class="checkbox-round-s" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extra -->
+        <div class="type-abil-box">
+            <span class="box-title">Extra</span>
+            <div class="type-abil-box-list">
+            </div>
+        </div>
+    </div>
+
+    <!-- <div style="position:fixed; bottom:20px; left:50%; transform:translateX(-50%); display:flex; gap:10px;">
+        <button onclick="exportJSON()">Export JSON</button>
+        <button onclick="document.getElementById('importFile').click()">Import JSON</button>
+        <button onclick="saveLocal()">Salva Local</button>
+        <button onclick="loadLocal()">Carica Local</button>
+        <input type="file" id="importFile" accept=".json" style="display:none" onchange="importJSON(event)">
+    </div> -->
+
+    <h3 style="margin-top: 1rem">Moves</h3>
+    <div class="type-moves">
+        <div class="moves-line">
+            <div class="moves-box">
+                <img src="moves/move1.png" class="img-move">
+            </div>
+            <div class="moves-box">
+                <img src="moves/move2.png" class="img-move">
+            </div>
+        </div>
+        <div class="moves-line">
+            <div class="moves-box">
+                <img src="moves/move3.png" class="img-move">
+            </div>
+            <div class="moves-box">
+                <img src="moves/move4.png" class="img-move">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- SCRIPT PER SALVARE-->
+    <script>
+        const STORAGE_KEY = "pokemon_sheet_autosave";
+
+        function getFormData() {
+            const data = {};
+            const elements = document.querySelectorAll("input, textarea");
+
+            elements.forEach(el => {
+                if (!el.name) return;
+
+                if (el.type === "checkbox") {
+                    data[el.name] = el.checked;
+                } else {
+                    data[el.name] = el.value;
+                }
+            });
+
+            return data;
+        }
+
+        function setFormData(data) {
+            const elements = document.querySelectorAll("input, textarea");
+
+            elements.forEach(el => {
+                if (!el.name || !(el.name in data)) return;
+
+                if (el.type === "checkbox") {
+                    el.checked = data[el.name];
+                } else {
+                    el.value = data[el.name];
+                }
+            });
+        }
+
+        function autoSave() {
+            const data = getFormData();
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        }
+
+        function autoLoad() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                setFormData(JSON.parse(saved));
+            }
+        }
+
+        document.addEventListener("input", autoSave);
+        document.addEventListener("change", autoSave);
+        document.addEventListener("DOMContentLoaded", autoLoad);
+    </script>
+
+</body>
+
+</html>
