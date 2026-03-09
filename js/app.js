@@ -1,3 +1,25 @@
+const TYPE_CHART = {
+  typeless: {debolezza: [], resistenza: [], immunita: [] },
+  normale: { debolezza: ['lotta'], resistenza: [], immunita: ['spettro'] },
+  fuoco: { debolezza: ['acqua', 'terra', 'roccia'], resistenza: ['fuoco', 'erba', 'ghiaccio', 'coleottero', 'acciaio', 'folletto'], immunita: [] },
+  acqua: { debolezza: ['erba', 'elettro'], resistenza: ['fuoco', 'acqua', 'ghiaccio', 'acciaio'], immunita: [] },
+  erba: { debolezza: ['fuoco', 'ghiaccio', 'veleno', 'volante', 'coleottero'], resistenza: ['acqua', 'erba', 'elettro', 'terra'], immunita: [] },
+  elettro: { debolezza: ['terra'], resistenza: ['elettro', 'volante', 'acciaio'], immunita: [] },
+  ghiaccio: { debolezza: ['fuoco', 'lotta', 'roccia', 'acciaio'], resistenza: ['ghiaccio'], immunita: [] },
+  lotta: { debolezza: ['volante', 'psico', 'folletto'], resistenza: ['coleottero', 'roccia', 'buio'], immunita: [] },
+  veleno: { debolezza: ['terra', 'psico'], resistenza: ['erba', 'lotta', 'veleno', 'coleottero', 'folletto'], immunita: [] },
+  terra: { debolezza: ['acqua', 'erba', 'ghiaccio'], resistenza: ['veleno', 'roccia'], immunita: ['elettro'] },
+  volante: { debolezza: ['elettro', 'ghiaccio', 'roccia'], resistenza: ['erba', 'lotta', 'coleottero'], immunita: ['terra'] },
+  psico: { debolezza: ['coleottero', 'fantasmi', 'buio'], resistenza: ['lotta', 'psico'], immunita: [] },
+  coleottero: { debolezza: ['fuoco', 'volante', 'roccia'], resistenza: ['erba', 'lotta', 'terra'], immunita: [] },
+  roccia: { debolezza: ['acqua', 'erba', 'lotta', 'terra', 'acciaio'], resistenza: ['normale', 'fuoco', 'veleno', 'volante'], immunita: [] },
+  spettro: { debolezza: ['spettro', 'buio'], resistenza: ['veleno', 'coleottero'], immunita: ['normale', 'lotta'] },
+  drago: { debolezza: ['ghiaccio', 'drago', 'folletto'], resistenza: ['fuoco', 'acqua', 'erba', 'elettro'], immunita: [] },
+  buio: { debolezza: ['lotta', 'coleottero', 'folletto'], resistenza: ['spettro', 'buio'], immunita: ['psico'] },
+  acciaio: { debolezza: ['fuoco', 'lotta', 'terra'], resistenza: ['normale', 'erba', 'ghiaccio', 'volante', 'psico', 'coleottero', 'roccia', 'drago', 'acciaio', 'folletto'], immunita: ['veleno'] },
+  folletto: { debolezza: ['veleno', 'acciaio'], resistenza: ['lotta', 'coleottero', 'buio'], immunita: ['drago'] }
+};
+
 function dexpre(el) {
   if (el.value.length > 1 && !el.value.startsWith('# ')) {
     el.value = '# ' + el.value;
@@ -31,64 +53,118 @@ function img_change() {
   }
 }
 
-async function loadPoke() {
-  const response = await fetch('json/poke_list.json'); // Carica il file JSON
-  const links = await response.json();
-  const listContainer = document.getElementById('pokeList');
-  var popup = document.getElementById("popupPokeList");
-  var type2sp = document.getElementById("type2");
+function typeEff(t1, t2) {
+  const listRes = document.getElementById('res');
+  const listDeb = document.getElementById('deb');
+  const listImm = document.getElementById('imm');
 
-  links.forEach(item => {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    const name = document.getElementById('pokename');
-    const nr = document.getElementById('pokenr');
-    const type1 = document.getElementById('type1');
-    const type2 = document.getElementById('type2');
-    const fixcla = 'spa-type';
-    var ty1cla = document.getElementById('type1').className;
-    var ty2cla = document.getElementById('type2').className;
+  console.log(t1);
 
-    a.textContent = item.pokemon;
-    a.href = '#';
+  // Reset current lists
+  [listRes, listDeb, listImm].forEach(el => el.innerHTML = '');
 
-    a.addEventListener('click', (e) => {
-      e.preventDefault(); // Stop the link from jumping
-      name.innerHTML = item.pokemon; //nome
-      nr.innerHTML = '# ' + String(item.nr).padStart(3, '0'); //nr dex
-      type1.innerHTML = '???';
+  const multipliers = {};
+  Object.keys(TYPE_CHART).forEach(type => multipliers[type] = 1.0);
 
-      //class color
-      type1.classList.remove(fixcla);
-      ty1cla = document.getElementById('type1').className;
-      type1.classList.remove(ty1cla);
-      type1.classList.add(fixcla);
-      ty1cla = 'type-' + item.tipo1;
-      type1.classList.add(ty1cla);
-
-      type1.innerHTML = item.tipo1; //tipo1 testo
-
-      if (item.tipo2 === "") {
-        type2.innerHTML = '';
-        type2sp.classList.add('hidden');
-      } else {
-        type2.innerHTML = item.tipo2; //tipo2 testo
-        type2sp.classList.remove('hidden');
-
-        //class color
-        type2.classList.remove(fixcla);
-        ty2cla = document.getElementById('type2').className;
-        type2.classList.remove(ty2cla);
-        type2.classList.add(fixcla);
-        ty2cla = 'type-' + item.tipo2;
-        type2.classList.add(ty2cla);
-      }
-      popup.classList.toggle('hidden');
-    });
-
-    li.appendChild(a);
-    listContainer.appendChild(li);
+  // Apply modifiers for each type the Pokemon has
+  [t1, t2].forEach(t => {
+    if (!t || !TYPE_CHART[t]) return;
+    TYPE_CHART[t].debolezza.forEach(type => multipliers[type] *= 2);
+    TYPE_CHART[t].resistenza.forEach(type => multipliers[type] *= 0.5);
+    TYPE_CHART[t].immunita.forEach(type => multipliers[type] *= 0);
   });
+
+  // Populate the UI
+  for (const [type, value] of Object.entries(multipliers)) {
+    const li = document.createElement('li');
+    const typeName = type.charAt(0).toUpperCase() + type.slice(1);
+
+    if (value > 1) {
+      li.textContent = `${typeName} (x${value})`;
+      listDeb.appendChild(li);
+    } else if (value > 0 && value < 1) {
+      li.textContent = `${typeName} (x${value})`;
+      listRes.appendChild(li);
+    } else if (value === 0) {
+      li.textContent = typeName;
+      listImm.appendChild(li);
+    }
+  }
+}
+
+async function loadPoke() {
+  const response = await fetch('json/poke_list.json');
+  const allPokemon = await response.json();
+
+  const listContainer = document.getElementById('pokeList');
+  const searchInput = document.getElementById('pokeSearch'); // Add this ID to your <input>
+  const popup = document.getElementById("popupPokeList");
+
+  // Get UI elements once (Optimization)
+  const nameDisplay = document.getElementById('pokename');
+  const nrDisplay = document.getElementById('pokenr');
+  const type1Display = document.getElementById('type1');
+  const type2Display = document.getElementById('type2');
+  const fixcla = 'spa-type';
+
+  // Function to build the list
+  const renderList = (pokemonArray) => {
+    listContainer.innerHTML = ''; // Clear current list
+
+    pokemonArray.forEach(item => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.textContent = item.pokemon;
+      a.href = '#';
+
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Update Text
+        nameDisplay.innerHTML = item.pokemon;
+        nrDisplay.innerHTML = '# ' + String(item.nr).padStart(3, '0');
+
+        // Update Type 1 Class & Text
+        type1Display.className = fixcla; // Reset classes
+        type1Display.classList.add('type-' + item.tipo1);
+        type1Display.innerHTML = item.tipo1;
+
+        // Update Type 2
+        if (item.tipo2 === "" || !item.tipo2) {
+          type2Display.innerHTML = '';
+          type2Display.classList.add('hidden');
+        } else {
+          type2Display.className = fixcla; // Reset classes
+          type2Display.classList.remove('hidden');
+          type2Display.classList.add('type-' + item.tipo2);
+          type2Display.innerHTML = item.tipo2;
+        }
+
+        popup.classList.add('hidden'); // Close popup after selection
+
+        const type1 = item.tipo1.toLowerCase();
+        const type2 = item.tipo2 ? item.tipo2.toLowerCase() : null;
+
+        typeEff(type1, type2);
+      });
+
+      li.appendChild(a);
+      listContainer.appendChild(li);
+    });
+  };
+
+  // Initial Render
+  renderList(allPokemon);
+
+  // Search Listener
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    const filtered = allPokemon.filter(p =>
+      p.pokemon.toLowerCase().includes(query)
+    );
+    renderList(filtered);
+  });
+
 }
 
 loadPoke();

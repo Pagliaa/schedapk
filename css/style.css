@@ -86,7 +86,7 @@
 }
 
 .type-psychic,
-.type-psichico {
+.type-psico {
   background: var(--type-psychic);
 }
 
@@ -137,18 +137,30 @@ div {
   float: left;
 }
 
-.hidden {
-  display: none;
+h3 {
+  color: var(--bg-primary);
+  margin: 0;
+  text-align: center;
+}
+
+.flex {
+  width: 100%;
+  display: flex;
+}
+
+.flex-space-evenly {
+  justify-content: space-evenly;
 }
 
 .popup {
   position: absolute;
   top: 10px;
   left: 50%;
+  max-height: 97%;
   text-align: center;
   background-color: #eee;
-  height: 98%;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 /* List styling */
@@ -160,7 +172,7 @@ div {
 
 .popup ul li {
   padding: 5px;
-  border: 2px solid black;
+  border: 2px solid #2c3e50;
   margin: 2px;
   text-transform: capitalize;
 }
@@ -170,7 +182,7 @@ div {
   text-decoration: none;
 }
 
-.div-title {
+.div-box {
   width: 100%;
   max-width: 952px;
   border-radius: 8px;
@@ -188,6 +200,11 @@ div {
   /* display: inline-block; */
 }
 
+.margin {
+  margin: 4px;
+  width: 100%;
+}
+
 .spa-dex {
   border: none;
   background: none;
@@ -199,7 +216,7 @@ div {
   text-transform: capitalize;
 }
 
-ì .spa-dexnr {
+.spa-dexnr {
   text-align: right;
 }
 
@@ -220,7 +237,7 @@ div {
 }
 
 .spa-type {
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.5rem;
   border-radius: 20px;
   font-size: 8px;
   font-weight: 700;
@@ -229,5 +246,37 @@ div {
   letter-spacing: 0.5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   position: relative;
+  min-width: 60px;
+  display: inline-block;
+}
 
+.checkbox-round {
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 2px solid #000000;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin: 3px;
+}
+
+.checkbox-round:checked,
+.checkbox-round-s:checked {
+  background-color: #444;
+}
+
+.div-types-effect {
+  text-align: center;
+}
+
+
+
+
+
+.hidden {
+  display: none;
 }

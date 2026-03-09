@@ -3,39 +3,85 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="div-title">
-        <div class="div-data">
-            <div class="full">
-                <button class="btn-noborder" onclick="poke_list()">
-                    <span id="pokename" class="spa-dex spa-dexname">Bulbasaur</span>
-                    <span id="pokenr" class="spa-dex spa-dexnr"># 001</span>
+    <div class="full">
+
+        <!-- Title + img -->
+        <div class="div-box">
+            <div class="div-data">
+                <div class="full">
+                    <button class="btn-noborder" onclick="poke_list()">
+                        <span id="pokename" class="spa-dex spa-dexname">Bulbasaur</span>
+                        <span id="pokenr" class="spa-dex spa-dexnr"># 001</span>
+                    </button>
+                </div>
+                <div class="full">
+                    <button class="btn-noborder" onclick="poke_list()">
+                        <span id="type1" class="spa-type type-typeless">???</span>
+                        <span id="type2" class="spa-type type-typeless hidden">???</span>
+                    </button>
+                </div>
+                <div id="popupPokeList" class="popup hidden">
+                    <input type="text" id="pokeSearch" placeholder="Search Pokémon...">
+                    <ul id="pokeList">
+                    </ul>
+                </div>
+            </div>
+            <div class="div-propic">
+                <button class="btn-noborder" onclick="img_change()">
+                    <img src="" id="poke-img" class="img-propic"
+                        onerror="this.src='https://archives.bulbagarden.net/media/upload/1/14/Ten_Question_Marks_III.png'">
                 </button>
             </div>
-            <div class="full">
-                <button class="btn-noborder" onclick="poke_list()">
-                    <span id="type1" class="spa-type type-typeless">???</span>
-                    <span id="type2" class="spa-type type-typeless hidden">???</span>
-                </button>
-            </div>
-            <div id="popupPokeList" class="popup hidden">
-                <ul id="pokeList">
-                </ul>
-            </div>
-            <!-- <input type="text" name="pk_name" class="inp-dex inp-dexname" placeholder="Bulbasaur">
-            <input type="text" name="dex_nr" class="inp-dex inp-dexnr" placeholder="# 001" oninput="dexpre(this)"> -->
         </div>
-        <div class="div-propic">
-            <button class="btn-noborder" onclick="img_change()">
-                <img src="" id="poke-img" class="img-propic"
-                    onerror="this.src='https://archives.bulbagarden.net/media/upload/1/14/Ten_Question_Marks_III.png'">
-            </button>
+
+        <div class="margin"></div>
+
+        <h3>Abilità</h3>
+        <div class="div-box">
+            <input type="text" name="ability" placeholder="Ability...">
         </div>
+
+        <div class="margin"></div>
+
+        <h3>Debolezze</h3>
+        <div class="div-box">
+            <div class="flex flex-space-evenly">
+                <div class="div-types-effect">
+                    <span>Resistenze</span>
+                    <ul id="res">
+                    </ul>
+                </div>
+                <div class="div-types-effect">
+                    <span>Debolezze</span>
+                    <ul id="deb">
+                    </ul>
+                </div>
+                <div class="div-types-effect">
+                    <span>Immunità</span>
+                    <ul id="imm"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin"></div>
+
+        <h3>Statistiche</h3>
+        <div class="div-box">
+            <span>Forza</span>
+            <input name="cb_l1" type="checkbox" class="checkbox-round" />
+            <input name="cb_l2" type="checkbox" class="checkbox-round" />
+            <input name="cb_l3" type="checkbox" class="checkbox-round" />
+            <input name="cb_l4" type="checkbox" class="checkbox-round" />
+            <input name="cb_l5" type="checkbox" class="checkbox-round" />
+        </div>
+
+
+
     </div>
 
     <!-- Script -->
