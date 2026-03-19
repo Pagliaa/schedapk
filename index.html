@@ -21,8 +21,14 @@
                 </div>
                 <div class="full">
                     <button class="btn-noborder" onclick="poke_list()">
-                        <span id="type1" class="spa-type type-typeless">???</span>
-                        <span id="type2" class="spa-type type-typeless hidden">???</span>
+                        <span id="type1" class="spa-type type-typeless">
+                            <span id="type1-img" class="spa-type-img"></span>
+                            <span id="type1-text" class="spa-type-text">???</span>
+                        </span>
+                        <span id="type2" class="spa-type type-typeless hidden">
+                            <span id="type2-img" class="spa-type-img"></span>
+                            <span id="type2-text" class="spa-type-text"></span>
+                        </span>
                     </button>
                 </div>
                 <div id="popupPokeList" class="popup hidden">
@@ -48,21 +54,20 @@
 
         <div class="margin"></div>
 
-        <h3>Debolezze</h3>
         <div class="div-box">
             <div class="flex flex-space-evenly">
                 <div class="div-types-effect">
-                    <span>Resistenze</span>
+                    <h4>Resistances</h4>
                     <ul id="res">
                     </ul>
                 </div>
                 <div class="div-types-effect">
-                    <span>Debolezze</span>
+                    <h4>Weaknesses</h4>
                     <ul id="deb">
                     </ul>
                 </div>
                 <div class="div-types-effect">
-                    <span>Immunità</span>
+                    <h4>Immunities</h4>
                     <ul id="imm"></ul>
                 </div>
             </div>
@@ -72,12 +77,91 @@
 
         <h3>Statistiche</h3>
         <div class="div-box">
-            <span>Forza</span>
-            <input name="cb_l1" type="checkbox" class="checkbox-round" />
-            <input name="cb_l2" type="checkbox" class="checkbox-round" />
-            <input name="cb_l3" type="checkbox" class="checkbox-round" />
-            <input name="cb_l4" type="checkbox" class="checkbox-round" />
-            <input name="cb_l5" type="checkbox" class="checkbox-round" />
+            <div class="full">
+                <span class="stat-label">Strength</span>
+                <div class="type-check">
+                    <input name="cb_str1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str5" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str6" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str7" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str8" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str9" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str10" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str11" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str12" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+        </div>
+        <div class="div-box">
+            <span class="stat-label">Dexterity</span>
+            <div class="type-check">
+                <input name="cb_dex1" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex2" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex3" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex4" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex5" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex6" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex7" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex8" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex9" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex10" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex11" type="checkbox" class="checkbox-round" />
+                <input name="cb_dex12" type="checkbox" class="checkbox-round" />
+            </div>
+        </div>
+        <div class="div-box">
+            <span class="stat-label">Vitality</span>
+            <div class="type-check">
+                <input name="cb_vit1" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit2" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit3" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit4" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit5" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit6" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit7" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit8" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit9" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit10" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit11" type="checkbox" class="checkbox-round" />
+                <input name="cb_vit12" type="checkbox" class="checkbox-round" />
+            </div>
+        </div>
+        <div class="div-box">
+            <span class="stat-label">Special</span>
+            <div class="type-check">
+                <input name="cb_spe1" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe2" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe3" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe4" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe5" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe6" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe7" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe8" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe9" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe10" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe11" type="checkbox" class="checkbox-round" />
+                <input name="cb_spe12" type="checkbox" class="checkbox-round" />
+            </div>
+        </div>
+        <div class="div-box">
+            <span class="stat-label">Insight</span>
+            <div class="type-check">
+                <input name="cb_ins1" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins2" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins3" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins4" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins5" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins6" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins7" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins8" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins9" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins10" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins11" type="checkbox" class="checkbox-round" />
+                <input name="cb_ins12" type="checkbox" class="checkbox-round" />
+            </div>
         </div>
 
 

@@ -1,5 +1,5 @@
 const TYPE_CHART = {
-  typeless: {debolezza: [], resistenza: [], immunita: [] },
+  typeless: { debolezza: [], resistenza: [], immunita: [] },
   normale: { debolezza: ['lotta'], resistenza: [], immunita: ['spettro'] },
   fuoco: { debolezza: ['acqua', 'terra', 'roccia'], resistenza: ['fuoco', 'erba', 'ghiaccio', 'coleottero', 'acciaio', 'folletto'], immunita: [] },
   acqua: { debolezza: ['erba', 'elettro'], resistenza: ['fuoco', 'acqua', 'ghiaccio', 'acciaio'], immunita: [] },
@@ -10,7 +10,7 @@ const TYPE_CHART = {
   veleno: { debolezza: ['terra', 'psico'], resistenza: ['erba', 'lotta', 'veleno', 'coleottero', 'folletto'], immunita: [] },
   terra: { debolezza: ['acqua', 'erba', 'ghiaccio'], resistenza: ['veleno', 'roccia'], immunita: ['elettro'] },
   volante: { debolezza: ['elettro', 'ghiaccio', 'roccia'], resistenza: ['erba', 'lotta', 'coleottero'], immunita: ['terra'] },
-  psico: { debolezza: ['coleottero', 'fantasmi', 'buio'], resistenza: ['lotta', 'psico'], immunita: [] },
+  psico: { debolezza: ['coleottero', 'spettro', 'buio'], resistenza: ['lotta', 'psico'], immunita: [] },
   coleottero: { debolezza: ['fuoco', 'volante', 'roccia'], resistenza: ['erba', 'lotta', 'terra'], immunita: [] },
   roccia: { debolezza: ['acqua', 'erba', 'lotta', 'terra', 'acciaio'], resistenza: ['normale', 'fuoco', 'veleno', 'volante'], immunita: [] },
   spettro: { debolezza: ['spettro', 'buio'], resistenza: ['veleno', 'coleottero'], immunita: ['normale', 'lotta'] },
@@ -20,37 +20,11 @@ const TYPE_CHART = {
   folletto: { debolezza: ['veleno', 'acciaio'], resistenza: ['lotta', 'coleottero', 'buio'], immunita: ['drago'] }
 };
 
-function dexpre(el) {
-  if (el.value.length > 1 && !el.value.startsWith('# ')) {
-    el.value = '# ' + el.value;
-  }
-}
+// --- Helper Functions ---
 
 function poke_list() {
-  var popup = document.getElementById("popupPokeList");
+  const popup = document.getElementById("popupPokeList");
   popup.classList.toggle('hidden');
-}
-
-function maskingString(str, start, end) {
-  if (!str || start < 0 || start >= str.length || end < 0 || end > str.length || start >= end) {
-    return str;
-  }
-  const maskLength = end - start;
-  const maskedStr = str.substring(0, start) + "*".repeat(maskLength) + str.substring(end);
-  return maskedStr;
-}
-
-function img_change() {
-  // 1. Open a popup asking for the URL
-  const newUrl = prompt("Enter the new image link (URL):", "");
-
-  // 2. Check if the user actually entered something (didn't click cancel)
-  if (newUrl !== null && newUrl !== "") {
-    const img = document.getElementById('poke-img');
-
-    // 3. Update the image source
-    img.src = newUrl;
-  }
 }
 
 function typeEff(t1, t2) {
@@ -58,32 +32,34 @@ function typeEff(t1, t2) {
   const listDeb = document.getElementById('deb');
   const listImm = document.getElementById('imm');
 
-  console.log(t1);
-
   // Reset current lists
   [listRes, listDeb, listImm].forEach(el => el.innerHTML = '');
 
   const multipliers = {};
   Object.keys(TYPE_CHART).forEach(type => multipliers[type] = 1.0);
 
-  // Apply modifiers for each type the Pokemon has
+  // Apply modifiers
   [t1, t2].forEach(t => {
-    if (!t || !TYPE_CHART[t]) return;
-    TYPE_CHART[t].debolezza.forEach(type => multipliers[type] *= 2);
-    TYPE_CHART[t].resistenza.forEach(type => multipliers[type] *= 0.5);
-    TYPE_CHART[t].immunita.forEach(type => multipliers[type] *= 0);
+    const typeKey = t ? t.toLowerCase() : null;
+    if (!typeKey || !TYPE_CHART[typeKey]) return;
+    
+    TYPE_CHART[typeKey].debolezza.forEach(type => multipliers[type] *= 2);
+    TYPE_CHART[typeKey].resistenza.forEach(type => multipliers[type] *= 0.5);
+    TYPE_CHART[typeKey].immunita.forEach(type => multipliers[type] *= 0);
   });
 
-  // Populate the UI
+  // Populate UI
   for (const [type, value] of Object.entries(multipliers)) {
+    if (value === 1) continue; // Skip neutral effectiveness
+
     const li = document.createElement('li');
     const typeName = type.charAt(0).toUpperCase() + type.slice(1);
 
     if (value > 1) {
-      li.textContent = `${typeName} (x${value})`;
+      li.textContent = `${typeName} (${value}x)`;
       listDeb.appendChild(li);
     } else if (value > 0 && value < 1) {
-      li.textContent = `${typeName} (x${value})`;
+      li.textContent = `${typeName} (${value}x)`;
       listRes.appendChild(li);
     } else if (value === 0) {
       li.textContent = typeName;
@@ -92,79 +68,87 @@ function typeEff(t1, t2) {
   }
 }
 
+// --- Main Logic ---
+
 async function loadPoke() {
-  const response = await fetch('json/poke_list.json');
-  const allPokemon = await response.json();
+  try {
+    const response = await fetch('json/poke_list.json');
+    const allPokemon = await response.json();
 
-  const listContainer = document.getElementById('pokeList');
-  const searchInput = document.getElementById('pokeSearch'); // Add this ID to your <input>
-  const popup = document.getElementById("popupPokeList");
+    const listContainer = document.getElementById('pokeList');
+    const searchInput = document.getElementById('pokeSearch');
+    const popup = document.getElementById("popupPokeList");
 
-  // Get UI elements once (Optimization)
-  const nameDisplay = document.getElementById('pokename');
-  const nrDisplay = document.getElementById('pokenr');
-  const type1Display = document.getElementById('type1');
-  const type2Display = document.getElementById('type2');
-  const fixcla = 'spa-type';
+    const nameDisplay = document.getElementById('pokename');
+    const nrDisplay = document.getElementById('pokenr');
+    const type1Display = document.getElementById('type1');
+    const type1Img = document.getElementById('type1-img');
+    const type1Text = document.getElementById('type1-text');
+    const type2Display = document.getElementById('type2');
+    const type2Img = document.getElementById('type2-img');
+    const type2Text = document.getElementById('type2-text');
 
-  // Function to build the list
-  const renderList = (pokemonArray) => {
-    listContainer.innerHTML = ''; // Clear current list
+    const renderList = (pokemonArray) => {
+      listContainer.innerHTML = ''; 
 
-    pokemonArray.forEach(item => {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.textContent = item.pokemon;
-      a.href = '#';
+      pokemonArray.forEach(item => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.textContent = item.pokemon;
+        a.href = '#';
 
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
 
-        // Update Text
-        nameDisplay.innerHTML = item.pokemon;
-        nrDisplay.innerHTML = '# ' + String(item.nr).padStart(3, '0');
+          // Update Display
+          nameDisplay.textContent = item.pokemon;
+          nrDisplay.textContent = '# ' + String(item.nr).padStart(3, '0');
 
-        // Update Type 1 Class & Text
-        type1Display.className = fixcla; // Reset classes
-        type1Display.classList.add('type-' + item.tipo1);
-        type1Display.innerHTML = item.tipo1;
+          // Update Types
+          type1Display.className = `spa-type type-${item.tipo1.toLowerCase()}`;
+          type1Text.textContent = item.tipo1;
 
-        // Update Type 2
-        if (item.tipo2 === "" || !item.tipo2) {
-          type2Display.innerHTML = '';
-          type2Display.classList.add('hidden');
-        } else {
-          type2Display.className = fixcla; // Reset classes
-          type2Display.classList.remove('hidden');
-          type2Display.classList.add('type-' + item.tipo2);
-          type2Display.innerHTML = item.tipo2;
-        }
+          if (item.tipo2) {
+            type2Display.className = `spa-type type-${item.tipo2.toLowerCase()}`;
+            type2Text.textContent = item.tipo2;
+            type2Display.classList.remove('hidden');
+          } else {
+            type2Display.classList.add('hidden');
+          }
 
-        popup.classList.add('hidden'); // Close popup after selection
+          // Trigger Automation
+          typeEff(item.tipo1, item.tipo2);
+          popup.classList.add('hidden');
+        });
 
-        const type1 = item.tipo1.toLowerCase();
-        const type2 = item.tipo2 ? item.tipo2.toLowerCase() : null;
-
-        typeEff(type1, type2);
+        li.appendChild(a);
+        listContainer.appendChild(li);
       });
+    };
 
-      li.appendChild(a);
-      listContainer.appendChild(li);
+    renderList(allPokemon);
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const filtered = allPokemon.filter(p => p.pokemon.toLowerCase().includes(query));
+      renderList(filtered);
     });
-  };
 
-  // Initial Render
-  renderList(allPokemon);
-
-  // Search Listener
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase();
-    const filtered = allPokemon.filter(p =>
-      p.pokemon.toLowerCase().includes(query)
-    );
-    renderList(filtered);
-  });
-
+  } catch (err) {
+    console.error("Error loading Pokémon data:", err);
+  }
 }
+
+// Global "Click Outside" Listener
+window.addEventListener('click', (e) => {
+  const popup = document.getElementById("popupPokeList");
+  const trigger = document.getElementById("pokename").closest('button');
+
+  if (!popup.classList.contains('hidden') && 
+      !popup.contains(e.target) && 
+      !trigger.contains(e.target)) {
+    popup.classList.add('hidden');
+  }
+});
 
 loadPoke();

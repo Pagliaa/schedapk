@@ -1,23 +1,23 @@
 /* Colori Tipi Pokémon */
 :root {
-  --type-normal: #A8A878;
-  --type-fire: #F08030;
-  --type-water: #6890F0;
-  --type-grass: #78C850;
-  --type-electric: #F8D030;
-  --type-ice: #98D8D8;
-  --type-fighting: #C03028;
-  --type-poison: #A040A0;
-  --type-ground: #E0C068;
-  --type-flying: #A890F0;
-  --type-psychic: #F85888;
-  --type-bug: #A8B820;
-  --type-rock: #B8A038;
-  --type-ghost: #705898;
-  --type-dragon: #7038F8;
-  --type-dark: #705848;
-  --type-steel: #B8B8D0;
-  --type-fairy: #EE99AC;
+  --type-normal: #9FA19F;
+  --type-fire: #e62829;
+  --type-water: #2980ef;
+  --type-grass: #3fa129;
+  --type-electric: #fac000;
+  --type-ice: #3dcef3;
+  --type-fighting: #ff8000;
+  --type-poison: #9141cb;
+  --type-ground: #915121;
+  --type-flying: #81b9ef;
+  --type-psychic: #ef4179;
+  --type-bug: #91a119;
+  --type-rock: #afa981;
+  --type-ghost: #704170;
+  --type-dragon: #5060e1;
+  --type-dark: #624d4e;
+  --type-steel: #60a1b8;
+  --type-fairy: #ef70ef;
   --type-typeless: #68a090;
   /* Colori del tema */
   --bg-primary: #f5f5f0;
@@ -25,6 +25,7 @@
   --bg-card: #e8e8dc;
   --text-primary: #2c3e50;
   --text-secondary: #7f8c8d;
+  --type-background: #5a5a5a;
   --border-color: #bdc3c7;
   --shadow: rgba(0, 0, 0, 0.1);
   --accent: #e74c3c;
@@ -36,99 +37,191 @@
 /* Type Colors */
 .type-normal,
 .type-normale {
-  background: var(--type-normal);
+  background: linear-gradient(105deg, var(--type-normal) 30%, var(--type-background) 30%);
+}
+
+.type-normal,
+.type-normale::before {
+  background-image: url('../img/types/20px-Normal_icon.png');
 }
 
 .type-fire,
 .type-fuoco {
-  background: var(--type-fire);
+  background: linear-gradient(105deg, var(--type-fire) 30%, var(--type-background) 30%);
+}
+
+.type-fire,
+.type-fuoco::before {
+  background-image: url('../img/types/20px-Fire_icon.png');
 }
 
 .type-water,
 .type-acqua {
-  background: var(--type-water);
+  background: linear-gradient(105deg, var(--type-water) 30%, var(--type-background) 30%);
+}
+
+.type-water,
+.type-acqua::before {
+  background-image: url('../img/types/20px-Water_icon.png');
 }
 
 .type-grass,
 .type-erba {
-  background: var(--type-grass);
+  background: linear-gradient(105deg, var(--type-grass) 30%, var(--type-background) 30%);
+}
+
+.type-grass,
+.type-erba::before {
+  background-image: url('../img/types/20px-Grass_icon.png');
 }
 
 .type-electric,
 .type-elettro {
-  background: var(--type-electric);
+  background: linear-gradient(105deg, var(--type-electric) 30%, var(--type-background) 30%);
   color: #333;
+}
+
+.type-electric,
+.type-elettro::before {
+  background-image: url('../img/types/20px-Electric_icon.png');
 }
 
 .type-ice,
 .type-ghiaccio {
-  background: var(--type-ice);
+  background: linear-gradient(105deg, var(--type-ice) 30%, var(--type-background) 30%);
+}
+
+.type-ice,
+.type-ghiaccio::before {
+  background-image: url('../img/types/20px-Ice_icon.png');
 }
 
 .type-fighting,
 .type-lotta {
-  background: var(--type-fighting);
+  background: linear-gradient(105deg, var(--type-fighting) 30%, var(--type-background) 30%);
+}
+
+.type-fighting,
+.type-lotta::before {
+  background-image: url('../img/types/20px-Fighting_icon.png');
 }
 
 .type-poison,
 .type-veleno {
-  background: var(--type-poison);
+  background: linear-gradient(105deg, var(--type-poison) 30%, var(--type-background) 30%);
+}
+
+.type-poison,
+.type-veleno::before {
+  background-image: url('../img/types/20px-Poison_icon.png');
 }
 
 .type-ground,
 .type-terra {
-  background: var(--type-ground);
+  background: linear-gradient(105deg, var(--type-ground) 30%, var(--type-background) 30%);
+}
+
+.type-ground,
+.type-terra::before {
+  background-image: url('../img/types/20px-Ground_icon.png');
 }
 
 .type-flying,
 .type-volante {
-  background: var(--type-flying);
+  background: linear-gradient(105deg, var(--type-flying) 30%, var(--type-background) 30%);
+}
+
+.type-flying,
+.type-volante::before {
+  background-image: url('../img/types/20px-Flying_icon.png');
 }
 
 .type-psychic,
 .type-psico {
-  background: var(--type-psychic);
+  background: linear-gradient(105deg, var(--type-psychic) 30%, var(--type-background) 30%);
+}
+
+.type-psychic,
+.type-psico::before {
+  background-image: url('../img/types/20px-Psychic_icon.png');
 }
 
 .type-bug,
 .type-coleottero {
-  background: var(--type-bug);
+  background: linear-gradient(105deg, var(--type-bug) 30%, var(--type-background) 30%);
+}
+
+.type-bug,
+.type-coleottero::before {
+  background-image: url('../img/types/20px-Bug_icon.png');
 }
 
 .type-rock,
 .type-roccia {
-  background: var(--type-rock);
+  background: linear-gradient(105deg, var(--type-rock) 30%, var(--type-background) 30%);
+}
+
+.type-rock,
+.type-roccia::before {
+  background-image: url('../img/types/20px-Rock_icon.png');
 }
 
 .type-ghost,
 .type-spettro {
-  background: var(--type-ghost);
+  background: linear-gradient(105deg, var(--type-ghost) 30%, var(--type-background) 30%);
+}
+
+.type-ghost,
+.type-spettro::before {
+  background-image: url('../img/types/20px-Ghost_icon.png');
 }
 
 .type-dragon,
 .type-drago {
-  background: var(--type-dragon);
+  background: linear-gradient(105deg, var(--type-dragon) 30%, var(--type-background) 30%);
+}
+
+.type-dragon,
+.type-drago::before {
+  background-image: url('../img/types/20px-Dragon_icon.png');
 }
 
 .type-dark,
 .type-buio {
-  background: var(--type-dark);
+  background: linear-gradient(105deg, var(--type-dark) 30%, var(--type-background) 30%);
+}
+
+.type-dark,
+.type-buio::before {
+  background-image: url('../img/types/20px-Dark_icon.png');
 }
 
 .type-steel,
 .type-acciaio {
-  background: var(--type-steel);
+  background: linear-gradient(105deg, var(--type-steel) 30%, var(--type-background) 30%);
+}
+
+.type-steel,
+.type-acciaio::before {
+  background-image: url('../img/types/20px-Steel_icon.png');
 }
 
 .type-fairy,
 .type-folletto {
-  background: var(--type-fairy);
+  background: linear-gradient(105deg, var(--type-fairy) 30%, var(--type-background) 30%);
+}
+
+.type-fairy,
+.type-folletto::before {
+  background-image: url('../img/types/20px-Fairy_icon.png');
 }
 
 .type-typeless {
-  background: var(--type-typeless);
+  background: linear-gradient(105deg, var(--type-typeless) 30%, var(--type-background) 30%);
 }
 
+
+/* Tag */
 body {
   background-color: #333;
 }
@@ -143,6 +236,18 @@ h3 {
   text-align: center;
 }
 
+h4 {
+  color: var(--text-primary);
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Classi */
 .flex {
   width: 100%;
   display: flex;
@@ -163,13 +268,7 @@ h3 {
   box-sizing: border-box;
 }
 
-/* List styling */
-.popup ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
+/* Popup list */
 .popup ul li {
   padding: 5px;
   border: 2px solid #2c3e50;
@@ -237,17 +336,38 @@ h3 {
 }
 
 .spa-type {
-  padding: 0.4rem 0.5rem;
+  display: flex;
+  /* Use flex to align children */
+  align-items: center;
+  /* Center vertically */
+  padding: 0;
+  /* Remove specific padding to prevent offset */
+  width: 100px;
+  height: 24px;
+  /* Slightly taller for better readability */
   border-radius: 20px;
-  font-size: 8px;
-  font-weight: 700;
   color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  position: relative;
-  min-width: 60px;
-  display: inline-block;
+  font-weight: bold;
+  text-transform: capitalize;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.spa-type-img {
+  width: 30%;
+  /* Matches the 30% of your gradient */
+  height: 100%;
+  flex-shrink: 0;
+  /* Prevents the icon area from squishing */
+}
+
+.spa-type-text {
+  width: 70%;
+  /* Takes up the remaining grey area */
+  text-align: center;
+  /* Centers text within that 70% space */
+  font-size: 12px;
 }
 
 .checkbox-round {
@@ -271,6 +391,12 @@ h3 {
 
 .div-types-effect {
   text-align: center;
+  width: 33%;
+}
+
+.stat-label {
+  float: left;
+  min-width: 80px;
 }
 
 
