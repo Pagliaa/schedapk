@@ -307,7 +307,7 @@ ul {
 .spa-dex {
   border: none;
   background: none;
-  font-size: 28px;
+  font-size: 36px;
 }
 
 .spa-dexname {
@@ -367,7 +367,7 @@ ul {
   /* Takes up the remaining grey area */
   text-align: center;
   /* Centers text within that 70% space */
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .checkbox-round {
