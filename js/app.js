@@ -1,23 +1,23 @@
 const TYPE_CHART = {
-  typeless: { debolezza: [], resistenza: [], immunita: [] },
-  normale: { debolezza: ['lotta'], resistenza: [], immunita: ['spettro'] },
-  fuoco: { debolezza: ['acqua', 'terra', 'roccia'], resistenza: ['fuoco', 'erba', 'ghiaccio', 'coleottero', 'acciaio', 'folletto'], immunita: [] },
-  acqua: { debolezza: ['erba', 'elettro'], resistenza: ['fuoco', 'acqua', 'ghiaccio', 'acciaio'], immunita: [] },
-  erba: { debolezza: ['fuoco', 'ghiaccio', 'veleno', 'volante', 'coleottero'], resistenza: ['acqua', 'erba', 'elettro', 'terra'], immunita: [] },
-  elettro: { debolezza: ['terra'], resistenza: ['elettro', 'volante', 'acciaio'], immunita: [] },
-  ghiaccio: { debolezza: ['fuoco', 'lotta', 'roccia', 'acciaio'], resistenza: ['ghiaccio'], immunita: [] },
-  lotta: { debolezza: ['volante', 'psico', 'folletto'], resistenza: ['coleottero', 'roccia', 'buio'], immunita: [] },
-  veleno: { debolezza: ['terra', 'psico'], resistenza: ['erba', 'lotta', 'veleno', 'coleottero', 'folletto'], immunita: [] },
-  terra: { debolezza: ['acqua', 'erba', 'ghiaccio'], resistenza: ['veleno', 'roccia'], immunita: ['elettro'] },
-  volante: { debolezza: ['elettro', 'ghiaccio', 'roccia'], resistenza: ['erba', 'lotta', 'coleottero'], immunita: ['terra'] },
-  psico: { debolezza: ['coleottero', 'spettro', 'buio'], resistenza: ['lotta', 'psico'], immunita: [] },
-  coleottero: { debolezza: ['fuoco', 'volante', 'roccia'], resistenza: ['erba', 'lotta', 'terra'], immunita: [] },
-  roccia: { debolezza: ['acqua', 'erba', 'lotta', 'terra', 'acciaio'], resistenza: ['normale', 'fuoco', 'veleno', 'volante'], immunita: [] },
-  spettro: { debolezza: ['spettro', 'buio'], resistenza: ['veleno', 'coleottero'], immunita: ['normale', 'lotta'] },
-  drago: { debolezza: ['ghiaccio', 'drago', 'folletto'], resistenza: ['fuoco', 'acqua', 'erba', 'elettro'], immunita: [] },
-  buio: { debolezza: ['lotta', 'coleottero', 'folletto'], resistenza: ['spettro', 'buio'], immunita: ['psico'] },
-  acciaio: { debolezza: ['fuoco', 'lotta', 'terra'], resistenza: ['normale', 'erba', 'ghiaccio', 'volante', 'psico', 'coleottero', 'roccia', 'drago', 'acciaio', 'folletto'], immunita: ['veleno'] },
-  folletto: { debolezza: ['veleno', 'acciaio'], resistenza: ['lotta', 'coleottero', 'buio'], immunita: ['drago'] }
+  typeless: { weakness: [], resistance: [], immunity: [] },
+  normal: { weakness: ['fighting'], resistance: [], immunity: ['ghost'] },
+  fire: { weakness: ['water', 'ground', 'rock'], resistance: ['fire', 'grass', 'ice', 'bug', 'steel', 'fairy'], immunity: [] },
+  water: { weakness: ['grass', 'electric'], resistance: ['fire', 'water', 'ice', 'steel'], immunity: [] },
+  grass: { weakness: ['fire', 'ice', 'poison', 'flying', 'bug'], resistance: ['water', 'grass', 'electric', 'ground'], immunity: [] },
+  electric: { weakness: ['ground'], resistance: ['electric', 'flying', 'steel'], immunity: [] },
+  ice: { weakness: ['fire', 'fighting', 'rock', 'steel'], resistance: ['ice'], immunity: [] },
+  fighting: { weakness: ['flying', 'psico', 'fairy'], resistance: ['bug', 'rock', 'dark'], immunity: [] },
+  poison: { weakness: ['ground', 'psico'], resistance: ['grass', 'fighting', 'poison', 'bug', 'fairy'], immunity: [] },
+  ground: { weakness: ['water', 'grass', 'ice'], resistance: ['poison', 'rock'], immunity: ['electric'] },
+  flying: { weakness: ['electric', 'ice', 'rock'], resistance: ['grass', 'fighting', 'bug'], immunity: ['ground'] },
+  psico: { weakness: ['bug', 'ghost', 'dark'], resistance: ['fighting', 'psico'], immunity: [] },
+  bug: { weakness: ['fire', 'flying', 'rock'], resistance: ['grass', 'fighting', 'ground'], immunity: [] },
+  rock: { weakness: ['water', 'grass', 'fighting', 'ground', 'steel'], resistance: ['normal', 'fire', 'poison', 'flying'], immunity: [] },
+  ghost: { weakness: ['ghost', 'dark'], resistance: ['poison', 'bug'], immunity: ['normal', 'fighting'] },
+  dragon: { weakness: ['ice', 'dragon', 'fairy'], resistance: ['fire', 'water', 'grass', 'electric'], immunity: [] },
+  dark: { weakness: ['fighting', 'bug', 'fairy'], resistance: ['ghost', 'dark'], immunity: ['psico'] },
+  steel: { weakness: ['fire', 'fighting', 'ground'], resistance: ['normal', 'grass', 'ice', 'flying', 'psico', 'bug', 'rock', 'dragon', 'steel', 'fairy'], immunity: ['poison'] },
+  fairy: { weakness: ['poison', 'steel'], resistance: ['fighting', 'bug', 'dark'], immunity: ['dragon'] }
 };
 
 // --- Helper Functions ---
@@ -25,6 +25,19 @@ const TYPE_CHART = {
 function poke_list() {
   const popup = document.getElementById("popupPokeList");
   popup.classList.toggle('hidden');
+}
+
+function img_change() {
+  // 1. Open a popup asking for the URL
+  const newUrl = prompt("Enter the new image link (URL):", "");
+
+  // 2. Check if the user actually entered something (didn't click cancel)
+  if (newUrl !== null && newUrl !== "") {
+    const img = document.getElementById('poke-img');
+
+    // 3. Update the image source
+    img.src = newUrl;
+  }
 }
 
 function typeEff(t1, t2) {
@@ -42,10 +55,10 @@ function typeEff(t1, t2) {
   [t1, t2].forEach(t => {
     const typeKey = t ? t.toLowerCase() : null;
     if (!typeKey || !TYPE_CHART[typeKey]) return;
-    
-    TYPE_CHART[typeKey].debolezza.forEach(type => multipliers[type] *= 2);
-    TYPE_CHART[typeKey].resistenza.forEach(type => multipliers[type] *= 0.5);
-    TYPE_CHART[typeKey].immunita.forEach(type => multipliers[type] *= 0);
+
+    TYPE_CHART[typeKey].weakness.forEach(type => multipliers[type] *= 2);
+    TYPE_CHART[typeKey].resistance.forEach(type => multipliers[type] *= 0.5);
+    TYPE_CHART[typeKey].immunity.forEach(type => multipliers[type] *= 0);
   });
 
   // Populate UI
@@ -65,6 +78,58 @@ function typeEff(t1, t2) {
       li.textContent = typeName;
       listImm.appendChild(li);
     }
+  }
+}
+
+function addCircle(prefix) {
+  // 1. Find the input with a name starting with the prefix to locate the correct container
+  const firstInput = document.querySelector(`input[name^="${prefix}"]`);
+  if (!firstInput) return;
+
+  const container = firstInput.parentElement;
+  const currentCount = container.querySelectorAll('input').length;
+
+  // 2. Create the new checkbox
+  const newCheckbox = document.createElement('input');
+  newCheckbox.type = 'checkbox';
+  newCheckbox.className = 'checkbox-round';
+
+  // 3. Set the unique name (e.g., cb_str13)
+  newCheckbox.name = `${prefix}${currentCount + 1}`;
+
+  // 4. Append to the specific container
+  container.appendChild(newCheckbox);
+}
+
+function removeCircle(prefix) {
+  // Find the container holding the inputs for this specific stat
+  const firstInput = document.querySelector(`input[name^="${prefix}"]`);
+  if (!firstInput) return;
+
+  const container = firstInput.parentElement;
+  const checkboxes = container.querySelectorAll('input');
+
+  // Only remove if there's more than 1 (keeps the UI from looking empty)
+  if (checkboxes.length > 1) {
+    container.removeChild(checkboxes[checkboxes.length - 1]);
+  }
+}
+
+function rank_change() {
+  var popup = document.getElementById("popupRank");
+  popup.classList.toggle('hidden');
+}
+
+function toggleTypeEff() {
+  const div = document.getElementById('div-type-eff');
+  const btn = event.currentTarget; // Prende il bottone che ha scatenato l'evento
+
+  div.classList.toggle('hidden');
+
+  if (div.classList.contains('hidden')) {
+    btn.textContent = 'Show';
+  } else {
+    btn.textContent = 'Hide';
   }
 }
 
@@ -89,7 +154,7 @@ async function loadPoke() {
     const type2Text = document.getElementById('type2-text');
 
     const renderList = (pokemonArray) => {
-      listContainer.innerHTML = ''; 
+      listContainer.innerHTML = '';
 
       pokemonArray.forEach(item => {
         const li = document.createElement('li');
@@ -144,9 +209,9 @@ window.addEventListener('click', (e) => {
   const popup = document.getElementById("popupPokeList");
   const trigger = document.getElementById("pokename").closest('button');
 
-  if (!popup.classList.contains('hidden') && 
-      !popup.contains(e.target) && 
-      !trigger.contains(e.target)) {
+  if (!popup.classList.contains('hidden') &&
+    !popup.contains(e.target) &&
+    !trigger.contains(e.target)) {
     popup.classList.add('hidden');
   }
 });
