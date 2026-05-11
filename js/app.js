@@ -199,12 +199,26 @@ function removeMove() {
   }
 }
 
+function toTitleCase(val) {
+    return String(val)
+        .toLowerCase() // Optional: ensures "ICY WIND" becomes "Icy Wind"
+        .split(' ')    // Split the string into an array of words
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
+        .join(' ');    // Join them back with spaces
+}
+
 // move search
 async function moveSearch(move_input) {
-  // 1. Get the value and format the filename
-  const move = document.getElementById(move_input).value;
+  // 1. Get the raw value from input
+  const rawMove = document.getElementById(move_input).value;
+  
+  // 2. Format it to Title Case (e.g., "icy wind" -> "Icy Wind")
+  const move = toTitleCase(rawMove);
+
   const filelocation = 'json/Moves/';
   const movefile = `${filelocation}${move}.json`;
+  
+  console.log(movefile);
 
   try {
     // 2. Fetch the file (Wait for the response)
