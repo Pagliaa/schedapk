@@ -238,7 +238,7 @@ async function moveSearch(move_input) {
   } catch (err) {
     console.error("Error loading move:", err);
     // Optional: clear the display if the move isn't found
-    document.getElementById(move_input).classList.add('hidden');
+    document.getElementById("div-" + move_input).classList.add('hidden');
   }
 }
 
