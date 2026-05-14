@@ -531,38 +531,41 @@ async function savesamefile(id) {
   }
 }
 
-function loadSheetData() {
-  const rawData = localStorage.getItem('pokemonSheet');
-  if (!rawData) return;
-
-  const data = JSON.parse(rawData);
-
-  // 1. Re-create the move boxes first so the IDs exist
-  const container = document.getElementById('div-moves');
-  // Start from 3 because 1 and 2 are already in your HTML
-  for (let i = 3; i <= data.moveCount; i++) {
-    addMove('move');
-  }
-
-  // 2. Restore Text Fields
-  for (const [id, value] of Object.entries(data.textFields)) {
-    const el = document.getElementById(id) || document.querySelector(`input[name="${id}"]`);
-    if (el) el.value = value;
-  }
-
-  // 3. Restore Checkboxes
-  for (const [name, isChecked] of Object.entries(data.checkboxes)) {
-    const el = document.querySelector(`input[name="${name}"]`);
-    if (el) el.checked = isChecked;
-  }
-
-  // 4. Restore Content-Editable
-  if (data.contentEditable['nome']) {
-    document.getElementById('nome').innerText = data.contentEditable['nome'];
-  }
-
-  console.log("Data loaded.");
+// Function to Save to Browser Memory
+function autoSave() {
+    const data = {};
+    // Save all text inputs
+    document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+        data[input.id || input.name] = input.value;
+    });
+    // Save all checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        data[checkbox.id || checkbox.name] = checkbox.checked;
+    });
+    
+    localStorage.setItem('sheetData', JSON.stringify(data));
 }
+
+// Function to Load when the page opens
+function loadData() {
+    const saved = localStorage.getItem('sheetData');
+    if (!saved) return;
+    
+    const data = JSON.parse(saved);
+    Object.keys(data).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            if (el.type === 'checkbox') el.checked = data[id];
+            else el.value = data[id];
+        }
+    });
+}
+
+// Run load on page startup
+window.onload = loadData;
+
+// Call autoSave() whenever an input changes
+document.addEventListener('input', autoSave);
 
 // Start the app
 init();
