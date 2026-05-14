@@ -317,17 +317,7 @@ ul {
     /* display: inline-block; */
 }
 
-.hidden {
-    display: none;
-}
 
-.text-center {
-    text-align: center;
-}
-
-.right {
-    float: right;
-}
 
 .div-box {
     width: 900px;
@@ -554,4 +544,26 @@ ul {
     /* padding: 6px; */
     padding: 20px;
     float: left;
+}
+
+.inp-bag {
+    margin-bottom:6px;
+}
+
+.btn-search {
+    font-size: 1.3rem;
+}
+
+/*------------------------------------------------*/
+
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.right {
+    float: right;
 }

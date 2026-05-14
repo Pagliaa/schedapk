@@ -156,8 +156,8 @@ function addMove(prefix) {
 
     <div class="div-single-move" id="box_move${num}">
     <!--Move ${num}-->
-      <input name="move${num}" id="move${num}">
-      <button onclick="moveSearch('move${num}')">Search</button>
+      <input name="move${num}" id="move${num}"  class="inp-small">
+      <button class="btn-search" onclick="search('move', ${num})">Search</button>
       <div id="div-move${num}" class="hidden">
       <div class="margin10"></div>
         <h4 id="move${num}_name"></h4>
@@ -231,8 +231,6 @@ async function search(id, prog) {
   }
 
   const file = `${filelocation}${name}.json`;
-
-  console.log(file);
 
   try {
     // 2. Fetch the file (Wait for the response)
@@ -429,7 +427,7 @@ async function init() {
 }
 
 // Save
-function saveSheetData() {
+function saveSheetData(id) {
   // 1. Sync all text input values to their 'value' attribute
   document.querySelectorAll('input[type="text"], textarea').forEach(input => {
     input.setAttribute('value', input.value);
@@ -445,7 +443,9 @@ function saveSheetData() {
   });
 
   // 3. Sync contenteditable fields (like the Name header)
-  const nameHeader = document.getElementById('name');
+  if (id === 'poke') {
+    const nameHeader = document.getElementById('name');
+  }
   /*if (nameHeader) {
       nameHeader.setAttribute('data-current-text', nameHeader.innerText);
   }*/
@@ -462,12 +462,14 @@ function saveSheetData() {
   const blob = new Blob([htmlContent], { type: 'text/html' });
   const url = URL.createObjectURL(blob);
 
-  console.log(nameHeader.innerText);
-
   // 6. Create a hidden link and click it to trigger the download
   const link = document.createElement('a');
   link.href = url;
+  if (id === 'poke') {
   link.download = nameTrainer.innerText + '_' + nameHeader.innerText + '.html';//`pokemon_sheet_${new Date().getTime()}.html`;
+  } else {
+    link.download = nameTrainer.innerText + '.html';
+  }
   document.body.appendChild(link);
   link.click();
 
