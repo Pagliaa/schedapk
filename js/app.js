@@ -199,10 +199,107 @@ function removeMove() {
   }
 }
 
+function toTitleCase(val) {
+  return String(val)
+    .toLowerCase() // Optional: ensures "ICY WIND" becomes "Icy Wind"
+    .split(' ')    // Split the string into an array of words
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
+    .join(' ');    // Join them back with spaces
+}
+
+// ability search
+async function search(id, prog) {
+  // 1. Get the raw value from input
+  const idprog = id + prog;
+  const raw = document.getElementById(idprog).value;
+
+  // 2. Format it to Title Case (e.g., "icy wind" -> "Icy Wind")
+  const name = toTitleCase(raw);
+
+  //const filelocation = '';
+
+  switch (id) {
+    case "move":
+      filelocation = 'json/Moves/';
+      break;
+    case "ability":
+      filelocation = 'json/Abilities/';
+      break;
+    case "nature":
+      filelocation = 'json/Natures/';
+      break;
+  }
+
+  const file = `${filelocation}${name}.json`;
+
+  console.log(file);
+
+  try {
+    // 2. Fetch the file (Wait for the response)
+    const response = await fetch(file);
+
+    // Check if the file actually exists
+    if (!response.ok) throw new Error(id + ' not found');
+
+    // 3. Parse the JSON (Wait for the parsing to finish)
+    const json = await response.json();
+
+    // 4. Update the UI
+    switch (id) {
+      case "move":
+        document.getElementById("div-" + idprog).classList.remove('hidden');
+        document.getElementById(idprog + '_name').textContent = 'Name: ' + json.Name;
+        document.getElementById(idprog + '_type').textContent = 'Type: ' + json.Type;
+        document.getElementById(idprog + '_category').textContent = 'Category: ' + json.Category;
+        document.getElementById(idprog + '_power').textContent = 'Power: ' + json.Power;
+        if (json.Damage2 === '') {
+          document.getElementById(idprog + '_damage1').textContent = 'Damage: ' + json.Damage1;
+        } else {
+          document.getElementById(idprog + '_damage2').textContent = 'Damage: ' + json.Damage1 + ' + ' + json.Damage2;
+        }
+        if (json.Accuracy2 === '') {
+          document.getElementById(idprog + '_damage1').textContent = 'Accuracy: ' + json.Accuracy1;
+        } else {
+          document.getElementById(idprog + '_damage2').textContent = 'Accuracy: ' + json.Accuracy1 + ' + ' + json.Accuracy2;
+        }
+        document.getElementById(idprog + '_target').textContent = 'Target: ' + json.Target;
+        document.getElementById(idprog + '_effect').textContent = 'Effect: ' + json.Effect;
+        document.getElementById(idprog + '_description').textContent = 'Description: ' + json.Description;
+        break;
+      case "ability":
+        document.getElementById("p-abil-eff").classList.remove('hidden');
+        document.getElementById("p-abil-eff").textContent = json.Effect;
+        document.getElementById("p-abil-text").classList.remove('hidden');
+        document.getElementById("p-abil-text").textContent = json.Description;
+        break;
+      case "nature":
+        document.getElementById("h4-nat-conf").classList.remove('hidden');
+        document.getElementById("h4-nat-conf").textContent = 'Confidence: ' + json.Confidence;
+        document.getElementById("h4-nat-key").classList.remove('hidden');
+        document.getElementById("h4-nat-key").textContent = json.Keywords;
+        document.getElementById("p-nat-text").classList.remove('hidden');
+        document.getElementById("p-nat-text").textContent = json.Description;
+        break;
+    }
+
+  } catch (err) {
+    console.error("Error loading move:", err);
+    // Optional: clear the display if the move isn't found
+    //document.getElementById("div-" + move_input).classList.add('hidden');
+  }
+}
+
 // move search
-async function moveSearch(move_input) {
-  // 1. Get the value and format the filename
-  const move = document.getElementById(move_input).value;
+async function moveSearch(id, prog) {
+
+  const move_input = id + prog;
+
+  // 1. Get the raw value from input
+  const rawMove = document.getElementById(move_input).value;
+
+  // 2. Format it to Title Case (e.g., "icy wind" -> "Icy Wind")
+  const move = toTitleCase(rawMove);
+
   const filelocation = 'json/Moves/';
   const movefile = `${filelocation}${move}.json`;
 
@@ -329,6 +426,87 @@ async function init() {
   } catch (err) {
     console.error("Initialization failed:", err);
   }
+}
+
+// Save
+function saveSheetData() {
+  // 1. Sync all text input values to their 'value' attribute
+  document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+    input.setAttribute('value', input.value);
+  });
+
+  // 2. Sync all checkbox states to their 'checked' attribute
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    if (checkbox.checked) {
+      checkbox.setAttribute('checked', 'checked');
+    } else {
+      checkbox.removeAttribute('checked');
+    }
+  });
+
+  // 3. Sync contenteditable fields (like the Name header)
+  const nameHeader = document.getElementById('name');
+  /*if (nameHeader) {
+      nameHeader.setAttribute('data-current-text', nameHeader.innerText);
+  }*/
+
+  const nameTrainer = document.getElementById('trainer');
+  /*if (nameTrainer) {
+      nameTrainer.setAttribute('data-current-text', nameTrainer.innerText);
+  }*/
+
+  // 4. Get the entire HTML content
+  const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+  // 5. Create a "Blob" (the file data)
+  const blob = new Blob([htmlContent], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+
+  console.log(nameHeader.innerText);
+
+  // 6. Create a hidden link and click it to trigger the download
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = nameTrainer.innerText + '_' + nameHeader.innerText + '.html';//`pokemon_sheet_${new Date().getTime()}.html`;
+  document.body.appendChild(link);
+  link.click();
+
+  // Cleanup
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+function loadSheetData() {
+  const rawData = localStorage.getItem('pokemonSheet');
+  if (!rawData) return;
+
+  const data = JSON.parse(rawData);
+
+  // 1. Re-create the move boxes first so the IDs exist
+  const container = document.getElementById('div-moves');
+  // Start from 3 because 1 and 2 are already in your HTML
+  for (let i = 3; i <= data.moveCount; i++) {
+    addMove('move');
+  }
+
+  // 2. Restore Text Fields
+  for (const [id, value] of Object.entries(data.textFields)) {
+    const el = document.getElementById(id) || document.querySelector(`input[name="${id}"]`);
+    if (el) el.value = value;
+  }
+
+  // 3. Restore Checkboxes
+  for (const [name, isChecked] of Object.entries(data.checkboxes)) {
+    const el = document.querySelector(`input[name="${name}"]`);
+    if (el) el.checked = isChecked;
+  }
+
+  // 4. Restore Content-Editable
+  if (data.contentEditable['nome']) {
+    document.getElementById('nome').innerText = data.contentEditable['nome'];
+  }
+
+  console.log("Data loaded.");
 }
 
 // Start the app

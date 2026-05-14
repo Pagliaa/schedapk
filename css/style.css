@@ -317,6 +317,18 @@ ul {
     /* display: inline-block; */
 }
 
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.right {
+    float: right;
+}
+
 .div-box {
     width: 900px;
     border-radius: 0.600rem;
@@ -329,12 +341,6 @@ ul {
     width: 440px;
 }
 
-.div-data {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-}
-
 .margin3 {
     margin: 3px;
     width: 100%;
@@ -342,6 +348,11 @@ ul {
 
 .margin10 {
     margin: 10px;
+    width: 100%;
+}
+
+.margin20 {
+    margin: 20px;
     width: 100%;
 }
 
@@ -385,6 +396,18 @@ ul {
     padding: 0;
 }
 
+.div-data {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.div-data-pg {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
 .div-propic {
     float: right;
 }
@@ -392,6 +415,13 @@ ul {
 .img-propic {
     width: 200px;
     height: 200px;
+    object-fit: contain;
+    transition: transform 0.2s ease-in-out;
+}
+
+.img-propic-pg {
+    width: 400px;
+    height: 400px;
     object-fit: contain;
     transition: transform 0.2s ease-in-out;
 }
@@ -447,8 +477,8 @@ ul {
 
 .h4-qr {
     float:left; 
-    margin:0 5px;
-    min-width: 86px;
+    margin:0 5px 0 0;
+    min-width: 90px;
 }
 
 .div-types-effect {
@@ -524,9 +554,4 @@ ul {
     /* padding: 6px; */
     padding: 20px;
     float: left;
-}
-
-
-.hidden {
-    display: none;
 }
