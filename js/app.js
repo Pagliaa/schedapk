@@ -478,6 +478,59 @@ function saveSheetData(id) {
   URL.revokeObjectURL(url);
 }
 
+// Variable to store the file handle so we can reuse it
+let fileHandle = null;
+
+async function savesamefile(id) {
+  // 1. & 2. (Keep your existing code for syncing attributes)
+  document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+    input.setAttribute('value', input.value);
+  });
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    if (checkbox.checked) {
+      checkbox.setAttribute('checked', 'checked');
+    } else {
+      checkbox.removeAttribute('checked');
+    }
+  });
+
+  // 3. Get the HTML content
+  const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+  try {
+    // Check if we already have a file handle. If not, ask the user to "Save As" once.
+    if (!fileHandle) {
+      const nameHeader = document.getElementById('name');
+      const nameTrainer = document.getElementById('trainer');
+      const suggestedName = id === 'poke' 
+        ? `${nameTrainer.innerText}_${nameHeader.innerText}.html` 
+        : `${nameTrainer.innerText}.html`;
+
+      fileHandle = await window.showSaveFilePicker({
+        suggestedName: suggestedName,
+        types: [{
+          description: 'HTML Document',
+          accept: { 'text/html': ['.html'] },
+        }],
+      });
+    }
+
+    // 4. Create a writable stream to the file
+    const writable = await fileHandle.createWritable();
+    
+    // 5. Write the content and close the stream
+    await writable.write(htmlContent);
+    await writable.close();
+
+    alert("File saved successfully!");
+  } catch (err) {
+    if (err.name !== 'AbortError') {
+      console.error(err);
+      alert("Failed to save file.");
+    }
+  }
+}
+
 function loadSheetData() {
   const rawData = localStorage.getItem('pokemonSheet');
   if (!rawData) return;
