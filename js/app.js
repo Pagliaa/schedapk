@@ -220,13 +220,13 @@ async function search(id, prog) {
 
   switch (id) {
     case "move":
-      filelocation = 'json/Moves/';
+      filelocation = '../json/Moves/';
       break;
     case "ability":
-      filelocation = 'json/Abilities/';
+      filelocation = '../json/Abilities/';
       break;
     case "nature":
-      filelocation = 'json/Natures/';
+      filelocation = '../json/Natures/';
       break;
   }
 
@@ -290,56 +290,6 @@ async function search(id, prog) {
     console.error("Error loading move:", err);
     // Optional: clear the display if the move isn't found
     //document.getElementById("div-" + move_input).classList.add('hidden');
-  }
-}
-
-// move search
-async function moveSearch(id, prog) {
-
-  const move_input = id + prog;
-
-  // 1. Get the raw value from input
-  const rawMove = document.getElementById(move_input).value;
-
-  // 2. Format it to Title Case (e.g., "icy wind" -> "Icy Wind")
-  const move = toTitleCase(rawMove);
-
-  const filelocation = 'json/Moves/';
-  const movefile = `${filelocation}${move}.json`;
-
-  try {
-    // 2. Fetch the file (Wait for the response)
-    const response = await fetch(movefile);
-
-    // Check if the file actually exists
-    if (!response.ok) throw new Error('Move not found');
-
-    // 3. Parse the JSON (Wait for the parsing to finish)
-    const movejson = await response.json();
-
-    // 4. Update the UI
-    document.getElementById("div-" + move_input).classList.remove('hidden');
-    document.getElementById(move_input + '_name').textContent = 'Name: ' + movejson.Name;
-    document.getElementById(move_input + '_type').textContent = 'Type: ' + movejson.Type;
-    document.getElementById(move_input + '_category').textContent = 'Category: ' + movejson.Category;
-    document.getElementById(move_input + '_power').textContent = 'Power: ' + movejson.Power;
-    if (movejson.Damage2 === '') {
-      document.getElementById(move_input + '_damage1').textContent = 'Damage: ' + movejson.Damage1;
-    } else {
-      document.getElementById(move_input + '_damage2').textContent = 'Damage: ' + movejson.Damage1 + ' + ' + movejson.Damage2;
-    }
-    if (movejson.Accuracy2 === '') {
-      document.getElementById(move_input + '_damage1').textContent = 'Accuracy: ' + movejson.Accuracy1;
-    } else {
-      document.getElementById(move_input + '_damage2').textContent = 'Accuracy: ' + movejson.Accuracy1 + ' + ' + movejson.Accuracy2;
-    }
-    document.getElementById(move_input + '_target').textContent = 'Target: ' + movejson.Target;
-    document.getElementById(move_input + '_effect').textContent = 'Effect: ' + movejson.Effect;
-    document.getElementById(move_input + '_description').textContent = 'Description: ' + movejson.Description;
-  } catch (err) {
-    console.error("Error loading move:", err);
-    // Optional: clear the display if the move isn't found
-    document.getElementById("div-" + move_input).classList.add('hidden');
   }
 }
 
@@ -413,9 +363,9 @@ async function init() {
   try {
     // 1. Fetch all data concurrently
     const [typeRes, rankRes, pokeRes] = await Promise.all([
-      fetch('json/type_chart.json'),
-      fetch('json/ranks.json'),
-      fetch('json/poke_list.json')
+      fetch('../json/type_chart.json'),
+      fetch('../json/ranks.json'),
+      fetch('../json/poke_list.json')
     ]);
 
     // 2. Assign to variables
@@ -453,10 +403,11 @@ function saveSheetData(id) {
       checkbox.removeAttribute('checked');
     }
   });
-
+  
+  let nameHeader = '';
   // 3. Sync contenteditable fields (like the Name header)
   if (id === 'poke') {
-    const nameHeader = document.getElementById('name');
+    nameHeader = document.getElementById('name');
   }
   /*if (nameHeader) {
       nameHeader.setAttribute('data-current-text', nameHeader.innerText);
@@ -478,7 +429,7 @@ function saveSheetData(id) {
   const link = document.createElement('a');
   link.href = url;
   if (id === 'poke') {
-  link.download = nameTrainer.innerText + '_' + nameHeader.innerText + '.html';//`pokemon_sheet_${new Date().getTime()}.html`;
+    link.download = nameTrainer.innerText + '_' + nameHeader.innerText + '.html';//`pokemon_sheet_${new Date().getTime()}.html`;
   } else {
     link.download = nameTrainer.innerText + '.html';
   }

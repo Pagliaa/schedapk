@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scheda Trainer</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style type="text/css"></style>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div class="fullpage">
+
+        <!-- Title + img -->
+        <div class="div-box">
+            <div class="full">
+                <div class="div-data-pg">
+                    <div class="flex flex-space-between">
+                        <h1 id="trainer" contenteditable="true">Wilton</h1>
+                        <h2 id="id" class="text-right" contenteditable="true">#A1B2C</h2>
+                    </div>
+
+                    <div class="flex">
+                        <h4 style="width:102px;">Rank</h4>
+                        <button id="rank-btn" class="btn-noborder" onclick="rank_change()">
+                            <img src="../img/rank/beginner.png" id="rank-img" class="img-rank">
+                        </button>
+                        <ul id="popupRank" class="ul-rank hidden">
+                            <li onclick="selectRank('img/rank/starter.png')">
+                                <img src="../img/rank/starter.png" alt="Starter" class="img-rank">
+                            </li>
+
+                            <li onclick="selectRank('img/rank/beginner.png')">
+                                <img src="../img/rank/beginner.png" alt="Beginner" class="img-rank">
+                            </li>
+
+                            <li onclick="selectRank('img/rank/ace.png')">
+                                <img src="../img/rank/ace.png" alt="Ace" class="img-rank">
+                            </li>
+
+                            <li onclick="selectRank('img/rank/pro.png')">
+                                <img src="../img/rank/pro.png" alt="Pro" class="img-rank">
+                            </li>
+
+                            <li onclick="selectRank('img/rank/master.png')">
+                                <img src="../img/rank/master.png" alt="Master" class="img-rank">
+                            </li>
+
+                            <li onclick="selectRank('img/rank/champion.png')">
+                                <img src="../img/rank/champion.png" alt="Champion" class="img-rank">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="margin:10px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Team</h4>
+                            <input type="text" id="team" class="inp-small inp-textend" size="4" value="">
+                        </div>
+                    </div>
+
+                    <div style="margin:10px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Age</h4>
+                            <input type="text" id="age" class="inp-small inp-textend" size="1" value="19">
+                        </div>
+                    </div>
+
+                    <div style="margin:3px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Money</h4>
+                            <input type="text" id="money" class="inp-small inp-textend" size="8" value="">
+                        </div>
+                    </div>
+
+                    <div style="margin:3px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Reputation</h4>
+                            <input type="text" id="rep" class="inp-small inp-textend" size="8" value="">
+                        </div>
+                    </div>
+
+                    <div style="margin:3px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">HP</h4>
+                            <input type="text" id="hpact" class="inp-small inp-textend" size="1" value="">
+                            <h4 style="float:left; margin:0 5px;"> | </h4>
+                            <input type="text" id="hptot" class="inp-small" size="1" value="">
+                        </div>
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Will</h4>
+                            <input type="text" id="willact" class="inp-small inp-textend" size="1" value="">
+                            <h4 style="float:left; margin:0 5px;"> | </h4>
+                            <input type="text" id="willtot" class="inp-small" size="1" value="">
+                        </div>
+                    </div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Def/Sp.Def</h4>
+                            <input type="text" id="defact" class="inp-small inp-textend" size="1">
+                            <h4 style="float:left; margin:0 5px;"> | </h4>
+                            <input type="text" id="deftot" class="inp-small" size="1">
+                        </div>
+                    </div>
+
+                    <div style="margin:10px; float:left;"></div>
+                </div>
+                <div class="div-propic">
+                    <button class="btn-noborder" onclick="img_change()">
+                        <img src="https://static.wikia.nocookie.net/pokemon/images/7/79/Brendan_Omega_Ruby_and_Alpha_Sapphire.png/revision/latest?cb=20220812081012"
+                            id="poke-img" class="img-propic-pg"
+                            onerror="this.src='https://static.wikia.nocookie.net/pokemon/images/7/79/Brendan_Omega_Ruby_and_Alpha_Sapphire.png/revision/latest?cb=20220812081012'">
+                    </button>
+                </div>
+            </div>
+            <div id="popupPokeList" class="popup hidden">
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Nature-->
+        <h3 class="color-bg">Nature</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-nature')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-nature" class="div-box">
+            <input id="nature" type="text" name="nature" placeholder="Nature..." class="inp-small" value="Calm">
+            <button class="btn-search" onclick="search('nature', '')">Search</button>
+            <div class="margin3"></div>
+            <div class="full">
+                <!--<textarea id="nature-d" name="nature-d" rows="5" cols="76" class="inp-small"></textarea>-->
+                <h4 id="h4-nat-name" class="">Calm</h4>
+                <div class="margin3"></div>
+                <h4 id="h4-nat-conf" class="">Confidence: 8</h4>
+                <div class="margin3"></div>
+                <h4 id="h4-nat-key" class="">Reasonable, Peaceful, Balanced</h4>
+                <p id="p-nat-text" class="">Peace and tranquility is the most important thing for those with a Calm
+                    nature. They are not noisy nor they want many thrills in their lives. Conflict is not welcome and
+                    they tend to be peacemakers. It is rare to see them fall for provocations as they keep their
+                    distance and composure when facing trouble. They dislike stress and overbearing attention, but their
+                    presence is pleasant and soothing.</p>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Pokemon-->
+        <h3 class="color-bg">Pokemon</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-poke')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-poke" class="div-box">
+            <input id="pk1" type="text" name="pk1" placeholder="Pokemon..." class="inp-small">
+            <button class="btn-search hidden" onclick="search('nature', '')" class="btn-toggle">Search</button>
+
+            <div class="margin3"></div>
+            <input id="pk2" type="text" name="pk2" placeholder="Pokemon..." class="inp-small">
+
+            <div class="margin3"></div>
+            <input id="pk3" type="text" name="pk3" placeholder="Pokemon..." class="inp-small">
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Stats-->
+        <h3 class="color-bg">Attributes</h3>
+        <div class="div-box">
+
+            <div class="flex">
+                <!--<span class="spa-stat-label">Strength</span>-->
+                <h3 class="h3-stat-label">Strength</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_str1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_str2" type="checkbox" class="checkbox-round">
+                    <input name="cb_str3" type="checkbox" class="checkbox-round">
+                    <input name="cb_str4" type="checkbox" class="checkbox-round">
+                    <input name="cb_str5" type="checkbox" class="checkbox-round">
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_str')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_str')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Dexterity</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_dex1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_dex2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_dex3" type="checkbox" class="checkbox-round">
+                    <input name="cb_dex4" type="checkbox" class="checkbox-round">
+                    <input name="cb_dex5" type="checkbox" class="checkbox-round">
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_dex')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_dex')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Vitality</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_vit1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_vit2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_vit3" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_vit4" type="checkbox" class="checkbox-round">
+                    <input name="cb_vit5" type="checkbox" class="checkbox-round">
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_vit')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_vit')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Insight</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_ins1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_ins2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_ins3" type="checkbox" class="checkbox-round">
+                    <input name="cb_ins4" type="checkbox" class="checkbox-round">
+                    <input name="cb_ins5" type="checkbox" class="checkbox-round">
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_ins')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_ins')">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Social attributes-->
+        <h3 class="color-bg">Social attributes</h3>
+        <div class="div-box">
+            <div class="flex">
+                <h3 class="h3-stat-label">Tough</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_tou1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_tou2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_tou3" type="checkbox" class="checkbox-round">
+                    <input name="cb_tou4" type="checkbox" class="checkbox-round">
+                    <input name="cb_tou5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Cool</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_coo1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_coo2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_coo3" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_coo4" type="checkbox" class="checkbox-round">
+                    <input name="cb_coo5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Beauty</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_bea1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_bea2" type="checkbox" class="checkbox-round">
+                    <input name="cb_bea3" type="checkbox" class="checkbox-round">
+                    <input name="cb_bea4" type="checkbox" class="checkbox-round">
+                    <input name="cb_bea5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Cute</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_cut1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_cut2" type="checkbox" class="checkbox-round">
+                    <input name="cb_cut3" type="checkbox" class="checkbox-round">
+                    <input name="cb_cut4" type="checkbox" class="checkbox-round">
+                    <input name="cb_cut5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Clever</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_cle1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_cle2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_cle3" type="checkbox" class="checkbox-round">
+                    <input name="cb_cle4" type="checkbox" class="checkbox-round">
+                    <input name="cb_cle5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Skill (issue)-->
+        <h3 class="color-bg">Skills</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-skills')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-skills" class="div-box">
+            <div class="flex flex-space-evenly">
+                <div class="div-box-half text-center">
+                    <h3 class="">Fight</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Brawl</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_bra1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_bra2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_bra3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_bra4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_bra5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Throw</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_thr1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_thr2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_thr3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_thr4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_thr5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Evasion</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_eva1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_eva2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eva3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eva4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eva5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Weapons</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_wea1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_wea2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_wea3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_wea4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_wea5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+                </div>
+
+                <div class="div-box-half text-center">
+                    <h3>Survival</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Alert</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ale1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_ale2" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_ale3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ale4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ale5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Athletic</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ath1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_ath2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ath3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ath4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ath5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Nature</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_nat1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_nat2" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_nat3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_nat4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_nat5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Stealth</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ste1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ste2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ste3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ste4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ste5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+                </div>
+
+            </div>
+            <div class="margin20"></div>
+            <div class="flex flex-space-evenly">
+                <div class="div-box-half text-center">
+                    <h3>Social</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Empathy</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_emp1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_emp2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_emp3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_emp4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_emp5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Etiquette</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_eti1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eti2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eti3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eti4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eti5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Intimidate</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_int1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_int2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_int3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_int4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_int5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Perform</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_per1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_per2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_per3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_per4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_per5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+                </div>
+
+                <div class="div-box-half text-center">
+                    <h3>Knowledge</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Crafts</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_cra1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_cra2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_cra3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_cra4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Lore</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ins1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Medicine</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ins1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_ins2" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_ins3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Science</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ins1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ins5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Bag</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-bag')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-bag" class="div-box">
+            <div class="flex">
+                <h3 style="text-align:start; min-width:150px;">Potion</h3>
+                <input type="text" id="pot" class="inp-small" size="1" value="">
+            </div>
+
+            <div class="margin3"></div>
+
+            <div class="flex">
+                <h3 style="text-align:start; min-width:150px;">Super Potion</h3>
+                <input type="text" id="spo" class="inp-small" size="1" value="">
+            </div>
+
+            <div class="margin3"></div>
+
+            <div class="flex">
+                <h3 style="text-align:start; min-width:150px;">Hyper Potion</h3>
+                <input type="text" id="hpo" class="inp-small" size="1" value="">
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex flex-space-between">
+                <div class="div-box-half">
+                    <input type="text" id="bag-l1" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l2" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l3" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l4" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l5" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l6" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l7" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l8" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l9" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l10" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l11" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l12" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l13" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l14" class="inp-small inp-bag" size="35" value="">
+                    <input type="text" id="bag-l15" class="inp-small inp-bag" size="35" value="">
+
+                </div>
+                <div class="div-box-half">
+                    <input type="text" id="bag-r1" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r2" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r3" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r4" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r5" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r6" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r7" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r8" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r9" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r10" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r11" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r12" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r13" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r14" class="inp-small inp-bag right" size="35" value="">
+                    <input type="text" id="bag-r15" class="inp-small inp-bag right" size="35" value="">
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Background</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-background')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-background" class="div-box">
+            <textarea id="text-bg" style="width: 894px; height:300px;" class="inp-small">
+                Nato nel bosco smeraldo e vissuto a Smeraldopoli, a 4 anni riceve dai genitori un pichu con cui inizia a giocare e dopo pochi giorni si evolve in pikachu.
+A 10 anni vede mentre è in vacanza sul monte argento vede allenarsi rosso, che sconfigge sonoramente la madre. Preso dall'entusiasmo della battaglia vista decide di iniziare a lottare e chiede alla madre di insegnargli. Dopo circa un mese di pratica decide di partire per il giro delle palestre. Anche se con disappunto la madre accetta il suo volere, consigliando di andare a catturare un altro pokémon da affiancare a PikaPika (il suo pikachu).
+Inizia a girovagare nel percorso 22, catturando un mankey, utile per la prima palestra per tipologia. Tornando a casa trova un pidgey e un rattata che combattono tra loro, vedendo che il loro combattimento li avrebbe feriti si mette in mezzo all'attacco di rattata, ma mankey e pikachu fermano entrambi i pokémon, vedendoli feriti li porta a casa per farli curare dalla mamma e i pokémon decidono di unirsi a lui.
+Il giro delle palestre si rivela più difficile del previsto per cui torna a casa per imparare meglio a combattere. All'età di 12 anni completa il giro delle palestre senza troppe difficoltà, ma inizia a capire che nel mondo ci sono persone che fanno lottare i pokemon senza curarsi del fatto che si possano ferire.
+Nel tempo cattura più pokémon possibili, la maggior parte si fa catturare senza opporre resistenza.
+Nel tempo entra sempre più in empatia con i pokémon, che imparano a combattere in autonomia vincendo le battaglie senza un singolo ordine.
+Nello stesso modo batte la lega, stupendo i superquattro ma soprattutto Gary.
+Raggiunto il suo obiettivo, si mette alla ricerca del suo mito, Rosso, e parte per Hoenn dopo aver saputo che Rosso si trovasse lì.
+In questa occasione completa anche il giro delle palestre di Hoenn, arrivato alla via Vittoria perde di vista PikaPika e non riesce più a trovarlo.
+Pensando che il pokémon sia stato rubato abbandona il suo percorso per cercarlo.
+Nella ricerca fa la conoscenza di Rocco Petri, che dopo aver sentito del furto, partecipa attivamente al ritrovamento del pokémon.
+Rocco ritrova per primo Pikachu, gravemente ferito, e lo consegna a Wilton, che, in preda alla rabbia, concentra le sue energie e lo cura.
+Non sicuro della forma di pikachu, chiede a Rocco di prendersene cura fino alla sconfitta della lega, non sapendo che il nuovo amico è il campione.
+Batte i superquattro senza impartire ordini ai propri pokémon, ma arrivato al campione sente la necessità di tornare a impartire ordini.
+La battaglia finisce in parità, in quanto Drake interrompe la sfida minacciando di distruggere la lega se Rocco non si fosse dimesso.
+Rocco e Wilton affrontano Drake, che nel mentre ha catturato Rayquaza, ma perde comunque perché è una sola.
+Rayquaza viene quindi liberato e Rocco, riconoscendo le abilità in combattimento di Wilton, lo nomina campione.
+Rocco infine consiglia a Wilton di ritornare ad allenarsi se vuole battere Rosso e gli consiglia di tornare sul monte Argento, inoltre gli dona una pietrabrillo per il suo PikaPika.
+Dopo qualche mese di allenamenti sul monte Argento compare Rosso, Wilton lo sfida ma perde senza mandare KO nemmeno un pokemon.
+Rosso, per incoraggiare il giovane allenatore, gli dona il suo Charizard. Wilton lo ringrazia ma non ritenendosi all'altezza di utilizzare quel pokémon promette che lo utilizzerà soltanto quando sarà degno.
+Determinato a battere il suo idolo continua ad allenarsi ad Hoenn, diventando un allenatore leggendario, ma vedendo una crescente cattiveria degli allenatori perde interesse nel combattimento e si rifugia nell’antro abissale.
+Qualche allenatore prova a sfidarlo ma viene sconfitto anche senza che Wilton entri in battaglia.
+Dopo 2 anni da eremita, si presenta Rocco che lo sfida a una battaglia, scommettendo che se avesse vinto Wilton avrebbe dovuto frequentare una prestigiosa scuola per allenatori pokémon, in caso di sconfitta gli avrebbe regalato tutta la sua squadra.
+Essendo in grave difficoltà Wilton fa affidamento al Charizard di Rosso, ma non basta per sconfiggere Rocco.
+
+Ed eccomi qua signor giudice.
+            </textarea>
+        </div>
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Conoscenze personali</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-conoscenze')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-conoscenze" class="div-box">
+            <textarea id="text-conoscenze" style="width: 894px; height:300px;" class="inp-small">
+                Nell'ambiente competitivo, il nome di Elia Aster evoca un misto di profondo rispetto e leggera irritazione. 
+            Figlio di operai di Ciclamipoli, la sua è la storia di un ragazzo che ha scalato la gerarchia di Hoenn non grazie a privilegi, ma attraverso una dedizione che molti definiscono maniacale. 
+            L'opinione pubblica lo vede come un computer umano: si dice che non gli basti vincere, ma che debba sezionare ogni battaglia per eliminare qualsiasi inefficienza strategica. 
+            Questa sua natura di genio della teoria lo precede ovunque: la gente lo descrive come un ragazzo brillante ma socialmente difficile, incapace di non correggere gli errori altrui anche quando non richiesto.
+            La sua reputazione si è cementata definitivamente al Parco Lotta di Hoenn, dove la conquista di tutti i Simboli Oro ha convinto anche i più scettici che il suo metodo, per quanto ossessivo, è praticamente infallibile.
+        </textarea>
+        </div>
+
+        <div class="margin10"></div>
+
+        <button class="btn-toggle" onclick="saveSheetData('trainer')" style="margin-left: 20px;">Save Sheet</button>
+
+        <!-- Script -->
+        <script src="../js/app.js"></script>
+
+
+
+    </div>
+</body>
+
+</html>
