@@ -111,7 +111,7 @@
                 </div>
                 <div class="div-propic">
                     <button class="btn-noborder" onclick="img_change()">
-                        <img src="img/propic/Elia Aster.jpeg" id="poke-img" class="img-propic-pg" onerror="this.src='https://static.wikia.nocookie.net/pokemon/images/7/79/Brendan_Omega_Ruby_and_Alpha_Sapphire.png/revision/latest?cb=20220812081012'">
+                        <img src="https://pagliaa.github.io/schedapk/img/propic/Elia%20Aster.jpeg" id="poke-img" class="img-propic-pg" onerror="this.src='https://static.wikia.nocookie.net/pokemon/images/7/79/Brendan_Omega_Ruby_and_Alpha_Sapphire.png/revision/latest?cb=20220812081012'">
                     </button>
                 </div>
             </div>
@@ -131,14 +131,15 @@
         </div>
         <div class="margin3"></div>
         <div id="div-nature" class="div-box">
-            <input id="nature" type="text" name="nature" placeholder="Nature..." class="inp-small" value="Carefull">
+            <input id="nature" type="text" name="nature" placeholder="Nature..." class="inp-small" value="Careful">
             <button class="btn-search" onclick="search('nature', '')">Search</button>
             <div class="margin3"></div>
             <div class="full">
                 <!--<textarea id="nature-d" name="nature-d" rows="5" cols="76" class="inp-small"></textarea>-->
-                <h4 id="h4-nat-conf" class="hidden"></h4>
-                <h4 id="h4-nat-key" class="hidden"></h4>
-                <p id="p-nat-text" class="hidden"></p>
+                <h4 id="h4-nat-name" class="hidden"></h4>
+                <h4 id="h4-nat-conf" class="">Confidence: 5</h4>
+                <h4 id="h4-nat-key" class="">Analytic, Skeptical, Withdrawn</h4>
+                <p id="p-nat-text" class="">Those with this nature will often ponder their options according to the level of risk. If the benefit is substantial but the risk is too great they will prefer an option less rewarding but also less risky. They may take some time to warm up to strangers and will always be alert to their surroundings. Keeping a situation under control is important for them, not being in control makes them anxious and stressed. If things get out of hand they might run away to fight another day.</p>
             </div>
         </div>
 
@@ -152,14 +153,14 @@
         </div>
         <div class="margin3"></div>
         <div id="div-poke" class="div-box">
-            <input id="nature" type="text" name="nature" placeholder="Pokemon..." class="inp-small" value="">
+            <input id="pk1" type="text" name="pk1" placeholder="Pokemon..." class="inp-small" value="">
             <button class="btn-search hidden" onclick="search('nature', '')">Search</button>
 
             <div class="margin3"></div>
-            <input id="nature" type="text" name="nature" placeholder="Pokemon..." class="inp-small" value="">
+            <input id="pk2" type="text" name="pk2" placeholder="Pokemon..." class="inp-small" value="">
 
             <div class="margin3"></div>
-            <input id="nature" type="text" name="nature" placeholder="Pokemon..." class="inp-small" value="">
+            <input id="pk3" type="text" name="pk3" placeholder="Pokemon..." class="inp-small" value="">
         </div>
 
         <div class="margin10"></div>
@@ -603,6 +604,21 @@ L’accademia ha deciso di accettarlo proprio per questo: non solo per i suoi ri
 
 Il suo arco personale non è diventare più forte in senso assoluto. Elia è già forte. La vera sfida sarà imparare a non usare la competenza come uno scudo, a non confondere la precisione con la maturità e a capire che un grande allenatore non si misura solo dalle vittorie, ma anche dal modo in cui cresce insieme ai propri Pokémon e alle persone che gli stanno accanto."></textarea>
         </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Conoscenze personali</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-conoscenze')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-conoscenze" class="div-box">
+            <textarea style="width: 894px; height:300px;" class="inp-small" value="Camilla e Timo Juneperi non sono visti solo come i figli del celebre Piers, ma come una forza d'élite che ha ridefinito gli standard della competizione a Galar. La loro vera nomea nasce dai risultati leggendari ottenuti presso la Rose Tower, dove i due hanno dimostrato una sinergia che rasenta la perfezione tactica. Camilla è considerata la mente del duo, &quot;la voce&quot; capace di orchestrare strategie complesse con una calma imperturbabile, mentre Timo è visto come l'anima imprevedibile del &quot;Battito&quot;, colui che rompe gli schemi e travolge l'avversario con un'energia fuori controllo. Insieme, sono percepiti come una coppia imbattibile che unisce il rigore di una coordinazione magistrale alla potenza bruta del punk di Spikemuth, rendendoli agli occhi di tutti gli studenti il traguardo massimo da raggiungere in termini di lavoro di squadra.
+
+I sussurri dicono che l’Eremita dell’Abisso sia un fantasma che ha dominato due intere regioni prima di svanire nel nulla, un cercatore che ha visto la forza pura sul Monte Argento e ne è rimasto per sempre segnato. Si racconta che la sua empatia con i Pokémon sia qualcosa di quasi innaturale: storie di combattimenti vinti senza che lui pronunciasse una singola parola, con i suoi compagni che si muovevano come mossi da un unico pensiero silenzioso. Molti dicono che ora risieda nell’antro abissale ma nessuno è mai riuscito a superare i pokémon che sorvegliano quel luogo."></textarea>
+        </div>
+
         <div class="margin10"></div>
 
         <button class="btn-toggle" onclick="saveSheetData('trainer')" style="margin-left: 20px;">Save Sheet</button>
