@@ -265,12 +265,18 @@ async function search(id, prog) {
         document.getElementById(idprog + '_description').textContent = 'Description: ' + json.Description;
         break;
       case "ability":
+        document.getElementById("h4-abil-name").classList.remove('hidden');
+        document.getElementById("h4-abil-name").textContent = json.Name;
         document.getElementById("p-abil-eff").classList.remove('hidden');
         document.getElementById("p-abil-eff").textContent = json.Effect;
         document.getElementById("p-abil-text").classList.remove('hidden');
         document.getElementById("p-abil-text").textContent = json.Description;
         break;
       case "nature":
+        document.getElementById("h4-nat-name").classList.remove('hidden');
+        document.getElementById("h4-nat-name").textContent = json.Name;
+        document.getElementById("h4-nat-conf").classList.remove('hidden');
+        document.getElementById("h4-nat-conf").textContent = 'Confidence: ' + json.Confidence;
         document.getElementById("h4-nat-conf").classList.remove('hidden');
         document.getElementById("h4-nat-conf").textContent = 'Confidence: ' + json.Confidence;
         document.getElementById("h4-nat-key").classList.remove('hidden');
