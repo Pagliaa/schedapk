@@ -436,8 +436,14 @@ async function init() {
 function saveSheetData(id) {
   // 1. Sync all text input values to their 'value' attribute
   document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+  if (input.tagName.toLowerCase() === 'textarea') {
+    // Textareas use internal text, not a value attribute
+    input.textContent = input.value;
+  } else {
+    // Standard inputs use the value attribute
     input.setAttribute('value', input.value);
-  });
+  }
+});
 
   // 2. Sync all checkbox states to their 'checked' attribute
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
@@ -490,8 +496,14 @@ let fileHandle = null;
 async function savesamefile(id) {
   // 1. & 2. (Keep your existing code for syncing attributes)
   document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+  if (input.tagName.toLowerCase() === 'textarea') {
+    // Textareas use internal text, not a value attribute
+    input.textContent = input.value;
+  } else {
+    // Standard inputs use the value attribute
     input.setAttribute('value', input.value);
-  });
+  }
+});
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     if (checkbox.checked) {
       checkbox.setAttribute('checked', 'checked');
