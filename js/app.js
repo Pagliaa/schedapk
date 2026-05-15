@@ -502,6 +502,7 @@ async function savesamefile(id) {
   } else {
     // Standard inputs use the value attribute
     input.setAttribute('value', input.value);
+    console.log(input.tagName.toLowerCase());
   }
 });
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
