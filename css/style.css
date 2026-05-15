@@ -554,6 +554,14 @@ ul {
     font-size: 1.3rem;
 }
 
+.a-index {
+    font-size: 1.3rem;
+    color: var(--bg-primary);
+    text-decoration: none;
+    margin: 10px;
+    display: block;
+}
+
 /*------------------------------------------------*/
 
 .hidden {
