@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="it"><head>
+    <meta charset="UTF-8">
+    <title>Scheda Pokemon</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="fullpage">
+
+        <div class="div-box">
+            <h2 id="trainer" contenteditable="true">Erick Montclair</h2>
+            <div class="margin3"></div>
+            <h2 id="name" contenteditable="true">Roselia test</h2>
+            <div class="full">
+                <div class="div-data">
+                    <div class="flex flex-space-between">
+                        <button class="btn-noborder" onclick="poke_list()">
+                            <span id="pokename" class="spa-dex spa-dexname">roselia</span>
+                            <span id="pokenr" class="spa-dex spa-dexnr"># 315</span>
+                        </button>
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <button class="btn-noborder" onclick="poke_list()">
+                        <span id="type1" class="spa-type type-grass">
+                            <span id="type1-img" class="spa-type-img"></span>
+                            <span id="type1-text" class="spa-type-text">grass</span>
+                        </span>
+                        <span id="type2" class="spa-type type-poison">
+                            <span id="type2-img" class="spa-type-img"></span>
+                            <span id="type2-text" class="spa-type-text">poison</span>
+                        </span>
+                    </button>
+
+                    <div style="margin:10px; float:left;"></div>
+
+                    <div class="flex">
+                        <h4 style="width:102px;">Rank</h4>
+                        <button id="rank-btn" class="btn-noborder" onclick="rank_change()">
+                            <img src="../img/rank/beginner.png" id="rank-img" class="img-rank">
+                        </button>
+                        <ul id="popupRank" class="ul-rank hidden">
+        <li onclick="selectRank('../img/rank/starter.png')">
+            <img src="../img/rank/starter.png" alt="Starter" class="img-rank">
+        </li>
+    
+        <li onclick="selectRank('../img/rank/beginner.png')">
+            <img src="../img/rank/beginner.png" alt="Beginner" class="img-rank">
+        </li>
+    
+        <li onclick="selectRank('../img/rank/ace.png')">
+            <img src="../img/rank/ace.png" alt="Ace" class="img-rank">
+        </li>
+    
+        <li onclick="selectRank('../img/rank/pro.png')">
+            <img src="../img/rank/pro.png" alt="Pro" class="img-rank">
+        </li>
+    
+        <li onclick="selectRank('../img/rank/master.png')">
+            <img src="../img/rank/master.png" alt="Master" class="img-rank">
+        </li>
+    
+        <li onclick="selectRank('../img/rank/champion.png')">
+            <img src="../img/rank/champion.png" alt="Champion" class="img-rank">
+        </li>
+    </ul>
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="flex">
+                        <h4 style="width:100px;">happiness</h4>
+                        <div class="flex flex-space-evenly" style="width:300px">
+                            <input name="cb_hap1" type="checkbox" class="checkbox-round" checked="checked">
+                            <input name="cb_hap2" type="checkbox" class="checkbox-round">
+                            <input name="cb_hap3" type="checkbox" class="checkbox-round">
+                            <input name="cb_hap4" type="checkbox" class="checkbox-round">
+                            <input name="cb_hap5" type="checkbox" class="checkbox-round">
+                        </div>
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="flex">
+                        <h4 style="width:100px;">Loyalty</h4>
+                        <div class="flex flex-space-evenly" style="width:300px">
+                            <input name="cb_loy1" type="checkbox" class="checkbox-round" checked="checked">
+                            <input name="cb_loy2" type="checkbox" class="checkbox-round">
+                            <input name="cb_loy3" type="checkbox" class="checkbox-round">
+                            <input name="cb_loy4" type="checkbox" class="checkbox-round">
+                            <input name="cb_loy5" type="checkbox" class="checkbox-round">
+                        </div>
+                    </div>
+
+                    <div style="margin:10px; float:left;"></div>
+
+                    <div class="flex">
+                        <div style="width:50%;">
+                            <h4>Size</h4>
+                            <div class="flex">
+                                <input type="text" id="size" class="inp-small inp-textend" size="1" value="0.3">
+                                <h4>m</h4>
+                            </div>
+                        </div>
+                        <div style="width:50%; float:left;">
+                            <h4>Weight</h4>
+                            <div class="flex">
+                                <input type="text" id="weight" class="inp-small inp-textend" size="1" value="2">
+                                <h4>kg</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-propic">
+                    <button class="btn-noborder" onclick="img_change()">
+                        <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/315.png" id="poke-img" class="img-propic" onerror="this.src='https://archives.bulbagarden.net/media/upload/1/14/Ten_Question_Marks_III.png'">
+                    </button>
+                </div>
+            </div>
+            <div id="popupPokeList" class="popup hidden">
+                <input type="text" id="pokeSearch" placeholder="Search Pokémon..." value="ros">
+                <ul id="pokeList"><li><a href="#">tauros</a></li><li><a href="#">ampharos</a></li><li><a href="#">heracross</a></li><li><a href="#">roselia</a></li><li><a href="#">metagross</a></li><li><a href="#">roserade</a></li><li><a href="#">froslass</a></li><li><a href="#">ferroseed</a></li><li><a href="#">eelektross</a></li><li><a href="#">frosmoth</a></li><li><a href="#">rotom-frost</a></li><li><a href="#">ampharos-mega</a></li><li><a href="#">heracross-mega</a></li><li><a href="#">metagross-mega</a></li></ul>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Quick references</h3>
+        <div class="div-box">
+            <div class="flex flex-space-evenly">
+
+                <div class="div-types-effect">
+
+                    <div class="flex flex-center">
+                        <h4 class="h4-qr">HP</h4>
+                        <input type="text" id="hpact" class="inp-small inp-textend" size="1" value="6">
+                        <h4 style="float:left; margin:0 5px;"> | </h4>
+                        <input type="text" id="hptot" class="inp-small" size="1" value="6">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="flex flex-center">
+                        <h4 class="h4-qr">Def/Sp.Def</h4>
+                        <input type="text" id="defact" class="inp-small inp-textend" size="1" value="2">
+                        <h4 style="float:left; margin:0 5px;"> | </h4>
+                        <input type="text" id="deftot" class="inp-small" size="1" value="3">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="flex flex-center">
+                        <h4 class="h4-qr">Will</h4>
+                        <input type="text" id="willact" class="inp-small inp-textend" size="1" value="6">
+                        <h4 style="float:left; margin:0 5px;"> | </h4>
+                        <input type="text" id="willtot" class="inp-small" size="1" value="6">
+                    </div>
+                </div>
+
+                <div class="div-types-effect">
+
+                    <div class="flex flex-space-evenly">
+                        <h4 class="h4-qr">Item</h4>
+                        <input type="text" name="held_item" class="inp-small" size="10" value="bla">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="flex flex-space-evenly">
+                        <h4 class="h4-qr">Status</h4>
+                        <input type="text" name="status_effect" class="inp-small" size="10" value="bla">
+                    </div>
+
+                    <div class="margin3"></div>
+                </div>
+
+                <div class="div-types-effect">
+
+                    <div class="flex flex-center">
+                        <h4 class="h4-qr">Initiative</h4>
+                        <input type="text" name="init" class="inp-small" size="1" value="7">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="flex flex-center">
+                        <h4 class="h4-qr">Evasion</h4>
+                        <input type="text" name="evasion_val" class="inp-small" size="1" value="4">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="flex flex-center">
+                        <h4 class="h4-qr">Clash</h4>
+                        <input type="text" name="clash_val" class="inp-small" size="1" value="99">
+                    </div>
+                </div>
+            </div>
+
+            <div class="margin3"></div>
+
+            <div class="flex">
+                <h4 style="margin-right:50px;">Fatigue</h4>
+                <div class="flex flex-space-evenly" style="width:300px">
+                    <input name="cb_fat1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_fat2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_fat3" type="checkbox" class="checkbox-round">
+                    <input name="cb_fat4" type="checkbox" class="checkbox-round">
+                    <input name="cb_fat5" type="checkbox" class="checkbox-round">
+                </div>
+                <div class="vmargin40"></div>
+                <h4 style="margin-right:50px;">Action used</h4>
+                <div class="flex flex-space-evenly" style="width:300px">
+                    <input name="cb_act1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_act2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_act3" type="checkbox" class="checkbox-round">
+                    <input name="cb_act4" type="checkbox" class="checkbox-round">
+                    <input name="cb_act5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+            <div class="flex">
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Ability</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-ability')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-ability" class="div-box">
+            <input id="ability" type="text" name="ability" placeholder="Ability..." class="inp-small" value="poison point">
+            <button class="btn-search" onclick="search('ability', '')">Search</button>
+            <div class="margin3"></div>
+            <div class="full">
+                <div class="margin3"></div>
+                <h4 id="h4-abil-name" class="">Poison Point</h4>
+                <div class="margin3"></div>
+                <p id="p-abil-eff" class="p-abil-text">If this Pokemon is hit by a Non-Ranged Physical Move, Roll 3 Chance Dice to inflict Poison on the foe.</p>
+                <p id="p-abil-text" class="p-abil-text">The pointy thorns and scales on this Pokemon release a venom that will infect anyone who touches them roughly. Wear gloves when handling them.</p>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Nature</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-nature')" class="btn-toggle">Show</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-nature" class="div-box hidden">
+            <input id="nature" type="text" name="nature" placeholder="Nature..." class="inp-small" value="">
+            <button class="btn-search" onclick="search('nature', '')">Search</button>
+            <div class="margin3"></div>
+            <div class="full">
+                <div class="margin3"></div>
+                <h4 id="h4-nat-name" class="hidden"></h4>
+                <div class="margin3"></div>
+                <h4 id="h4-nat-conf" class="hidden"></h4>
+                <div class="margin3"></div>
+                <h4 id="h4-nat-key" class="hidden"></h4>
+                <p id="p-nat-text" class="hidden"></p>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-type-eff')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-type-eff" class="div-box">
+            <div class="flex flex-space-evenly align-flex-start">
+                <div class="div-types-effect">
+                    <h4>Resistances</h4>
+                    <div class="margin3"></div>
+                    <ul id="res"><li>Water (0.5x)</li><li>Grass (0.25x)</li><li>Electric (0.5x)</li><li>Fighting (0.5x)</li><li>Fairy (0.5x)</li></ul>
+                </div>
+
+                <div class="div-types-effect">
+                    <h4>Weaknesses</h4>
+                    <div class="margin3"></div>
+                    <ul id="deb"><li>Fire (2x)</li><li>Ice (2x)</li><li>Flying (2x)</li><li>Psico (2x)</li></ul>
+                </div>
+                <div class="div-types-effect">
+                    <h4>Immunities</h4>
+                    <div class="margin3"></div>
+                    <ul id="imm"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Attributes</h3>
+        <div class="div-box">
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Strength</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_str1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_str2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_str3" type="checkbox" class="checkbox-round">
+                    <input name="cb_str4" type="checkbox" class="checkbox-round">
+                    
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_str')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_str')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Dexterity</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_dex1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_dex2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_dex3" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_dex4" type="checkbox" class="checkbox-round">
+                    
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_dex')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_dex')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Vitality</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_vit1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_vit2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_vit3" type="checkbox" class="checkbox-round">
+                    <input name="cb_vit4" type="checkbox" class="checkbox-round">
+                    
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_vit')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_vit')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Special</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_spe1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_spe2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_spe3" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_spe4" type="checkbox" class="checkbox-round">
+                    <input name="cb_spe5" type="checkbox" class="checkbox-round">
+                <input type="checkbox" class="checkbox-round" name="cb_spe6"></div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_spe')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_spe')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Insight</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_ins1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_ins2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_ins3" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_ins4" type="checkbox" class="checkbox-round">
+                    <input name="cb_ins5" type="checkbox" class="checkbox-round">
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_ins')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_ins')">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Social attributes</h3>
+        <div class="div-box">
+            <div class="flex">
+                <h3 class="h3-stat-label">Tough</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_tou1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_tou2" type="checkbox" class="checkbox-round">
+                    <input name="cb_tou3" type="checkbox" class="checkbox-round">
+                    <input name="cb_tou4" type="checkbox" class="checkbox-round">
+                    <input name="cb_tou5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Cool</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_coo1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_coo2" type="checkbox" class="checkbox-round">
+                    <input name="cb_coo3" type="checkbox" class="checkbox-round">
+                    <input name="cb_coo4" type="checkbox" class="checkbox-round">
+                    <input name="cb_coo5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Beauty</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_bea1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_bea2" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_bea3" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_bea4" type="checkbox" class="checkbox-round">
+                    <input name="cb_bea5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Cute</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_cut1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_cut2" type="checkbox" class="checkbox-round">
+                    <input name="cb_cut3" type="checkbox" class="checkbox-round">
+                    <input name="cb_cut4" type="checkbox" class="checkbox-round">
+                    <input name="cb_cut5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Clever</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_cle1" type="checkbox" class="checkbox-round" checked="checked">
+                    <input name="cb_cle2" type="checkbox" class="checkbox-round">
+                    <input name="cb_cle3" type="checkbox" class="checkbox-round">
+                    <input name="cb_cle4" type="checkbox" class="checkbox-round">
+                    <input name="cb_cle5" type="checkbox" class="checkbox-round">
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Skills</h3>
+        <div class="div-box">
+            <div class="flex flex-space-evenly">
+                <div class="div-types-effect">
+                    <h3 class="">Fight</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Brawl</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_bra1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_bra2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_bra3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_bra4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_bra5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Channel</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_chan1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_chan2" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_chan3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_chan4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_chan5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Clash</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_cla1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_cla2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_cla3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_cla4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_cla5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Evasion</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_eva1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_eva2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eva3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eva4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eva5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+                </div>
+
+                <div class="div-types-effect">
+                    <h3>Survival</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Alert</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ale1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_ale2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ale3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ale4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ale5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Athletic</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ath1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ath2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ath3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ath4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ath5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Nature</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_nat1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_nat2" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_nat3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_nat4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_nat5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Stealth</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ste1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ste2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ste3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ste4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_ste5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+                </div>
+
+                <div class="div-types-effect">
+                    <h3>Social</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Charm</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_chm1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_chm2" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_chm3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_chm4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_chm5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Etiquette</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_eti1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_eti2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eti3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eti4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_eti5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Intimidate</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_int1" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_int2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_int3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_int4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_int5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Perform</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_per1" type="checkbox" class="checkbox-round checkbox-small" checked="checked">
+                        <input name="cb_per2" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_per3" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_per4" type="checkbox" class="checkbox-round checkbox-small">
+                        <input name="cb_per5" type="checkbox" class="checkbox-round checkbox-small">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Moves</h3>
+
+        <div id="div-moves" class="full">
+            <div class="div-single-move">
+                <input name="move1" id="move1" class="inp-small">
+                <button class="btn-search" onclick="search('move', '1')">Search</button>
+                <div id="div-move1" class="">
+                    <div class="margin10"></div>
+                    <h4 id="move1_name">Name: Absorb</h4>
+                    <h4 id="move1_type">Type: Grass</h4>
+                    <h4 id="move1_category">Category: Special</h4>
+                    <h4 id="move1_power">Power: 1</h4>
+                    <h4 id="move1_damage1">Damage: Special</h4>
+                    <h4 id="move1_damage2">Accuracy: Vitality + Channel/Nature</h4>
+                    <h4 id="move1_accuracy1"></h4>
+                    <h4 id="move1_accuracy2"></h4>
+                    <h4 id="move1_target">Target: Foe</h4>
+                    <h4 id="move1_effect">Effect: Single Target. The User restores HP equal to half the damage dealt, rounded down.</h4>
+                    <h4 id="move1_description">Description: The user takes nutrients from the nearest source of life they find.</h4>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="div-single-move">
+                <input name="move2" id="move2" class="inp-small">
+                <button class="btn-search" onclick="search('move', '2')">Search</button>
+                <div id="div-move2" class="">
+                    <div class="margin10"></div>
+                    <h4 id="move2_name">Name: Poison Sting</h4>
+                    <h4 id="move2_type">Type: Poison</h4>
+                    <h4 id="move2_category">Category: Physical</h4>
+                    <h4 id="move2_power">Power: 1</h4>
+                    <h4 id="move2_damage1">Damage: Strength</h4>
+                    <h4 id="move2_damage2">Accuracy: Strength + Channel</h4>
+                    <h4 id="move2_accuracy1"></h4>
+                    <h4 id="move2_accuracy2"></h4>
+                    <h4 id="move2_target">Target: Foe</h4>
+                    <h4 id="move2_effect">Effect: Single Target. Ranged. Roll 3 Chance Dice to Poison the Target.</h4>
+                    <h4 id="move2_description">Description: A tiny stab that causes big troubles.</h4>
+                </div>
+            </div>
+        
+    <div class="margin10"></div>
+
+    <div class="div-single-move" id="box_move3">
+    <!--Move 3-->
+      <input name="move3" id="move3" class="inp-small">
+      <button class="btn-search" onclick="search('move', 3)">Search</button>
+      <div id="div-move3" class="">
+      <div class="margin10"></div>
+        <h4 id="move3_name">Name: Growth</h4>
+        <h4 id="move3_type">Type: Normal</h4>
+        <h4 id="move3_category">Category: Support</h4>
+        <h4 id="move3_power">Power: 0</h4>
+        <h4 id="move3_damage1">Damage: </h4>
+        <h4 id="move3_damage2">Accuracy: Special + Nature</h4>
+        <h4 id="move3_accuracy1"></h4>
+        <h4 id="move3_accuracy2"></h4>
+        <h4 id="move3_target">Target: Self</h4>
+        <h4 id="move3_effect">Effect: Target Self. Increase by 1 the User's Strength and Special. If the Sunny Weather is active, increase by 2 Instead.</h4>
+        <h4 id="move3_description">Description: The Pokémon makes their body grow in size. They’ll get bigger and stronger in just a few seconds.</h4>
+      </div>
+    </div>
+    
+    <div class="margin10"></div>
+
+    <div class="div-single-move" id="box_move4">
+    <!--Move 4-->
+      <input name="move4" id="move4" class="inp-small">
+      <button class="btn-search" onclick="search('move', 4)">Search</button>
+      <div id="div-move4" class="">
+      <div class="margin10"></div>
+        <h4 id="move4_name">Name: Stun Spore</h4>
+        <h4 id="move4_type">Type: Grass</h4>
+        <h4 id="move4_category">Category: Support</h4>
+        <h4 id="move4_power">Power: 0</h4>
+        <h4 id="move4_damage1">Damage: </h4>
+        <h4 id="move4_damage2">Accuracy: Clever + Nature</h4>
+        <h4 id="move4_accuracy1"></h4>
+        <h4 id="move4_accuracy2"></h4>
+        <h4 id="move4_target">Target: Foe</h4>
+        <h4 id="move4_effect">Effect: Single Target. Low Accuracy 3. Powder Move. Paralyze the Target.</h4>
+        <h4 id="move4_description">Description: A cloud of paralyzing pollen that affects the nerves and cramps the muscles of those who inhale it.</h4>
+      </div>
+    </div>
+    
+    <div class="margin10"></div>
+
+    <div class="div-single-move" id="box_move5">
+    <!--Move 5-->
+      <input name="move5" id="move5" class="inp-small">
+      <button class="btn-search" onclick="search('move', 5)">Search</button>
+      <div id="div-move5" class="hidden">
+      <div class="margin10"></div>
+        <h4 id="move5_name"></h4>
+        <h4 id="move5_type"></h4>
+        <h4 id="move5_category"></h4>
+        <h4 id="move5_power"></h4>
+        <h4 id="move5_damage1"></h4>
+        <h4 id="move5_damage2"></h4>
+        <h4 id="move5_accuracy1"></h4>
+        <h4 id="move5_accuracy2"></h4>
+        <h4 id="move5_target"></h4>
+        <h4 id="move5_effect"></h4>
+        <h4 id="move5_description"></h4>
+      </div>
+    </div>
+    
+    <div class="margin10"></div>
+
+    <div class="div-single-move" id="box_move6">
+    <!--Move 6-->
+      <input name="move6" id="move6" class="inp-small">
+      <button class="btn-search" onclick="search('move', 6)">Search</button>
+      <div id="div-move6" class="hidden">
+      <div class="margin10"></div>
+        <h4 id="move6_name"></h4>
+        <h4 id="move6_type"></h4>
+        <h4 id="move6_category"></h4>
+        <h4 id="move6_power"></h4>
+        <h4 id="move6_damage1"></h4>
+        <h4 id="move6_damage2"></h4>
+        <h4 id="move6_accuracy1"></h4>
+        <h4 id="move6_accuracy2"></h4>
+        <h4 id="move6_target"></h4>
+        <h4 id="move6_effect"></h4>
+        <h4 id="move6_description"></h4>
+      </div>
+    </div>
+    </div>
+
+        <div class="margin10"></div>
+
+        <div class="flex flex-space-evenly">
+            <button class="btn-forcb" onclick="removeMove('move')">-</button>
+            <button class="btn-forcb" onclick="addMove('move')">+</button>
+        </div>
+
+        <div class="margin10"></div>
+
+        <button class="btn-toggle" onclick="saveSheetData('poke')" style="margin-left: 20px;">Save Sheet</button>
+
+        <script src="../js/app.js"></script>
+
+
+
+</div></body></html>

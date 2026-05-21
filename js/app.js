@@ -501,6 +501,48 @@ async function savesamefile(id) {
   }
 }
 
+async function saveSheetData2(sheetName) {
+    const dataToSave = {
+        // Your sheet data structure here, e.g.:
+        sheetName: sheetName,
+        rows: [
+            { id: 1, item: "Pokeball", quantity: 10 },
+            { id: 2, item: "Potion", quantity: 5 }
+        ],
+        timestamp: new Date().toISOString()
+    };
+
+    // Replace with the actual URL of your deployed Cloud Function
+    const cloudFunctionUrl = 'YOUR_CLOUD_FUNCTION_HTTP_TRIGGER_URL';
+
+    try {
+        const response = await fetch(cloudFunctionUrl, {
+            method: 'POST', // Or 'PUT', depending on your Cloud Function's design
+            headers: {
+                'Content-Type': 'application/json',
+                // If you need authentication, you might add an Authorization header here
+                // e.g., 'Authorization': 'Bearer ' + await firebase.auth().currentUser.getIdToken()
+            },
+            body: JSON.stringify(dataToSave) // Convert your JavaScript object to a JSON string
+        });
+
+        if (!response.ok) {
+            // Handle HTTP errors (e.g., 400, 500 status codes)
+            const errorData = await response.json();
+            throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.message || 'Unknown error'}`);
+        }
+
+        const result = await response.json(); // If your Cloud Function returns JSON
+        console.log('Data saved successfully:', result);
+        alert('Sheet data saved!');
+
+    } catch (error) {
+        console.error('Error saving sheet data:', error);
+        alert('Failed to save sheet data: ' + error.message);
+    }
+}
+
+
 // Function to Save to Browser Memory
 function autoSave() {
     const data = {};
