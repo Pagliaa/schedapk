@@ -555,10 +555,10 @@ ul {
 }
 
 .a-index {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     color: var(--bg-primary);
     text-decoration: none;
-    margin: 10px;
+    margin: 20px;
     display: block;
 }
 
