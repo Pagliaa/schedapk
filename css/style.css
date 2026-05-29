@@ -236,20 +236,20 @@ div {
 h2 {
     margin: 0;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 
 h3 {
     margin: 0;
     text-align: center;
-    font-size: 1.125rem;
+    font-size: 1.9rem;
     text-transform: uppercase;
 }
 
 h4 {
     margin: 0;
-    font-size: .875rem;
+    font-size: 1.75rem;
     text-transform: uppercase;
 }
 
@@ -453,7 +453,7 @@ ul {
 }
 
 .inp-small {
-    font-size: 1.3rem;
+    font-size: 2.1rem;
     float: left;
 }
 
@@ -479,7 +479,7 @@ ul {
 .spa-stat-label {
     float: left;
     width: 13%;
-    font-size: 1.7rem;
+    font-size: 2.2rem;
 }
 
 .h3-stat-label {
@@ -551,7 +551,7 @@ ul {
 }
 
 .btn-search {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
 }
 
 .a-index {
