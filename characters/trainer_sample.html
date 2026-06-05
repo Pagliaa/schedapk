@@ -586,7 +586,14 @@
 
         <div class="margin10"></div>
 
-        <button class="btn-toggle" onclick="saveSheetData('trainer')" style="margin-left: 20px;">Save Sheet</button>
+        <!--<button class="btn-toggle" onclick="saveSheetData('trainer')" style="margin-left: 20px;">Save Sheet</button>-->
+        <div style="margin: 20px;">
+            <button class="btn-toggle" onclick="saveSheetData2('Wilton')">Download JSON</button>
+            <label style="margin-left: 20px; padding: 5px 10px; background: #ddd; cursor: pointer; border-radius: 4px;">
+                Load JSON File
+                <input type="file" accept=".json" onchange="loadSheetFromFile(event)" style="display: none;">
+            </label>
+        </div>
 
         <!-- Script -->
         <script src="../js/app.js"></script>

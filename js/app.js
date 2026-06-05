@@ -376,6 +376,7 @@ async function init() {
     // 3. Initialize UI components
     initRanks();
     setupPokeUI(allPokemon);
+    initData();
 
   } catch (err) {
     console.error("Initialization failed:", err);
@@ -386,14 +387,14 @@ async function init() {
 function saveSheetData(id) {
   // 1. Sync all text input values to their 'value' attribute
   document.querySelectorAll('input[type="text"], textarea').forEach(input => {
-  if (input.tagName.toLowerCase() === 'textarea') {
-    // Textareas use internal text, not a value attribute
-    input.textContent = input.value;
-  } else {
-    // Standard inputs use the value attribute
-    input.setAttribute('value', input.value);
-  }
-});
+    if (input.tagName.toLowerCase() === 'textarea') {
+      // Textareas use internal text, not a value attribute
+      input.textContent = input.value;
+    } else {
+      // Standard inputs use the value attribute
+      input.setAttribute('value', input.value);
+    }
+  });
 
   // 2. Sync all checkbox states to their 'checked' attribute
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
@@ -403,7 +404,7 @@ function saveSheetData(id) {
       checkbox.removeAttribute('checked');
     }
   });
-  
+
   let nameHeader = '';
   // 3. Sync contenteditable fields (like the Name header)
   if (id === 'poke') {
@@ -447,15 +448,15 @@ let fileHandle = null;
 async function savesamefile(id) {
   // 1. & 2. (Keep your existing code for syncing attributes)
   document.querySelectorAll('input[type="text"], textarea').forEach(input => {
-  if (input.tagName.toLowerCase() === 'textarea') {
-    // Textareas use internal text, not a value attribute
-    input.textContent = input.value;
-  } else {
-    // Standard inputs use the value attribute
-    input.setAttribute('value', input.value);
-    console.log(input.tagName.toLowerCase());
-  }
-});
+    if (input.tagName.toLowerCase() === 'textarea') {
+      // Textareas use internal text, not a value attribute
+      input.textContent = input.value;
+    } else {
+      // Standard inputs use the value attribute
+      input.setAttribute('value', input.value);
+      console.log(input.tagName.toLowerCase());
+    }
+  });
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     if (checkbox.checked) {
       checkbox.setAttribute('checked', 'checked');
@@ -472,8 +473,8 @@ async function savesamefile(id) {
     if (!fileHandle) {
       const nameHeader = document.getElementById('name');
       const nameTrainer = document.getElementById('trainer');
-      const suggestedName = id === 'poke' 
-        ? `${nameTrainer.innerText}_${nameHeader.innerText}.html` 
+      const suggestedName = id === 'poke'
+        ? `${nameTrainer.innerText}_${nameHeader.innerText}.html`
         : `${nameTrainer.innerText}.html`;
 
       fileHandle = await window.showSaveFilePicker({
@@ -487,7 +488,7 @@ async function savesamefile(id) {
 
     // 4. Create a writable stream to the file
     const writable = await fileHandle.createWritable();
-    
+
     // 5. Write the content and close the stream
     await writable.write(htmlContent);
     await writable.close();
@@ -501,76 +502,100 @@ async function savesamefile(id) {
   }
 }
 
-async function saveSheetData2(sheetName) {
-    const dataToSave = {
-        // Your sheet data structure here, e.g.:
-        sheetName: sheetName,
-        rows: [
-            { id: 1, item: "Pokeball", quantity: 10 },
-            { id: 2, item: "Potion", quantity: 5 }
-        ],
-        timestamp: new Date().toISOString()
-    };
+function initData() {
+  // PASTE YOUR NPOINT ID HERE
+  const BIN_ID = '37d9d0411000b72eda4b';
+  const API_URL = `https://api.npoint.io/${BIN_ID}`;
 
-    // Replace with the actual URL of your deployed Cloud Function
-    const cloudFunctionUrl = 'YOUR_CLOUD_FUNCTION_HTTP_TRIGGER_URL';
+  // Automatically load data from the cloud when page opens
+  window.addEventListener('DOMContentLoaded', () => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(data => {
+        if (Object.keys(data).length > 0) applyDataToSheet(data);
+      })
+      .catch(err => console.error("Error loading cloud data:", err));
+  });
+}
 
-    try {
-        const response = await fetch(cloudFunctionUrl, {
-            method: 'POST', // Or 'PUT', depending on your Cloud Function's design
-            headers: {
-                'Content-Type': 'application/json',
-                // If you need authentication, you might add an Authorization header here
-                // e.g., 'Authorization': 'Bearer ' + await firebase.auth().currentUser.getIdToken()
-            },
-            body: JSON.stringify(dataToSave) // Convert your JavaScript object to a JSON string
-        });
+function saveSheetData2(sheetName) {
+  // Send data to the cloud
+  const sheetData = {
+    inputs: {}, checkboxes: {}, textareas: {}
+  };
 
-        if (!response.ok) {
-            // Handle HTTP errors (e.g., 400, 500 status codes)
-            const errorData = await response.json();
-            throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.message || 'Unknown error'}`);
-        }
+  document.querySelectorAll('input[type="text"]').forEach(i => { if (i.id) sheetData.inputs[i.id] = i.value; });
+  document.querySelectorAll('[contenteditable="true"]').forEach(e => { if (e.id) sheetData.inputs[e.id] = e.innerText; });
+  document.querySelectorAll('input[type="checkbox"]').forEach(c => { if (c.name) sheetData.checkboxes[c.name] = c.checked; });
+  document.querySelectorAll('textarea').forEach(t => { if (t.id) sheetData.textareas[t.id] = t.value; });
 
-        const result = await response.json(); // If your Cloud Function returns JSON
-        console.log('Data saved successfully:', result);
-        alert('Sheet data saved!');
+  const rankImg = document.getElementById('rank-img');
+  if (rankImg) sheetData.inputs['rank-img-src'] = rankImg.src;
 
-    } catch (error) {
-        console.error('Error saving sheet data:', error);
-        alert('Failed to save sheet data: ' + error.message);
-    }
+  // Send JSON directly to the cloud
+  fetch(API_URL, {
+    method: 'POST', // or PUT depending on the bin rule
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(sheetData)
+  })
+    .then(() => alert("Saved to Cloud! Accessible on all devices."))
+    .catch(err => alert("Cloud save failed: " + err));
+}
+
+function applyDataToSheet(sheetData) {
+  if (sheetData.inputs) {
+    Object.keys(sheetData.inputs).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        if (el.tagName === 'INPUT') el.value = sheetData.inputs[id];
+        else if (el.hasAttribute('contenteditable')) el.innerText = sheetData.inputs[id];
+      }
+    });
+    if (sheetData.inputs['rank-img-src']) document.getElementById('rank-img').src = sheetData.inputs['rank-img-src'];
+  }
+  if (sheetData.checkboxes) {
+    Object.keys(sheetData.checkboxes).forEach(name => {
+      const cb = document.querySelector(`input[name="${name}"]`);
+      if (cb) cb.checked = sheetData.checkboxes[name];
+    });
+  }
+  if (sheetData.textareas) {
+    Object.keys(sheetData.textareas).forEach(id => {
+      const ta = document.getElementById(id);
+      if (ta) ta.value = sheetData.textareas[id];
+    });
+  }
 }
 
 
 // Function to Save to Browser Memory
 function autoSave() {
-    const data = {};
-    // Save all text inputs
-    document.querySelectorAll('input[type="text"], textarea').forEach(input => {
-        data[input.id || input.name] = input.value;
-    });
-    // Save all checkboxes
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-        data[checkbox.id || checkbox.name] = checkbox.checked;
-    });
-    
-    localStorage.setItem('sheetData', JSON.stringify(data));
+  const data = {};
+  // Save all text inputs
+  document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+    data[input.id || input.name] = input.value;
+  });
+  // Save all checkboxes
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    data[checkbox.id || checkbox.name] = checkbox.checked;
+  });
+
+  localStorage.setItem('sheetData', JSON.stringify(data));
 }
 
 // Function to Load when the page opens
 function loadData() {
-    const saved = localStorage.getItem('sheetData');
-    if (!saved) return;
-    
-    const data = JSON.parse(saved);
-    Object.keys(data).forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            if (el.type === 'checkbox') el.checked = data[id];
-            else el.value = data[id];
-        }
-    });
+  const saved = localStorage.getItem('sheetData');
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+  Object.keys(data).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (el.type === 'checkbox') el.checked = data[id];
+      else el.value = data[id];
+    }
+  });
 }
 
 // Run load on page startup
