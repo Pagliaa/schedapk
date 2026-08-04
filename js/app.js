@@ -854,23 +854,22 @@ function populateSheet(data) {
 
 // Call autoSave() whenever an input changes
 //document.addEventListener('input', autoSave);
-// Change input
-// Select the form or a container wrapping your inputs
-const form = document.querySelector('form'); // or document.body / #my-container
 
-// 1. Tracks typing in inputs, textareas, number fields in real time
-form.addEventListener('input', (event) => {
+// Change input
+// Change 'form' to '.fullpage' or 'document.body'
+const container = document.querySelector('.fullpage');
+
+// 1. Tracks typing in text inputs, textareas, etc.
+container.addEventListener('input', (event) => {
   const target = event.target;
-  
   if (target.type !== 'checkbox' && target.type !== 'radio') {
     console.log(`Input Modified [${target.name || target.id}]:`, target.value);
   }
 });
 
-// 2. Tracks checkboxes, radio buttons, select dropdowns, and date pickers on toggle/selection
-form.addEventListener('change', (event) => {
+// 2. Tracks checkboxes and radio buttons on toggle
+container.addEventListener('change', (event) => {
   const target = event.target;
-  
   if (target.type === 'checkbox' || target.type === 'radio') {
     console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
   }
