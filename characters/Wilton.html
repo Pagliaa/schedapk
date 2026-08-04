@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <title>Scheda Trainer</title>
     <link rel="stylesheet" href="../css/style.css">
-    <style type="text/css"></style>
-    <style type="text/css"></style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -126,7 +125,7 @@
                 </div>
                 <div class="div-propic">
                     <button class="btn-noborder" onclick="img_change()">
-                        <img src="https://static.wikia.nocookie.net/pokemon/images/7/79/Brendan_Omega_Ruby_and_Alpha_Sapphire.png/revision/latest?cb=20220812081012"
+                        <img src="https://pagliaa.github.io/schedapk/img/propic/Wilton.png"
                             id="poke-img" class="img-propic-pg"
                             onerror="this.src='https://static.wikia.nocookie.net/pokemon/images/7/79/Brendan_Omega_Ruby_and_Alpha_Sapphire.png/revision/latest?cb=20220812081012'">
                     </button>
@@ -658,7 +657,8 @@ Ed eccomi qua signor giudice.
 
         <div class="margin10"></div>
 
-        <button class="btn-toggle" onclick="saveSheetData('trainer')" style="margin-left: 20px;">Save Sheet</button>
+        <button class="btn-toggle" onclick="saveSheetData2('trainer')" style="margin-left: 20px;">Save Sheet</button>
+        <button class="btn-toggle" onclick="loadSheetData2()" style="margin-left: 20px;">Load Sheet</button>
 
         <!-- Script -->
         <script src="../js/app.js"></script>
