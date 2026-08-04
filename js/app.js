@@ -1,28 +1,6 @@
 let TYPE_CHART = {};
 let ranks = [];
 
-// Change input
-// Select the form or a container wrapping your inputs
-const form = document.querySelector('form'); // or document.body / #my-container
-
-// 1. Tracks typing in inputs, textareas, number fields in real time
-form.addEventListener('input', (event) => {
-  const target = event.target;
-  
-  if (target.type !== 'checkbox' && target.type !== 'radio') {
-    console.log(`Input Modified [${target.name || target.id}]:`, target.value);
-  }
-});
-
-// 2. Tracks checkboxes, radio buttons, select dropdowns, and date pickers on toggle/selection
-form.addEventListener('change', (event) => {
-  const target = event.target;
-  
-  if (target.type === 'checkbox' || target.type === 'radio') {
-    console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
-  }
-});
-
 // --- Helper Functions ---
 
 function poke_list() {
@@ -875,7 +853,28 @@ function populateSheet(data) {
 //window.onload = loadData;
 
 // Call autoSave() whenever an input changes
-document.addEventListener('input', autoSave);
+//document.addEventListener('input', autoSave);
+// Change input
+// Select the form or a container wrapping your inputs
+const form = document.querySelector('form'); // or document.body / #my-container
+
+// 1. Tracks typing in inputs, textareas, number fields in real time
+form.addEventListener('input', (event) => {
+  const target = event.target;
+  
+  if (target.type !== 'checkbox' && target.type !== 'radio') {
+    console.log(`Input Modified [${target.name || target.id}]:`, target.value);
+  }
+});
+
+// 2. Tracks checkboxes, radio buttons, select dropdowns, and date pickers on toggle/selection
+form.addEventListener('change', (event) => {
+  const target = event.target;
+  
+  if (target.type === 'checkbox' || target.type === 'radio') {
+    console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
+  }
+});
 
 // Start the app
 init();
