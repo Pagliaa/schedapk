@@ -627,10 +627,6 @@ async function saveSheetData2(sheetName) {
     .insert([
       { name: filename, value: jsonString }
     ]);
-
-  // Cleanup
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
 }
 
 
