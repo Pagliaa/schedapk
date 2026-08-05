@@ -501,136 +501,6 @@ async function savesamefile(id) {
   }
 }
 
-async function saveSheetData2(sheetName) {
-  const getCheckboxes = (prefix) => {
-    const result = [];
-    for (let i = 1; i <= 5; i++) {
-      const el = document.querySelector(`input[name="${prefix}${i}"]`);
-      result.push(el ? el.checked : false);
-    }
-    return result;
-  };
-
-  // Estrazione e mappatura di tutti i campi dell'HTML
-  const data = {
-    header: {
-      trainer_name: document.getElementById('trainer')?.innerText.trim() || '',
-      id: document.getElementById('id')?.innerText.trim() || '',
-      rank_img: document.getElementById('rank-img')?.getAttribute('src') || '',
-      team: document.getElementById('team')?.value || '',
-      age: document.getElementById('age')?.value || '',
-      money: document.getElementById('money')?.value || '',
-      reputation: document.getElementById('rep')?.value || '',
-      hp: {
-        actual: document.getElementById('hpact')?.value || '',
-        total: document.getElementById('hptot')?.value || ''
-      },
-      will: {
-        actual: document.getElementById('willact')?.value || '',
-        total: document.getElementById('willtot')?.value || ''
-      },
-      profile_picture: document.getElementById('poke-img')?.getAttribute('src') || ''
-    },
-    nature: {
-      search_input: document.getElementById('nature')?.value || '',
-      details: {
-        name: document.getElementById('h4-nat-name')?.innerText || '',
-        configuration: document.getElementById('h4-nat-conf')?.innerText || '',
-        key: document.getElementById('h4-nat-key')?.innerText || '',
-        text: document.getElementById('p-nat-text')?.innerText || ''
-      }
-    },
-    pokemon_team: [
-      { slot: 1, id: 'pk1', value: document.getElementById('pk1')?.value || '' },
-      { slot: 2, id: 'pk2', value: document.getElementById('pk2')?.value || '' },
-      { slot: 3, id: 'pk3', value: document.getElementById('pk3')?.value || '' }
-    ],
-    attributes: {
-      strength: getCheckboxes('cb_str'),
-      dexterity: getCheckboxes('cb_dex'),
-      vitality: getCheckboxes('cb_vit'),
-      insight: getCheckboxes('cb_ins')
-    },
-    social_attributes: {
-      tough: getCheckboxes('cb_tou'),
-      cool: getCheckboxes('cb_coo'),
-      beauty: getCheckboxes('cb_bea'),
-      cute: getCheckboxes('cb_cut'),
-      clever: getCheckboxes('cb_cle')
-    },
-    skills: {
-      fight: {
-        brawl: getCheckboxes('cb_bra'),
-        throw: getCheckboxes('cb_thr'),
-        evasion: getCheckboxes('cb_eva'),
-        weapons: getCheckboxes('cb_wea')
-      },
-      survival: {
-        alert: getCheckboxes('cb_ale'),
-        athletic: getCheckboxes('cb_ath'),
-        nature: getCheckboxes('cb_nat'),
-        stealth: getCheckboxes('cb_ste')
-      },
-      social: {
-        empathy: getCheckboxes('cb_emp'),
-        etiquette: getCheckboxes('cb_eti'),
-        intimidate: getCheckboxes('cb_int'),
-        perform: getCheckboxes('cb_per')
-      },
-      knowledge: {
-        crafts: getCheckboxes('cb_cra'),
-        lore: getCheckboxes('cb_lor'),
-        medicine: getCheckboxes('cb_med'),
-        science: getCheckboxes('cb_sci')
-      }
-    },
-    bag: {
-      potion: document.getElementById('pot')?.value || '',
-      super_potion: document.getElementById('spo')?.value || '',
-      hyper_potion: document.getElementById('hpo')?.value || '',
-      items_left: Array.from({ length: 15 }, (_, i) =>
-        document.getElementById(`bag-l${i + 1}`)?.value || ''
-      ),
-      items_right: Array.from({ length: 15 }, (_, i) =>
-        document.getElementById(`bag-r1${i + 1}`)?.value || ''
-      )
-    },
-    background: document.querySelector('#div-background textarea')?.value || '',
-    conoscenze_personali: document.querySelector('#div-conoscenze textarea')?.value || ''
-  };
-
-  // Generazione del file JSON e download automatico nel browser
-  const jsonString = JSON.stringify(data, null, 4);
-  const blob = new Blob([jsonString], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-
-  const filename = document.getElementById('trainer')?.innerText.trim() || 'trainer';
-
-  /*const a = document.createElement('a');
-  a.href = url;
-  a.download = `${filename}.json`;
-  document.body.appendChild(a);
-  a.click();*/
-
-  // 1. Inizializza il client Supabase
-  const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
-
-  const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-  // 2. Gestisci l'invio del modulo
-  //e.preventDefault(); // Impedisce il ricaricamento della pagina
-
-  // 3. Salva i dati nella tabella 'contatti'
-  const { db, error } = await supabaseclient
-    .from('Characters')
-    .update([
-      { name: filename, value: jsonString }
-    ])
-    .eq('name', 'Wilton');
-}
-
-
 // Function to Save to Browser Memory
 function autoSave() {
   const data = {};
@@ -661,8 +531,379 @@ function loadData() {
   });
 }
 
-async function loadSheetData2() {
+async function saveSheetData2(sheetName) {
+  const getCheckboxes = (prefix) => {
+    const result = [];
+    for (let i = 1; i <= 5; i++) {
+      const el = document.querySelector(`input[name="${prefix}${i}"]`);
+      result.push(el ? el.checked : false);
+    }
+    return result;
+  };
 
+  // Mappatura di tutte le mosse presenti nella pagina
+  const moves = [];
+  document.querySelectorAll('.div-single-move input[name^="move"]').forEach((input) => {
+    const moveId = input.id; // es. move1
+    moves.push({
+      id: moveId,
+      value: input.value || ''
+    });
+  });
+
+  // Estrazione e mappatura di tutti i campi dell'HTML
+  const data = {
+    header: {
+      trainer_name: document.getElementById('trainer')?.innerText.trim() || '',
+      pokemon_name: document.getElementById('name')?.innerText.trim() || '',
+      pokename: document.getElementById('pokename')?.innerText.trim() || '',
+      pokenr: document.getElementById('pokenr')?.innerText.trim() || '',
+      type1: {
+        text: document.getElementById('type1-text')?.innerText || '',
+        class: document.getElementById('type1')?.className || ''
+      },
+      type2: {
+        text: document.getElementById('type2-text')?.innerText || '',
+        class: document.getElementById('type2')?.className || ''
+      },
+      rank_img: document.getElementById('rank-img')?.getAttribute('src') || '',
+      happiness: getCheckboxes('cb_hap'),
+      loyalty: getCheckboxes('cb_loy'),
+      size: document.getElementById('size')?.value || '',
+      weight: document.getElementById('weight')?.value || '',
+      profile_picture: document.getElementById('poke-img')?.getAttribute('src') || '',
+      
+      // Mantenuti campi trainer se presenti in altri schemi
+      id: document.getElementById('id')?.innerText.trim() || '',
+      team: document.getElementById('team')?.value || '',
+      age: document.getElementById('age')?.value || '',
+      money: document.getElementById('money')?.value || '',
+      reputation: document.getElementById('rep')?.value || ''
+    },
+    quick_references: {
+      hp: {
+        actual: document.getElementById('hpact')?.value || '',
+        total: document.getElementById('hptot')?.value || ''
+      },
+      def_spdef: {
+        actual: document.getElementById('defact')?.value || '',
+        total: document.getElementById('deftot')?.value || ''
+      },
+      will: {
+        actual: document.getElementById('willact')?.value || '',
+        total: document.getElementById('willtot')?.value || ''
+      },
+      held_item: document.querySelector('input[name="held_item"]')?.value || '',
+      status_effect: document.querySelector('input[name="status_effect"]')?.value || '',
+      initiative: document.querySelector('input[name="init"]')?.value || '',
+      evasion: document.querySelector('input[name="evasion_val"]')?.value || '',
+      fatigue: getCheckboxes('cb_fat'),
+      action_used: getCheckboxes('cb_act')
+    },
+    ability: {
+      search_input: document.getElementById('ability')?.value || '',
+      details: {
+        name: document.getElementById('h4-abil-name')?.innerText || '',
+        effect: document.getElementById('p-abil-eff')?.innerText || '',
+        text: document.getElementById('p-abil-text')?.innerText || ''
+      }
+    },
+    nature: {
+      search_input: document.getElementById('nature')?.value || '',
+      details: {
+        name: document.getElementById('h4-nat-name')?.innerText || '',
+        configuration: document.getElementById('h4-nat-conf')?.innerText || '',
+        key: document.getElementById('h4-nat-key')?.innerText || '',
+        text: document.getElementById('p-nat-text')?.innerText || ''
+      }
+    },
+    pokemon_team: [
+      { slot: 1, id: 'pk1', value: document.getElementById('pk1')?.value || '' },
+      { slot: 2, id: 'pk2', value: document.getElementById('pk2')?.value || '' },
+      { slot: 3, id: 'pk3', value: document.getElementById('pk3')?.value || '' }
+    ],
+    attributes: {
+      strength: getCheckboxes('cb_str'),
+      dexterity: getCheckboxes('cb_dex'),
+      vitality: getCheckboxes('cb_vit'),
+      special: getCheckboxes('cb_spe'),
+      insight: getCheckboxes('cb_ins')
+    },
+    social_attributes: {
+      tough: getCheckboxes('cb_tou'),
+      cool: getCheckboxes('cb_coo'),
+      beauty: getCheckboxes('cb_bea'),
+      cute: getCheckboxes('cb_cut'),
+      clever: getCheckboxes('cb_cle')
+    },
+    skills: {
+      fight: {
+        brawl: getCheckboxes('cb_bra'),
+        channel: getCheckboxes('cb_chan'),
+        clash: getCheckboxes('cb_cla'),
+        evasion: getCheckboxes('cb_eva'),
+        throw: getCheckboxes('cb_thr'),
+        weapons: getCheckboxes('cb_wea')
+      },
+      survival: {
+        alert: getCheckboxes('cb_ale'),
+        athletic: getCheckboxes('cb_ath'),
+        nature: getCheckboxes('cb_nat'),
+        stealth: getCheckboxes('cb_ste')
+      },
+      social: {
+        charm: getCheckboxes('cb_chm'),
+        empathy: getCheckboxes('cb_emp'),
+        etiquette: getCheckboxes('cb_eti'),
+        intimidate: getCheckboxes('cb_int'),
+        perform: getCheckboxes('cb_per')
+      },
+      knowledge: {
+        crafts: getCheckboxes('cb_cra'),
+        lore: getCheckboxes('cb_lor'),
+        medicine: getCheckboxes('cb_med'),
+        science: getCheckboxes('cb_sci')
+      }
+    },
+    bag: {
+      potion: document.getElementById('pot')?.value || '',
+      super_potion: document.getElementById('spo')?.value || '',
+      hyper_potion: document.getElementById('hpo')?.value || '',
+      items_left: Array.from({ length: 15 }, (_, i) =>
+        document.getElementById(`bag-l${i + 1}`)?.value || ''
+      ),
+      items_right: Array.from({ length: 15 }, (_, i) =>
+        document.getElementById(`bag-r${i + 1}`)?.value || ''
+      )
+    },
+    moves: moves,
+    background: document.querySelector('#div-background textarea')?.value || '',
+    conoscenze_personali: document.querySelector('#div-conoscenze textarea')?.value || ''
+  };
+
+  // Generazione del JSON e invio a Supabase
+  const jsonString = JSON.stringify(data, null, 4);
+  const filename = document.getElementById('trainer')?.innerText.trim() || 'trainer';
+
+  const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
+
+  const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const { db, error } = await supabaseclient
+    .from('Characters')
+    .update([
+      { name: filename, value: jsonString }
+    ])
+    .eq('name', 'Wilton');
+}
+
+// Helper function to fill the form elements with JSON data
+function populateSheet(data) {
+  const setValue = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.value = val ?? '';
+  };
+
+  const setByName = (name, val) => {
+    const el = document.querySelector(`input[name="${name}"]`);
+    if (el) el.value = val ?? '';
+  };
+
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.innerText = val ?? '';
+  };
+
+  const setCheckboxes = (prefix, values = []) => {
+    values.forEach((checked, i) => {
+      const el = document.querySelector(`input[name="${prefix}${i + 1}"]`);
+      if (el) el.checked = Boolean(checked);
+    });
+  };
+
+  // --- 1. Header ---
+  if (data.header) {
+    setText('trainer', data.header.trainer_name);
+    setText('name', data.header.pokemon_name);
+    setText('pokename', data.header.pokename);
+    setText('pokenr', data.header.pokenr);
+
+    if (data.header.type1) {
+      setText('type1-text', data.header.type1.text);
+      if (data.header.type1.class) document.getElementById('type1').className = data.header.type1.class;
+    }
+    if (data.header.type2) {
+      setText('type2-text', data.header.type2.text);
+      if (data.header.type2.class) document.getElementById('type2').className = data.header.type2.class;
+    }
+
+    if (data.header.rank_img) {
+      const rankImg = document.getElementById('rank-img');
+      if (rankImg) rankImg.src = data.header.rank_img;
+    }
+
+    setCheckboxes('cb_hap', data.header.happiness);
+    setCheckboxes('cb_loy', data.header.loyalty);
+
+    setValue('size', data.header.size);
+    setValue('weight', data.header.weight);
+
+    setText('id', data.header.id);
+    setValue('team', data.header.team);
+    setValue('age', data.header.age);
+    setValue('money', data.header.money);
+    setValue('rep', data.header.reputation);
+
+    if (data.header.profile_picture) {
+      const profileImg = document.getElementById('poke-img');
+      if (profileImg) profileImg.src = data.header.profile_picture;
+    }
+  }
+
+  // --- 2. Quick References ---
+  if (data.quick_references) {
+    if (data.quick_references.hp) {
+      setValue('hpact', data.quick_references.hp.actual);
+      setValue('hptot', data.quick_references.hp.total);
+    }
+    if (data.quick_references.def_spdef) {
+      setValue('defact', data.quick_references.def_spdef.actual);
+      setValue('deftot', data.quick_references.def_spdef.total);
+    }
+    if (data.quick_references.will) {
+      setValue('willact', data.quick_references.will.actual);
+      setValue('willtot', data.quick_references.will.total);
+    }
+    setByName('held_item', data.quick_references.held_item);
+    setByName('status_effect', data.quick_references.status_effect);
+    setByName('init', data.quick_references.initiative);
+    setByName('evasion_val', data.quick_references.evasion);
+
+    setCheckboxes('cb_fat', data.quick_references.fatigue);
+    setCheckboxes('cb_act', data.quick_references.action_used);
+  }
+
+  // --- 3. Ability ---
+  if (data.ability) {
+    setValue('ability', data.ability.search_input);
+    if (data.ability.details) {
+      setText('h4-abil-name', data.ability.details.name);
+      setText('p-abil-eff', data.ability.details.effect);
+      setText('p-abil-text', data.ability.details.text);
+    }
+  }
+
+  // --- 4. Nature ---
+  if (data.nature) {
+    setValue('nature', data.nature.search_input);
+    if (data.nature.details) {
+      setText('h4-nat-name', data.nature.details.name);
+      setText('h4-nat-conf', data.nature.details.configuration);
+      setText('h4-nat-key', data.nature.details.key);
+      setText('p-nat-text', data.nature.details.text);
+    }
+  }
+
+  // --- 5. Pokémon Team ---
+  if (Array.isArray(data.pokemon_team)) {
+    data.pokemon_team.forEach(item => {
+      if (item.id) setValue(item.id, item.value);
+    });
+  }
+
+  // --- 6. Attributes ---
+  if (data.attributes) {
+    setCheckboxes('cb_str', data.attributes.strength);
+    setCheckboxes('cb_dex', data.attributes.dexterity);
+    setCheckboxes('cb_vit', data.attributes.vitality);
+    setCheckboxes('cb_spe', data.attributes.special);
+    setCheckboxes('cb_ins', data.attributes.insight);
+  }
+
+  // --- 7. Social Attributes ---
+  if (data.social_attributes) {
+    setCheckboxes('cb_tou', data.social_attributes.tough);
+    setCheckboxes('cb_coo', data.social_attributes.cool);
+    setCheckboxes('cb_bea', data.social_attributes.beauty);
+    setCheckboxes('cb_cut', data.social_attributes.cute);
+    setCheckboxes('cb_cle', data.social_attributes.clever);
+  }
+
+  // --- 8. Skills ---
+  if (data.skills) {
+    if (data.skills.fight) {
+      setCheckboxes('cb_bra', data.skills.fight.brawl);
+      setCheckboxes('cb_chan', data.skills.fight.channel);
+      setCheckboxes('cb_cla', data.skills.fight.clash);
+      setCheckboxes('cb_eva', data.skills.fight.evasion);
+      setCheckboxes('cb_thr', data.skills.fight.throw);
+      setCheckboxes('cb_wea', data.skills.fight.weapons);
+    }
+    if (data.skills.survival) {
+      setCheckboxes('cb_ale', data.skills.survival.alert);
+      setCheckboxes('cb_ath', data.skills.survival.athletic);
+      setCheckboxes('cb_nat', data.skills.survival.nature);
+      setCheckboxes('cb_ste', data.skills.survival.stealth);
+    }
+    if (data.skills.social) {
+      setCheckboxes('cb_chm', data.skills.social.charm);
+      setCheckboxes('cb_emp', data.skills.social.empathy);
+      setCheckboxes('cb_eti', data.skills.social.etiquette);
+      setCheckboxes('cb_int', data.skills.social.intimidate);
+      setCheckboxes('cb_per', data.skills.social.perform);
+    }
+    if (data.skills.knowledge) {
+      setCheckboxes('cb_cra', data.skills.knowledge.crafts);
+      setCheckboxes('cb_lor', data.skills.knowledge.lore);
+      setCheckboxes('cb_med', data.skills.knowledge.medicine);
+      setCheckboxes('cb_sci', data.skills.knowledge.science);
+    }
+  }
+
+  // --- 9. Bag ---
+  if (data.bag) {
+    setValue('pot', data.bag.potion);
+    setValue('spo', data.bag.super_potion);
+    setValue('hpo', data.bag.hyper_potion);
+
+    if (Array.isArray(data.bag.items_left)) {
+      data.bag.items_left.forEach((val, i) => setValue(`bag-l${i + 1}`, val));
+    }
+    if (Array.isArray(data.bag.items_right)) {
+      data.bag.items_right.forEach((val, i) => setValue(`bag-r${i + 1}`, val));
+    }
+  }
+
+  // --- 10. Moves ---
+  if (Array.isArray(data.moves)) {
+    data.moves.forEach(m => {
+      let input = document.getElementById(m.id);
+      // Se la mossa salvata non esiste nell'HTML (es. oltre move2), crea la mossa dinamicamente
+      if (!input && typeof addMove === 'function') {
+        addMove('move');
+        input = document.getElementById(m.id);
+      }
+      if (input) {
+        input.value = m.value;
+        // Se la mossa ha un valore, esegui la ricerca automatica per popolare la scheda
+        const prog = m.id.replace('move', '');
+        if (m.value && typeof search === 'function') {
+          search('move', prog);
+        }
+      }
+    });
+  }
+
+  // --- 11. Textareas ---
+  const bgTextarea = document.querySelector('#div-background textarea');
+  if (bgTextarea) bgTextarea.value = data.background || '';
+
+  const conTextarea = document.querySelector('#div-conoscenze textarea');
+  if (conTextarea) conTextarea.value = data.conoscenze_personali || '';
+}
+
+async function loadSheetData2() {
   const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
 
@@ -678,176 +919,12 @@ async function loadSheetData2() {
   } else {
     console.log('Fetched characters:', data);
 
-    // Since you saved 'jsonString', parse it back into a JavaScript object if needed:
     data.forEach(item => {
       const parsedValue = JSON.parse(item.value);
       populateSheet(parsedValue);
       console.log(`Character ${item.name}:`, parsedValue);
     });
   }
-
-  /*
-    // 1. Create a temporary invisible file input
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = '.json,application/json';
-  
-    fileInput.onchange = (event) => {
-      const file = event.target.files[0];
-      if (!file) return;
-  
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const data = JSON.parse(e.target.result);
-          populateSheet(data);
-        } catch (err) {
-          console.error('Error parsing JSON:', err);
-          alert('Invalid JSON file!');
-        }
-      };
-      reader.readAsText(file);
-    };
-  
-    // 2. Trigger the file browser dialog
-    fileInput.click();
-  */
-}
-
-// Helper function to fill the form elements with JSON data
-function populateSheet(data) {
-  // Helper to safely set element value by ID
-  const setValue = (id, val) => {
-    const el = document.getElementById(id);
-    if (el) el.value = val ?? '';
-  };
-
-  // Helper to safely set innerText by ID
-  const setText = (id, val) => {
-    const el = document.getElementById(id);
-    if (el) el.innerText = val ?? '';
-  };
-
-  // Helper to set checkboxes by prefix and array of booleans
-  const setCheckboxes = (prefix, values = []) => {
-    values.forEach((checked, i) => {
-      const el = document.querySelector(`input[name="${prefix}${i + 1}"]`);
-      if (el) el.checked = Boolean(checked);
-    });
-  };
-
-  // --- 1. Header ---
-  if (data.header) {
-    setText('trainer', data.header.trainer_name);
-    setText('id', data.header.id);
-
-    if (data.header.rank_img) {
-      const rankImg = document.getElementById('rank-img');
-      if (rankImg) rankImg.src = data.header.rank_img;
-    }
-
-    setValue('team', data.header.team);
-    setValue('age', data.header.age);
-    setValue('money', data.header.money);
-    setValue('rep', data.header.reputation);
-
-    if (data.header.hp) {
-      setValue('hpact', data.header.hp.actual);
-      setValue('hptot', data.header.hp.total);
-    }
-    if (data.header.will) {
-      setValue('willact', data.header.will.actual);
-      setValue('willtot', data.header.will.total);
-    }
-    if (data.header.profile_picture) {
-      const profileImg = document.getElementById('poke-img');
-      if (profileImg) profileImg.src = data.header.profile_picture;
-    }
-  }
-
-  // --- 2. Nature ---
-  if (data.nature) {
-    setValue('nature', data.nature.search_input);
-    if (data.nature.details) {
-      setText('h4-nat-name', data.nature.details.name);
-      setText('h4-nat-conf', data.nature.details.configuration);
-      setText('h4-nat-key', data.nature.details.key);
-      setText('p-nat-text', data.nature.details.text);
-    }
-  }
-
-  // --- 3. Pokémon Team ---
-  if (Array.isArray(data.pokemon_team)) {
-    data.pokemon_team.forEach(item => {
-      if (item.id) setValue(item.id, item.value);
-    });
-  }
-
-  // --- 4. Attributes ---
-  if (data.attributes) {
-    setCheckboxes('cb_str', data.attributes.strength);
-    setCheckboxes('cb_dex', data.attributes.dexterity);
-    setCheckboxes('cb_vit', data.attributes.vitality);
-    setCheckboxes('cb_ins', data.attributes.insight);
-  }
-
-  // --- 5. Social Attributes ---
-  if (data.social_attributes) {
-    setCheckboxes('cb_tou', data.social_attributes.tough);
-    setCheckboxes('cb_coo', data.social_attributes.cool);
-    setCheckboxes('cb_bea', data.social_attributes.beauty);
-    setCheckboxes('cb_cut', data.social_attributes.cute);
-    setCheckboxes('cb_cle', data.social_attributes.clever);
-  }
-
-  // --- 6. Skills ---
-  if (data.skills) {
-    if (data.skills.fight) {
-      setCheckboxes('cb_bra', data.skills.fight.brawl);
-      setCheckboxes('cb_thr', data.skills.fight.throw);
-      setCheckboxes('cb_eva', data.skills.fight.evasion);
-      setCheckboxes('cb_wea', data.skills.fight.weapons);
-    }
-    if (data.skills.survival) {
-      setCheckboxes('cb_ale', data.skills.survival.alert);
-      setCheckboxes('cb_ath', data.skills.survival.athletic);
-      setCheckboxes('cb_nat', data.skills.survival.nature);
-      setCheckboxes('cb_ste', data.skills.survival.stealth);
-    }
-    if (data.skills.social) {
-      setCheckboxes('cb_emp', data.skills.social.empathy);
-      setCheckboxes('cb_eti', data.skills.social.etiquette);
-      setCheckboxes('cb_int', data.skills.social.intimidate);
-      setCheckboxes('cb_per', data.skills.social.perform);
-    }
-    if (data.skills.knowledge) {
-      setCheckboxes('cb_cra', data.skills.knowledge.crafts);
-      setCheckboxes('cb_lor', data.skills.knowledge.lore);
-      setCheckboxes('cb_med', data.skills.knowledge.medicine);
-      setCheckboxes('cb_sci', data.skills.knowledge.science);
-    }
-  }
-
-  // --- 7. Bag ---
-  if (data.bag) {
-    setValue('pot', data.bag.potion);
-    setValue('spo', data.bag.super_potion);
-    setValue('hpo', data.bag.hyper_potion);
-
-    if (Array.isArray(data.bag.items_left)) {
-      data.bag.items_left.forEach((val, i) => setValue(`bag-l${i + 1}`, val));
-    }
-    if (Array.isArray(data.bag.items_right)) {
-      data.bag.items_right.forEach((val, i) => setValue(`bag-r${i + 1}`, val));
-    }
-  }
-
-  // --- 8. Textareas ---
-  const bgTextarea = document.querySelector('#div-background textarea');
-  if (bgTextarea) bgTextarea.value = data.background || '';
-
-  const conTextarea = document.querySelector('#div-conoscenze textarea');
-  if (conTextarea) conTextarea.value = data.conoscenze_personali || '';
 }
 
 // Run load on page startup
