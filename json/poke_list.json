@@ -374,19 +374,19 @@
     {
         "pokemon": "abra",
         "nr": "63",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "kadabra",
         "nr": "64",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "alakazam",
         "nr": "65",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -471,13 +471,13 @@
         "pokemon": "slowpoke",
         "nr": "79",
         "tipo1": "water",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "slowbro",
         "nr": "80",
         "tipo1": "water",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "magnemite",
@@ -572,13 +572,13 @@
     {
         "pokemon": "drowzee",
         "nr": "96",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "hypno",
         "nr": "97",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -609,13 +609,13 @@
         "pokemon": "exeggcute",
         "nr": "102",
         "tipo1": "grass",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "exeggutor",
         "nr": "103",
         "tipo1": "grass",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "cubone",
@@ -723,12 +723,12 @@
         "pokemon": "starmie",
         "nr": "121",
         "tipo1": "water",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "mr-mime",
         "nr": "122",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fairy"
     },
     {
@@ -741,7 +741,7 @@
         "pokemon": "jynx",
         "nr": "124",
         "tipo1": "ice",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "electabuzz",
@@ -896,13 +896,13 @@
     {
         "pokemon": "mewtwo",
         "nr": "150",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "mew",
         "nr": "151",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -1058,13 +1058,13 @@
     {
         "pokemon": "natu",
         "nr": "177",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "flying"
     },
     {
         "pokemon": "xatu",
         "nr": "178",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "flying"
     },
     {
@@ -1172,7 +1172,7 @@
     {
         "pokemon": "espeon",
         "nr": "196",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -1191,7 +1191,7 @@
         "pokemon": "slowking",
         "nr": "199",
         "tipo1": "water",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "misdreavus",
@@ -1202,20 +1202,20 @@
     {
         "pokemon": "unown",
         "nr": "201",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "wobbuffet",
         "nr": "202",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "girafarig",
         "nr": "203",
         "tipo1": "normal",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "pineco",
@@ -1425,7 +1425,7 @@
         "pokemon": "smoochum",
         "nr": "238",
         "tipo1": "ice",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "elekid",
@@ -1490,7 +1490,7 @@
     {
         "pokemon": "lugia",
         "nr": "249",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "flying"
     },
     {
@@ -1502,7 +1502,7 @@
     {
         "pokemon": "celebi",
         "nr": "251",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "grass"
     },
     {
@@ -1676,19 +1676,19 @@
     {
         "pokemon": "ralts",
         "nr": "280",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fairy"
     },
     {
         "pokemon": "kirlia",
         "nr": "281",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fairy"
     },
     {
         "pokemon": "gardevoir",
         "nr": "282",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fairy"
     },
     {
@@ -1839,13 +1839,13 @@
         "pokemon": "meditite",
         "nr": "307",
         "tipo1": "fighting",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "medicham",
         "nr": "308",
         "tipo1": "fighting",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "electrike",
@@ -1946,13 +1946,13 @@
     {
         "pokemon": "spoink",
         "nr": "325",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "grumpig",
         "nr": "326",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -2019,13 +2019,13 @@
         "pokemon": "lunatone",
         "nr": "337",
         "tipo1": "rock",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "solrock",
         "nr": "338",
         "tipo1": "rock",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "barboach",
@@ -2055,13 +2055,13 @@
         "pokemon": "baltoy",
         "nr": "343",
         "tipo1": "ground",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "claydol",
         "nr": "344",
         "tipo1": "ground",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "lileep",
@@ -2144,7 +2144,7 @@
     {
         "pokemon": "chimecho",
         "nr": "358",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -2156,7 +2156,7 @@
     {
         "pokemon": "wynaut",
         "nr": "360",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -2241,19 +2241,19 @@
         "pokemon": "beldum",
         "nr": "374",
         "tipo1": "steel",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "metang",
         "nr": "375",
         "tipo1": "steel",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "metagross",
         "nr": "376",
         "tipo1": "steel",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "regirock",
@@ -2277,13 +2277,13 @@
         "pokemon": "latias",
         "nr": "380",
         "tipo1": "dragon",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "latios",
         "nr": "381",
         "tipo1": "dragon",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "kyogre",
@@ -2307,12 +2307,12 @@
         "pokemon": "jirachi",
         "nr": "385",
         "tipo1": "steel",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "deoxys-normal",
         "nr": "386",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -2594,7 +2594,7 @@
     {
         "pokemon": "chingling",
         "nr": "433",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -2613,13 +2613,13 @@
         "pokemon": "bronzor",
         "nr": "436",
         "tipo1": "steel",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "bronzong",
         "nr": "437",
         "tipo1": "steel",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "bonsly",
@@ -2630,7 +2630,7 @@
     {
         "pokemon": "mime-jr",
         "nr": "439",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fairy"
     },
     {
@@ -2846,7 +2846,7 @@
     {
         "pokemon": "gallade",
         "nr": "475",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fighting"
     },
     {
@@ -2876,19 +2876,19 @@
     {
         "pokemon": "uxie",
         "nr": "480",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "mesprit",
         "nr": "481",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "azelf",
         "nr": "482",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -2924,7 +2924,7 @@
     {
         "pokemon": "cresselia",
         "nr": "488",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -2960,7 +2960,7 @@
     {
         "pokemon": "victini",
         "nr": "494",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fire"
     },
     {
@@ -3098,13 +3098,13 @@
     {
         "pokemon": "munna",
         "nr": "517",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "musharna",
         "nr": "518",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -3158,13 +3158,13 @@
     {
         "pokemon": "woobat",
         "nr": "527",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "flying"
     },
     {
         "pokemon": "swoobat",
         "nr": "528",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "flying"
     },
     {
@@ -3362,7 +3362,7 @@
     {
         "pokemon": "sigilyph",
         "nr": "561",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "flying"
     },
     {
@@ -3440,37 +3440,37 @@
     {
         "pokemon": "gothita",
         "nr": "574",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "gothorita",
         "nr": "575",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "gothitelle",
         "nr": "576",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "solosis",
         "nr": "577",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "duosion",
         "nr": "578",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "reuniclus",
         "nr": "579",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -3626,13 +3626,13 @@
     {
         "pokemon": "elgyem",
         "nr": "605",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "beheeyem",
         "nr": "606",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -3885,7 +3885,7 @@
         "pokemon": "meloetta-aria",
         "nr": "648",
         "tipo1": "normal",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "genesect",
@@ -3927,7 +3927,7 @@
         "pokemon": "delphox",
         "nr": "655",
         "tipo1": "fire",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "froakie",
@@ -4058,13 +4058,13 @@
     {
         "pokemon": "espurr",
         "nr": "677",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "meowstic-male",
         "nr": "678",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -4113,13 +4113,13 @@
         "pokemon": "inkay",
         "nr": "686",
         "tipo1": "dark",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "malamar",
         "nr": "687",
         "tipo1": "dark",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "binacle",
@@ -4316,7 +4316,7 @@
     {
         "pokemon": "hoopa",
         "nr": "720",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "ghost"
     },
     {
@@ -4587,7 +4587,7 @@
         "pokemon": "oranguru",
         "nr": "765",
         "tipo1": "normal",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "passimian",
@@ -4671,7 +4671,7 @@
         "pokemon": "bruxish",
         "nr": "779",
         "tipo1": "water",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "drampa",
@@ -4712,7 +4712,7 @@
     {
         "pokemon": "tapu-lele",
         "nr": "786",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fairy"
     },
     {
@@ -4730,25 +4730,25 @@
     {
         "pokemon": "cosmog",
         "nr": "789",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "cosmoem",
         "nr": "790",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "solgaleo",
         "nr": "791",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "steel"
     },
     {
         "pokemon": "lunala",
         "nr": "792",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "ghost"
     },
     {
@@ -4796,7 +4796,7 @@
     {
         "pokemon": "necrozma",
         "nr": "800",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
@@ -4947,13 +4947,13 @@
         "pokemon": "dottler",
         "nr": "825",
         "tipo1": "bug",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "orbeetle",
         "nr": "826",
         "tipo1": "bug",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "nickit",
@@ -5132,19 +5132,19 @@
     {
         "pokemon": "hatenna",
         "nr": "856",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "hattrem",
         "nr": "857",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "hatterene",
         "nr": "858",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "fairy"
     },
     {
@@ -5193,7 +5193,7 @@
         "pokemon": "mr-rime",
         "nr": "866",
         "tipo1": "ice",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "runerigus",
@@ -5252,7 +5252,7 @@
     {
         "pokemon": "indeedee-male",
         "nr": "876",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "normal"
     },
     {
@@ -5384,1171 +5384,1861 @@
     {
         "pokemon": "calyrex",
         "nr": "898",
-        "tipo1": "psico",
+        "tipo1": "psychic",
         "tipo2": "grass"
     },
     {
-        "pokemon": "deoxys-attack",
+        "pokemon": "wyrdeer",
         "nr": "899",
-        "tipo1": "psico",
-        "tipo2": ""
+        "tipo1": "nromal",
+        "tipo2": "psychic"
     },
     {
-        "pokemon": "deoxys-defense",
+        "pokemon": "kleavor",
         "nr": "900",
-        "tipo1": "psico",
-        "tipo2": ""
+        "tipo1": "bug",
+        "tipo2": "rock"
     },
     {
-        "pokemon": "deoxys-speed",
+        "pokemon": "ursaluna",
         "nr": "901",
-        "tipo1": "psico",
+        "tipo1": "ground",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "basculegion",
+        "nr": "903",
+        "tipo1": "water",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "sneasler",
+        "nr": "903",
+        "tipo1": "fight",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "overquil",
+        "nr": "904",
+        "tipo1": "dark",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "enamorus",
+        "nr": "905",
+        "tipo1": "fairy",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "sprigatito",
+        "nr": "906",
+        "tipo1": "grass",
         "tipo2": ""
     },
     {
-        "pokemon": "wormadam-sandy",
-        "nr": "902",
-        "tipo1": "bug",
-        "tipo2": "ground"
-    },
-    {
-        "pokemon": "wormadam-trash",
-        "nr": "903",
-        "tipo1": "bug",
-        "tipo2": "steel"
-    },
-    {
-        "pokemon": "shaymin-sky",
-        "nr": "904",
-        "tipo1": "grass",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "giratina-origin",
-        "nr": "905",
-        "tipo1": "ghost",
-        "tipo2": "dragon"
-    },
-    {
-        "pokemon": "rotom-heat",
-        "nr": "906",
-        "tipo1": "electric",
-        "tipo2": "fire"
-    },
-    {
-        "pokemon": "rotom-wash",
+        "pokemon": "floragato",
         "nr": "907",
-        "tipo1": "electric",
-        "tipo2": "water"
+        "tipo1": "grass",
+        "tipo2": ""
     },
     {
-        "pokemon": "rotom-frost",
+        "pokemon": "mewscarada",
         "nr": "908",
-        "tipo1": "electric",
-        "tipo2": "ice"
+        "tipo1": "grass",
+        "tipo2": ""
     },
     {
-        "pokemon": "rotom-fan",
+        "pokemon": "fuecoco",
         "nr": "909",
-        "tipo1": "electric",
-        "tipo2": "flying"
+        "tipo1": "fire",
+        "tipo2": ""
     },
     {
-        "pokemon": "rotom-mow",
+        "pokemon": "crocalor",
         "nr": "910",
-        "tipo1": "electric",
-        "tipo2": "grass"
+        "tipo1": "fire",
+        "tipo2": ""
     },
     {
-        "pokemon": "castform-sunny",
+        "pokemon": "skeledirge",
         "nr": "911",
         "tipo1": "fire",
         "tipo2": ""
     },
     {
-        "pokemon": "castform-rainy",
+        "pokemon": "quaxly",
         "nr": "912",
         "tipo1": "water",
         "tipo2": ""
     },
     {
-        "pokemon": "castform-snowy",
+        "pokemon": "quaxwell",
         "nr": "913",
-        "tipo1": "ice",
+        "tipo1": "water",
         "tipo2": ""
     },
     {
-        "pokemon": "basculin-blue-striped",
+        "pokemon": "quaquaval",
         "nr": "914",
         "tipo1": "water",
         "tipo2": ""
     },
     {
-        "pokemon": "darmanitan-zen",
+        "pokemon": "lechonk",
         "nr": "915",
+        "tipo1": "normal",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "oinkologne",
+        "nr": "916",
+        "tipo1": "normal",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "tarountula",
+        "nr": "917",
+        "tipo1": "bug",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "spidops",
+        "nr": "918",
+        "tipo1": "bug",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "nymble",
+        "nr": "919",
+        "tipo1": "bug",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "lokix",
+        "nr": "920",
+        "tipo1": "bug",
+        "tipo2": "dark"
+    },
+    {
+        "pokemon": "pawmi",
+        "nr": "921",
+        "tipo1": "electric",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "pawmo",
+        "nr": "922",
+        "tipo1": "electric",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "pawmot",
+        "nr": "923",
+        "tipo1": "electric",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "tandemaus",
+        "nr": "924",
+        "tipo1": "normal",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "maushold",
+        "nr": "925",
+        "tipo1": "normal",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "fidough",
+        "nr": "926",
+        "tipo1": "fairy",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "dachsbun",
+        "nr": "927",
+        "tipo1": "fairy",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "smoliv",
+        "nr": "928",
+        "tipo1": "grass",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "doliv",
+        "nr": "929",
+        "tipo1": "grass",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "arboliva",
+        "nr": "930",
+        "tipo1": "grass",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "squawkabily",
+        "nr": "931",
+        "tipo1": "normal",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "nacli",
+        "nr": "932",
+        "tipo1": "rock",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "naclstack",
+        "nr": "933",
+        "tipo1": "rock",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "graganacl",
+        "nr": "934",
+        "tipo1": "rock",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "charcadet",
+        "nr": "935",
         "tipo1": "fire",
-        "tipo2": "psico"
+        "tipo2": ""
+    },
+    {
+        "pokemon": "armarouge",
+        "nr": "936",
+        "tipo1": "fire",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "ceruledge",
+        "nr": "937",
+        "tipo1": "fire",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "tadbulb",
+        "nr": "938",
+        "tipo1": "electric",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "bellibolt",
+        "nr": "939",
+        "tipo1": "electric",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "wattrel",
+        "nr": "940",
+        "tipo1": "electric",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "kilowattrel",
+        "nr": "941",
+        "tipo1": "electric",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "maschiff",
+        "nr": "942",
+        "tipo1": "dark",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "mabosstiff",
+        "nr": "943",
+        "tipo1": "dark",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "shroodle",
+        "nr": "944",
+        "tipo1": "poison",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "grafaiai",
+        "nr": "945",
+        "tipo1": "poison",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "bramblin",
+        "nr": "946",
+        "tipo1": "grass",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "brambleghast",
+        "nr": "947",
+        "tipo1": "grass",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "toedscool",
+        "nr": "948",
+        "tipo1": "ground",
+        "tipo2": "grass"
+    },
+    {
+        "pokemon": "toedscruel",
+        "nr": "949",
+        "tipo1": "ground",
+        "tipo2": "grass"
+    },
+    {
+        "pokemon": "klawf",
+        "nr": "950",
+        "tipo1": "rock",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "capsakid",
+        "nr": "951",
+        "tipo1": "grass",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "scovillain",
+        "nr": "952",
+        "tipo1": "grass",
+        "tipo2": "fire"
+    },
+    {
+        "pokemon": "rellor",
+        "nr": "953",
+        "tipo1": "bug",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "rabsca",
+        "nr": "954",
+        "tipo1": "bug",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "flittle",
+        "nr": "955",
+        "tipo1": "psychic",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "espartha",
+        "nr": "956",
+        "tipo1": "psychic",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "tinkatink",
+        "nr": "957",
+        "tipo1": "fairy",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "tinkatuff",
+        "nr": "958",
+        "tipo1": "fairy",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "tinkaton",
+        "nr": "959",
+        "tipo1": "fairy",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "wiglett",
+        "nr": "960",
+        "tipo1": "water",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "wugtrio",
+        "nr": "961",
+        "tipo1": "water",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "bombirdier",
+        "nr": "962",
+        "tipo1": "flying",
+        "tipo2": "dark"
+    },
+    {
+        "pokemon": "finizen",
+        "nr": "963",
+        "tipo1": "water",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "palafin",
+        "nr": "964",
+        "tipo1": "water",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "varoom",
+        "nr": "965",
+        "tipo1": "steel",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "revavroom",
+        "nr": "966",
+        "tipo1": "steel",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "cyclizar",
+        "nr": "967",
+        "tipo1": "dragon",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "ortworm",
+        "nr": "968",
+        "tipo1": "steel",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "glimmet",
+        "nr": "969",
+        "tipo1": "rock",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "glimmora",
+        "nr": "970",
+        "tipo1": "rock",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "greavard",
+        "nr": "971",
+        "tipo1": "ghost",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "houndstone",
+        "nr": "972",
+        "tipo1": "ghost",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "flamigo",
+        "nr": "973",
+        "tipo1": "flying",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "cetoddle",
+        "nr": "974",
+        "tipo1": "ice",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "cetitan",
+        "nr": "975",
+        "tipo1": "ice",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "veluza",
+        "nr": "976",
+        "tipo1": "water",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "dondozo",
+        "nr": "977",
+        "tipo1": "water",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "tatsugiri",
+        "nr": "978",
+        "tipo1": "dragon",
+        "tipo2": "water"
+    },
+    {
+        "pokemon": "annihilape",
+        "nr": "979",
+        "tipo1": "fight",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "clodsire",
+        "nr": "980",
+        "tipo1": "poison",
+        "tipo2": "ground"
+    },
+    {
+        "pokemon": "farigiraf",
+        "nr": "981",
+        "tipo1": "normal",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "dudunsparce",
+        "nr": "982",
+        "tipo1": "normal",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "kingambit",
+        "nr": "983",
+        "tipo1": "dark",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "great-tusk",
+        "nr": "984",
+        "tipo1": "ground",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "scream-tail",
+        "nr": "985",
+        "tipo1": "fairy",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "brute-bonnet",
+        "nr": "986",
+        "tipo1": "grass",
+        "tipo2": "dark"
+    },
+    {
+        "pokemon": "flutter-mane",
+        "nr": "987",
+        "tipo1": "ghost",
+        "tipo2": "fairy"
+    },
+    {
+        "pokemon": "slither-wing",
+        "nr": "988",
+        "tipo1": "bug",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "sandy-shocks",
+        "nr": "989",
+        "tipo1": "electric",
+        "tipo2": "ground"
+    },
+    {
+        "pokemon": "iron-treads",
+        "nr": "990",
+        "tipo1": "ground",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "iron-bundle",
+        "nr": "991",
+        "tipo1": "ice",
+        "tipo2": "water"
+    },
+    {
+        "pokemon": "iron-hands",
+        "nr": "992",
+        "tipo1": "fight",
+        "tipo2": "electric"
+    },
+    {
+        "pokemon": "iron-jugulis",
+        "nr": "993",
+        "tipo1": "dark",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "ison-moth",
+        "nr": "994",
+        "tipo1": "fire",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "iron-thorns",
+        "nr": "995",
+        "tipo1": "rock",
+        "tipo2": "electric"
+    },
+    {
+        "pokemon": "frigibax",
+        "nr": "996",
+        "tipo1": "dragon",
+        "tipo2": "ice"
+    },
+    {
+        "pokemon": "arctibax",
+        "nr": "997",
+        "tipo1": "dragon",
+        "tipo2": "ice"
+    },
+    {
+        "pokemon": "baxcalibur",
+        "nr": "998",
+        "tipo1": "dragon",
+        "tipo2": "ice"
+    },
+    {
+        "pokemon": "gimmighoul",
+        "nr": "999",
+        "tipo1": "ghost",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "gholdengo",
+        "nr": "1000",
+        "tipo1": "steel",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "wo-chien",
+        "nr": "1001",
+        "tipo1": "dark",
+        "tipo2": "grass"
+    },
+    {
+        "pokemon": "chien-pao",
+        "nr": "1002",
+        "tipo1": "dark",
+        "tipo2": "ice"
+    },
+    {
+        "pokemon": "ting-lu",
+        "nr": "1003",
+        "tipo1": "dark",
+        "tipo2": "ground"
+    },
+    {
+        "pokemon": "chi-yu",
+        "nr": "1004",
+        "tipo1": "dark",
+        "tipo2": "fire"
+    },
+    {
+        "pokemon": "roaring-moon",
+        "nr": "1005",
+        "tipo1": "dragon",
+        "tipo2": "dark"
+    },
+    {
+        "pokemon": "iron-valiant",
+        "nr": "1006",
+        "tipo1": "fairy",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "koraidon",
+        "nr": "1007",
+        "tipo1": "fight",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "miraidon",
+        "nr": "1008",
+        "tipo1": "electric",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "walking-wake",
+        "nr": "1009",
+        "tipo1": "water",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "iron-leaves",
+        "nr": "1010",
+        "tipo1": "grass",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "dipplin",
+        "nr": "1011",
+        "tipo1": "grass",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "poltchageist",
+        "nr": "1012",
+        "tipo1": "grass",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "sinistcha",
+        "nr": "1013",
+        "tipo1": "grass",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "okidogi",
+        "nr": "1014",
+        "tipo1": "poison",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "munkidori",
+        "nr": "1015",
+        "tipo1": "poison",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "fezandipiti",
+        "nr": "1016",
+        "tipo1": "poison",
+        "tipo2": "fairy"
+    },
+    {
+        "pokemon": "ogerpon",
+        "nr": "1017",
+        "tipo1": "grass",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "archaludon",
+        "nr": "1018",
+        "tipo1": "steel",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "hydrapple",
+        "nr": "1019",
+        "tipo1": "grass",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "gouging-fire",
+        "nr": "1020",
+        "tipo1": "fire",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "raging-bolt",
+        "nr": "1021",
+        "tipo1": "electric",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "iron-boulder",
+        "nr": "1022",
+        "tipo1": "rock",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "iron-crown",
+        "nr": "1023",
+        "tipo1": "steel",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "terapagos",
+        "nr": "1024",
+        "tipo1": "normal",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "peachrunt",
+        "nr": "1025",
+        "tipo1": "poison",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "deoxys-attack",
+        "nr": "386",
+        "tipo1": "psychic",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "deoxys-defense",
+        "nr": "386",
+        "tipo1": "psychic",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "deoxys-speed",
+        "nr": "386",
+        "tipo1": "psychic",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "wormadam-sandy",
+        "nr": "413",
+        "tipo1": "bug",
+        "tipo2": "ground"
+    },
+    {
+        "pokemon": "wormadam-trash",
+        "nr": "413",
+        "tipo1": "bug",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "shaymin-sky",
+        "nr": "492",
+        "tipo1": "grass",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "giratina-origin",
+        "nr": "487",
+        "tipo1": "ghost",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "rotom-heat",
+        "nr": "479",
+        "tipo1": "electric",
+        "tipo2": "fire"
+    },
+    {
+        "pokemon": "rotom-wash",
+        "nr": "479",
+        "tipo1": "electric",
+        "tipo2": "water"
+    },
+    {
+        "pokemon": "rotom-frost",
+        "nr": "479",
+        "tipo1": "electric",
+        "tipo2": "ice"
+    },
+    {
+        "pokemon": "rotom-fan",
+        "nr": "479",
+        "tipo1": "electric",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "rotom-mow",
+        "nr": "479",
+        "tipo1": "electric",
+        "tipo2": "grass"
+    },
+    {
+        "pokemon": "castform-sunny",
+        "nr": "1038",
+        "tipo1": "fire",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "castform-rainy",
+        "nr": "351",
+        "tipo1": "water",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "castform-snowy",
+        "nr": "351",
+        "tipo1": "ice",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "darmanitan-zen",
+        "nr": "555",
+        "tipo1": "fire",
+        "tipo2": "psychic"
     },
     {
         "pokemon": "meloetta-pirouette",
-        "nr": "916",
+        "nr": "648",
         "tipo1": "normal",
         "tipo2": "fighting"
     },
     {
         "pokemon": "tornadus-therian",
-        "nr": "917",
+        "nr": "641",
         "tipo1": "flying",
         "tipo2": ""
     },
     {
         "pokemon": "thundurus-therian",
-        "nr": "918",
+        "nr": "642",
         "tipo1": "electric",
         "tipo2": "flying"
     },
     {
         "pokemon": "landorus-therian",
-        "nr": "919",
+        "nr": "645",
         "tipo1": "ground",
         "tipo2": "flying"
     },
     {
         "pokemon": "kyurem-black",
-        "nr": "920",
+        "nr": "646",
         "tipo1": "dragon",
         "tipo2": "ice"
     },
     {
         "pokemon": "kyurem-white",
-        "nr": "921",
+        "nr": "646",
         "tipo1": "dragon",
         "tipo2": "ice"
     },
     {
         "pokemon": "keldeo-resolute",
-        "nr": "922",
+        "nr": "647",
         "tipo1": "water",
         "tipo2": "fighting"
     },
     {
-        "pokemon": "meowstic-female",
-        "nr": "923",
-        "tipo1": "psico",
-        "tipo2": ""
-    },
-    {
         "pokemon": "aegislash-blade",
-        "nr": "924",
+        "nr": "681",
         "tipo1": "steel",
         "tipo2": "ghost"
     },
     {
-        "pokemon": "pumpkaboo-small",
-        "nr": "925",
-        "tipo1": "ghost",
-        "tipo2": "grass"
-    },
-    {
-        "pokemon": "pumpkaboo-large",
-        "nr": "926",
-        "tipo1": "ghost",
-        "tipo2": "grass"
-    },
-    {
-        "pokemon": "pumpkaboo-super",
-        "nr": "927",
-        "tipo1": "ghost",
-        "tipo2": "grass"
-    },
-    {
-        "pokemon": "gourgeist-small",
-        "nr": "928",
-        "tipo1": "ghost",
-        "tipo2": "grass"
-    },
-    {
-        "pokemon": "gourgeist-large",
-        "nr": "929",
-        "tipo1": "ghost",
-        "tipo2": "grass"
-    },
-    {
-        "pokemon": "gourgeist-super",
-        "nr": "930",
-        "tipo1": "ghost",
-        "tipo2": "grass"
-    },
-    {
         "pokemon": "venusaur-mega",
-        "nr": "931",
+        "nr": "003",
         "tipo1": "grass",
         "tipo2": "poison"
     },
     {
         "pokemon": "charizard-mega-x",
-        "nr": "932",
+        "nr": "006",
         "tipo1": "fire",
         "tipo2": "dragon"
     },
     {
         "pokemon": "charizard-mega-y",
-        "nr": "933",
+        "nr": "006",
         "tipo1": "fire",
         "tipo2": "flying"
     },
     {
         "pokemon": "blastoise-mega",
-        "nr": "934",
+        "nr": "009",
         "tipo1": "water",
         "tipo2": ""
     },
     {
         "pokemon": "alakazam-mega",
-        "nr": "935",
-        "tipo1": "psico",
+        "nr": "065",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "gengar-mega",
-        "nr": "936",
+        "nr": "094",
         "tipo1": "ghost",
         "tipo2": "poison"
     },
     {
         "pokemon": "kangaskhan-mega",
-        "nr": "937",
+        "nr": "115",
         "tipo1": "normal",
         "tipo2": ""
     },
     {
         "pokemon": "pinsir-mega",
-        "nr": "938",
+        "nr": "127",
         "tipo1": "bug",
         "tipo2": "flying"
     },
     {
         "pokemon": "gyarados-mega",
-        "nr": "939",
+        "nr": "130",
         "tipo1": "water",
         "tipo2": "dark"
     },
     {
         "pokemon": "aerodactyl-mega",
-        "nr": "940",
+        "nr": "142",
         "tipo1": "rock",
         "tipo2": "flying"
     },
     {
         "pokemon": "mewtwo-mega-x",
-        "nr": "941",
-        "tipo1": "psico",
+        "nr": "150",
+        "tipo1": "psychic",
         "tipo2": "fighting"
     },
     {
         "pokemon": "mewtwo-mega-y",
-        "nr": "942",
-        "tipo1": "psico",
+        "nr": "150",
+        "tipo1": "psychic",
         "tipo2": ""
     },
     {
         "pokemon": "ampharos-mega",
-        "nr": "943",
+        "nr": "181",
         "tipo1": "electric",
         "tipo2": "dragon"
     },
     {
         "pokemon": "scizor-mega",
-        "nr": "944",
+        "nr": "212",
         "tipo1": "bug",
         "tipo2": "steel"
     },
     {
         "pokemon": "heracross-mega",
-        "nr": "945",
+        "nr": "214",
         "tipo1": "bug",
         "tipo2": "fighting"
     },
     {
         "pokemon": "houndoom-mega",
-        "nr": "946",
+        "nr": "229",
         "tipo1": "dark",
         "tipo2": "fire"
     },
     {
         "pokemon": "tyranitar-mega",
-        "nr": "947",
+        "nr": "248",
         "tipo1": "rock",
         "tipo2": "dark"
     },
     {
         "pokemon": "blaziken-mega",
-        "nr": "948",
+        "nr": "257",
         "tipo1": "fire",
         "tipo2": "fighting"
     },
     {
         "pokemon": "gardevoir-mega",
-        "nr": "949",
-        "tipo1": "psico",
+        "nr": "282",
+        "tipo1": "psychic",
         "tipo2": "fairy"
     },
     {
         "pokemon": "mawile-mega",
-        "nr": "950",
+        "nr": "303",
         "tipo1": "steel",
         "tipo2": "fairy"
     },
     {
         "pokemon": "aggron-mega",
-        "nr": "951",
+        "nr": "306",
         "tipo1": "steel",
         "tipo2": ""
     },
     {
         "pokemon": "medicham-mega",
-        "nr": "952",
+        "nr": "308",
         "tipo1": "fighting",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "manectric-mega",
-        "nr": "953",
+        "nr": "310",
         "tipo1": "electric",
         "tipo2": ""
     },
     {
         "pokemon": "banette-mega",
-        "nr": "954",
+        "nr": "354",
         "tipo1": "ghost",
         "tipo2": ""
     },
     {
         "pokemon": "absol-mega",
-        "nr": "955",
+        "nr": "359",
         "tipo1": "dark",
         "tipo2": ""
     },
     {
         "pokemon": "garchomp-mega",
-        "nr": "956",
+        "nr": "445",
         "tipo1": "dragon",
         "tipo2": "ground"
     },
     {
         "pokemon": "lucario-mega",
-        "nr": "957",
+        "nr": "448",
         "tipo1": "fighting",
         "tipo2": "steel"
     },
     {
         "pokemon": "abomasnow-mega",
-        "nr": "958",
+        "nr": "460",
         "tipo1": "grass",
         "tipo2": "ice"
     },
     {
         "pokemon": "floette-eternal",
-        "nr": "959",
+        "nr": "670",
         "tipo1": "fairy",
         "tipo2": ""
     },
     {
         "pokemon": "latias-mega",
-        "nr": "960",
+        "nr": "380",
         "tipo1": "dragon",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "latios-mega",
-        "nr": "961",
+        "nr": "381",
         "tipo1": "dragon",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "swampert-mega",
-        "nr": "962",
+        "nr": "260",
         "tipo1": "water",
         "tipo2": "ground"
     },
     {
         "pokemon": "sceptile-mega",
-        "nr": "963",
+        "nr": "254",
         "tipo1": "grass",
         "tipo2": "dragon"
     },
     {
         "pokemon": "sableye-mega",
-        "nr": "964",
+        "nr": "302",
         "tipo1": "dark",
         "tipo2": "ghost"
     },
     {
         "pokemon": "altaria-mega",
-        "nr": "965",
+        "nr": "334",
         "tipo1": "dragon",
         "tipo2": "fairy"
     },
     {
         "pokemon": "gallade-mega",
-        "nr": "966",
-        "tipo1": "psico",
+        "nr": "475",
+        "tipo1": "psychic",
         "tipo2": "fighting"
     },
     {
         "pokemon": "audino-mega",
-        "nr": "967",
+        "nr": "531",
         "tipo1": "normal",
         "tipo2": "fairy"
     },
     {
         "pokemon": "sharpedo-mega",
-        "nr": "968",
+        "nr": "319",
         "tipo1": "water",
         "tipo2": "dark"
     },
     {
         "pokemon": "slowbro-mega",
-        "nr": "969",
+        "nr": "080",
         "tipo1": "water",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "steelix-mega",
-        "nr": "970",
+        "nr": "208",
         "tipo1": "steel",
         "tipo2": "ground"
     },
     {
         "pokemon": "pidgeot-mega",
-        "nr": "971",
+        "nr": "018",
         "tipo1": "normal",
         "tipo2": "flying"
     },
     {
         "pokemon": "glalie-mega",
-        "nr": "972",
+        "nr": "362",
         "tipo1": "ice",
         "tipo2": ""
     },
     {
         "pokemon": "diancie-mega",
-        "nr": "973",
+        "nr": "719",
         "tipo1": "rock",
         "tipo2": "fairy"
     },
     {
         "pokemon": "metagross-mega",
-        "nr": "974",
+        "nr": "376",
         "tipo1": "steel",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "kyogre-primal",
-        "nr": "975",
+        "nr": "382",
         "tipo1": "water",
         "tipo2": ""
     },
     {
         "pokemon": "groudon-primal",
-        "nr": "976",
+        "nr": "383",
         "tipo1": "ground",
         "tipo2": "fire"
     },
     {
         "pokemon": "rayquaza-mega",
-        "nr": "977",
+        "nr": "384",
         "tipo1": "dragon",
         "tipo2": "flying"
     },
     {
-        "pokemon": "pikachu-rock-star",
-        "nr": "978",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-belle",
-        "nr": "979",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-pop-star",
-        "nr": "980",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-phd",
-        "nr": "981",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-libre",
-        "nr": "982",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-cosplay",
-        "nr": "983",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
         "pokemon": "hoopa-unbound",
-        "nr": "984",
-        "tipo1": "psico",
+        "nr": "720",
+        "tipo1": "psychic",
         "tipo2": "dark"
     },
     {
         "pokemon": "camerupt-mega",
-        "nr": "985",
+        "nr": "323",
         "tipo1": "fire",
         "tipo2": "ground"
     },
     {
         "pokemon": "lopunny-mega",
-        "nr": "986",
+        "nr": "428",
         "tipo1": "normal",
         "tipo2": "fighting"
     },
     {
         "pokemon": "salamence-mega",
-        "nr": "987",
+        "nr": "373",
         "tipo1": "dragon",
         "tipo2": "flying"
     },
     {
         "pokemon": "beedrill-mega",
-        "nr": "988",
+        "nr": "015",
         "tipo1": "bug",
         "tipo2": "poison"
     },
     {
         "pokemon": "rattata-alola",
-        "nr": "989",
+        "nr": "019",
         "tipo1": "dark",
         "tipo2": "normal"
     },
     {
         "pokemon": "raticate-alola",
-        "nr": "990",
+        "nr": "020",
         "tipo1": "dark",
         "tipo2": "normal"
-    },
-    {
-        "pokemon": "raticate-totem-alola",
-        "nr": "991",
-        "tipo1": "dark",
-        "tipo2": "normal"
-    },
-    {
-        "pokemon": "pikachu-original-cap",
-        "nr": "992",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-hoenn-cap",
-        "nr": "993",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-sinnoh-cap",
-        "nr": "994",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-unova-cap",
-        "nr": "995",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-kalos-cap",
-        "nr": "996",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-alola-cap",
-        "nr": "997",
-        "tipo1": "electric",
-        "tipo2": ""
     },
     {
         "pokemon": "raichu-alola",
-        "nr": "998",
+        "nr": "026",
         "tipo1": "electric",
-        "tipo2": "psico"
+        "tipo2": "psychic"
     },
     {
         "pokemon": "sandshrew-alola",
-        "nr": "999",
+        "nr": "027",
         "tipo1": "ice",
         "tipo2": "steel"
     },
     {
         "pokemon": "sandslash-alola",
-        "nr": "1000",
+        "nr": "028",
         "tipo1": "ice",
         "tipo2": "steel"
     },
     {
         "pokemon": "vulpix-alola",
-        "nr": "1001",
+        "nr": "037",
         "tipo1": "ice",
         "tipo2": ""
     },
     {
         "pokemon": "ninetales-alola",
-        "nr": "1002",
+        "nr": "038",
         "tipo1": "ice",
         "tipo2": "fairy"
     },
     {
         "pokemon": "diglett-alola",
-        "nr": "1003",
+        "nr": "050",
         "tipo1": "ground",
         "tipo2": "steel"
     },
     {
         "pokemon": "dugtrio-alola",
-        "nr": "1004",
+        "nr": "051",
         "tipo1": "ground",
         "tipo2": "steel"
     },
     {
         "pokemon": "meowth-alola",
-        "nr": "1005",
+        "nr": "052",
         "tipo1": "dark",
         "tipo2": ""
     },
     {
         "pokemon": "persian-alola",
-        "nr": "1006",
+        "nr": "053",
         "tipo1": "dark",
         "tipo2": ""
     },
     {
         "pokemon": "geodude-alola",
-        "nr": "1007",
+        "nr": "074",
         "tipo1": "rock",
         "tipo2": "electric"
     },
     {
         "pokemon": "graveler-alola",
-        "nr": "1008",
+        "nr": "075",
         "tipo1": "rock",
         "tipo2": "electric"
     },
     {
         "pokemon": "golem-alola",
-        "nr": "1009",
+        "nr": "076",
         "tipo1": "rock",
         "tipo2": "electric"
     },
     {
         "pokemon": "grimer-alola",
-        "nr": "1010",
+        "nr": "088",
         "tipo1": "poison",
         "tipo2": "dark"
     },
     {
         "pokemon": "muk-alola",
-        "nr": "1011",
+        "nr": "089",
         "tipo1": "poison",
         "tipo2": "dark"
     },
     {
         "pokemon": "exeggutor-alola",
-        "nr": "1012",
+        "nr": "103",
         "tipo1": "grass",
         "tipo2": "dragon"
     },
     {
         "pokemon": "marowak-alola",
-        "nr": "1013",
+        "nr": "105",
         "tipo1": "fire",
         "tipo2": "ghost"
     },
     {
-        "pokemon": "greninja-battle-bond",
-        "nr": "1014",
-        "tipo1": "water",
-        "tipo2": "dark"
-    },
-    {
-        "pokemon": "greninja-ash",
-        "nr": "1015",
-        "tipo1": "water",
-        "tipo2": "dark"
-    },
-    {
         "pokemon": "zygarde-10-power-construct",
-        "nr": "1016",
+        "nr": "718",
         "tipo1": "dragon",
         "tipo2": "ground"
     },
     {
         "pokemon": "zygarde-50-power-construct",
-        "nr": "1017",
+        "nr": "718",
         "tipo1": "dragon",
         "tipo2": "ground"
     },
     {
         "pokemon": "zygarde-complete",
-        "nr": "1018",
+        "nr": "718",
         "tipo1": "dragon",
         "tipo2": "ground"
     },
     {
-        "pokemon": "gumshoos-totem",
-        "nr": "1019",
-        "tipo1": "normal",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "vikavolt-totem",
-        "nr": "1020",
-        "tipo1": "bug",
-        "tipo2": "electric"
-    },
-    {
         "pokemon": "oricorio-pom-pom",
-        "nr": "1021",
+        "nr": "741",
         "tipo1": "electric",
         "tipo2": "flying"
     },
     {
         "pokemon": "oricorio-pau",
-        "nr": "1022",
-        "tipo1": "psico",
+        "nr": "741",
+        "tipo1": "psychic",
         "tipo2": "flying"
     },
     {
         "pokemon": "oricorio-sensu",
-        "nr": "1023",
+        "nr": "741",
         "tipo1": "ghost",
         "tipo2": "flying"
     },
     {
         "pokemon": "lycanroc-midnight",
-        "nr": "1024",
+        "nr": "745",
         "tipo1": "rock",
         "tipo2": ""
     },
     {
         "pokemon": "wishiwashi-school",
-        "nr": "1025",
+        "nr": "746",
         "tipo1": "water",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "lurantis-totem",
-        "nr": "1026",
-        "tipo1": "grass",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "salazzle-totem",
-        "nr": "1027",
-        "tipo1": "poison",
-        "tipo2": "fire"
-    },
-    {
-        "pokemon": "minior-orange-meteor",
-        "nr": "1028",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-yellow-meteor",
-        "nr": "1029",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-green-meteor",
-        "nr": "1030",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-blue-meteor",
-        "nr": "1031",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-indigo-meteor",
-        "nr": "1032",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-violet-meteor",
-        "nr": "1033",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-red",
-        "nr": "1034",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-orange",
-        "nr": "1035",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-yellow",
-        "nr": "1036",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-green",
-        "nr": "1037",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-blue",
-        "nr": "1038",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-indigo",
-        "nr": "1039",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "minior-violet",
-        "nr": "1040",
-        "tipo1": "rock",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "mimikyu-busted",
-        "nr": "1041",
-        "tipo1": "ghost",
-        "tipo2": "fairy"
-    },
-    {
-        "pokemon": "mimikyu-totem-disguised",
-        "nr": "1042",
-        "tipo1": "ghost",
-        "tipo2": "fairy"
-    },
-    {
-        "pokemon": "mimikyu-totem-busted",
-        "nr": "1043",
-        "tipo1": "ghost",
-        "tipo2": "fairy"
-    },
-    {
-        "pokemon": "kommo-o-totem",
-        "nr": "1044",
-        "tipo1": "dragon",
-        "tipo2": "fighting"
-    },
-    {
-        "pokemon": "magearna-original",
-        "nr": "1045",
-        "tipo1": "steel",
-        "tipo2": "fairy"
-    },
-    {
-        "pokemon": "pikachu-partner-cap",
-        "nr": "1046",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "marowak-totem",
-        "nr": "1047",
-        "tipo1": "fire",
-        "tipo2": "ghost"
-    },
-    {
-        "pokemon": "ribombee-totem",
-        "nr": "1048",
-        "tipo1": "bug",
-        "tipo2": "fairy"
-    },
-    {
-        "pokemon": "rockruff-own-tempo",
-        "nr": "1049",
-        "tipo1": "rock",
         "tipo2": ""
     },
     {
         "pokemon": "lycanroc-dusk",
-        "nr": "1050",
+        "nr": "745",
         "tipo1": "rock",
         "tipo2": ""
     },
     {
-        "pokemon": "araquanid-totem",
-        "nr": "1051",
-        "tipo1": "water",
-        "tipo2": "bug"
-    },
-    {
-        "pokemon": "togedemaru-totem",
-        "nr": "1052",
-        "tipo1": "electric",
-        "tipo2": "steel"
-    },
-    {
         "pokemon": "necrozma-dusk",
-        "nr": "1053",
-        "tipo1": "psico",
+        "nr": "800",
+        "tipo1": "psychic",
         "tipo2": "steel"
     },
     {
         "pokemon": "necrozma-dawn",
-        "nr": "1054",
-        "tipo1": "psico",
+        "nr": "800",
+        "tipo1": "psychic",
         "tipo2": "ghost"
     },
     {
         "pokemon": "necrozma-ultra",
-        "nr": "1055",
-        "tipo1": "psico",
+        "nr": "800",
+        "tipo1": "psychic",
         "tipo2": "dragon"
     },
     {
-        "pokemon": "pikachu-starter",
-        "nr": "1056",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "eevee-starter",
-        "nr": "1057",
-        "tipo1": "normal",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "pikachu-world-cap",
-        "nr": "1058",
-        "tipo1": "electric",
-        "tipo2": ""
-    },
-    {
         "pokemon": "meowth-galar",
-        "nr": "1059",
+        "nr": "052",
         "tipo1": "steel",
         "tipo2": ""
     },
     {
-        "pokemon": "ponyta-galar",
-        "nr": "1060",
-        "tipo1": "psico",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "rapidash-galar",
-        "nr": "1061",
-        "tipo1": "psico",
-        "tipo2": "fairy"
-    },
-    {
-        "pokemon": "slowpoke-galar",
-        "nr": "1062",
-        "tipo1": "psico",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "slowbro-galar",
-        "nr": "1063",
-        "tipo1": "poison",
-        "tipo2": "psico"
-    },
-    {
-        "pokemon": "farfetchd-galar",
-        "nr": "1064",
-        "tipo1": "fighting",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "weezing-galar",
-        "nr": "1065",
-        "tipo1": "poison",
-        "tipo2": "fairy"
-    },
-    {
-        "pokemon": "mr-mime-galar",
-        "nr": "1066",
-        "tipo1": "ice",
-        "tipo2": "psico"
-    },
-    {
-        "pokemon": "articuno-galar",
-        "nr": "1067",
-        "tipo1": "psico",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "zapdos-galar",
-        "nr": "1068",
-        "tipo1": "fighting",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "moltres-galar",
-        "nr": "1069",
-        "tipo1": "dark",
-        "tipo2": "flying"
-    },
-    {
-        "pokemon": "slowking-galar",
-        "nr": "1070",
-        "tipo1": "poison",
-        "tipo2": "psico"
-    },
-    {
-        "pokemon": "corsola-galar",
-        "nr": "1071",
-        "tipo1": "ghost",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "zigzagoon-galar",
-        "nr": "1072",
-        "tipo1": "dark",
-        "tipo2": "normal"
-    },
-    {
-        "pokemon": "linoone-galar",
-        "nr": "1073",
-        "tipo1": "dark",
-        "tipo2": "normal"
-    },
-    {
-        "pokemon": "darumaka-galar",
-        "nr": "1074",
-        "tipo1": "ice",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "darmanitan-galar-standard",
-        "nr": "1075",
-        "tipo1": "ice",
-        "tipo2": ""
-    },
-    {
-        "pokemon": "darmanitan-galar-zen",
-        "nr": "1076",
-        "tipo1": "ice",
-        "tipo2": "fire"
-    },
-    {
-        "pokemon": "yamask-galar",
-        "nr": "1077",
-        "tipo1": "ground",
-        "tipo2": "ghost"
-    },
-    {
         "pokemon": "stunfisk-galar",
-        "nr": "1078",
+        "nr": "618",
         "tipo1": "ground",
         "tipo2": "steel"
     },
     {
-        "pokemon": "zygarde-10",
-        "nr": "1079",
-        "tipo1": "dragon",
-        "tipo2": "ground"
-    },
-    {
-        "pokemon": "cramorant-gulping",
-        "nr": "1080",
-        "tipo1": "flying",
-        "tipo2": "water"
-    },
-    {
-        "pokemon": "cramorant-gorging",
-        "nr": "1081",
-        "tipo1": "flying",
-        "tipo2": "water"
-    },
-    {
         "pokemon": "toxtricity-low-key",
-        "nr": "1082",
+        "nr": "849",
         "tipo1": "electric",
         "tipo2": "poison"
     },
     {
         "pokemon": "eiscue-noice",
-        "nr": "1083",
+        "nr": "875",
         "tipo1": "ice",
         "tipo2": ""
     },
     {
         "pokemon": "indeedee-female",
-        "nr": "1084",
-        "tipo1": "psico",
+        "nr": "876",
+        "tipo1": "psychic",
         "tipo2": "normal"
     },
     {
         "pokemon": "morpeko-hangry",
-        "nr": "1085",
+        "nr": "877",
         "tipo1": "electric",
         "tipo2": "dark"
     },
     {
         "pokemon": "zacian-crowned",
-        "nr": "1086",
+        "nr": "888",
         "tipo1": "fairy",
         "tipo2": "steel"
     },
     {
         "pokemon": "zamazenta-crowned",
-        "nr": "1087",
+        "nr": "889",
         "tipo1": "fighting",
         "tipo2": "steel"
     },
     {
         "pokemon": "eternatus-eternamax",
-        "nr": "1088",
+        "nr": "890",
         "tipo1": "poison",
         "tipo2": "dragon"
     },
     {
         "pokemon": "urshifu-rapid-strike",
-        "nr": "1089",
+        "nr": "892",
         "tipo1": "fighting",
         "tipo2": "water"
     },
     {
         "pokemon": "zarude-dada",
-        "nr": "1090",
+        "nr": "893",
         "tipo1": "dark",
         "tipo2": "grass"
     },
     {
         "pokemon": "calyrex-ice",
-        "nr": "1091",
-        "tipo1": "psico",
+        "nr": "898",
+        "tipo1": "psychic",
         "tipo2": "ice"
     },
     {
         "pokemon": "calyrex-shadow",
-        "nr": "1092",
-        "tipo1": "psico",
+        "nr": "898",
+        "tipo1": "psychic",
         "tipo2": "ghost"
+    },
+    {
+        "pokemon": "darmanitan-galar-zen",
+        "nr": "555",
+        "tipo1": "ice",
+        "tipo2": "fire"
+    },
+    {
+        "pokemon": "yamask-galar",
+        "nr": "562",
+        "tipo1": "ground",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "ponyta-galar",
+        "nr": "077",
+        "tipo1": "psychic",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "rapidash-galar",
+        "nr": "078",
+        "tipo1": "psychic",
+        "tipo2": "fairy"
+    },
+    {
+        "pokemon": "slowpoke-galar",
+        "nr": "079",
+        "tipo1": "psychic",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "slowbro-galar",
+        "nr": "080",
+        "tipo1": "poison",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "farfetchd-galar",
+        "nr": "083",
+        "tipo1": "fighting",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "weezing-galar",
+        "nr": "110",
+        "tipo1": "poison",
+        "tipo2": "fairy"
+    },
+    {
+        "pokemon": "mr-mime-galar",
+        "nr": "122",
+        "tipo1": "ice",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "articuno-galar",
+        "nr": "144",
+        "tipo1": "psychic",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "zapdos-galar",
+        "nr": "145",
+        "tipo1": "fighting",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "moltres-galar",
+        "nr": "146",
+        "tipo1": "dark",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "slowking-galar",
+        "nr": "199",
+        "tipo1": "poison",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "corsola-galar",
+        "nr": "222",
+        "tipo1": "ghost",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "zigzagoon-galar",
+        "nr": "263",
+        "tipo1": "dark",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "linoone-galar",
+        "nr": "264",
+        "tipo1": "dark",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "darumaka-galar",
+        "nr": "554",
+        "tipo1": "ice",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "darmanitan-galar-standard",
+        "nr": "555",
+        "tipo1": "ice",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "raichu-mega-x",
+        "nr": "026",
+        "tipo1": "electric",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "raichu-mega-y",
+        "nr": "026",
+        "tipo1": "electric",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "clefable-mega",
+        "nr": "036",
+        "tipo1": "fairy",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "victreebel-mega",
+        "nr": "071",
+        "tipo1": "grass",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "starmie-mega",
+        "nr": "121",
+        "tipo1": "water",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "dragonite-mega",
+        "nr": "149",
+        "tipo1": "dragon",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "meganium-mega",
+        "nr": "154",
+        "tipo1": "grass",
+        "tipo2": "fairy"
+    },
+    {
+        "pokemon": "feraligtr-mega",
+        "nr": "160",
+        "tipo1": "water",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "skermory-mega",
+        "nr": "227",
+        "tipo1": "steel",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "chimecho-mega",
+        "nr": "358",
+        "tipo1": "psychic",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "absol-mega-z",
+        "nr": "259",
+        "tipo1": "dark",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "staraptor-mega",
+        "nr": "398",
+        "tipo1": "fight",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "garchomp-mega-z",
+        "nr": "445",
+        "tipo1": "dragon",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "lucario-mega-z",
+        "nr": "448",
+        "tipo1": "fight",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "froslass-mega",
+        "nr": "478",
+        "tipo1": "ice",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "heatran-mega",
+        "nr": "485",
+        "tipo1": "fire",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "darkrai-mega",
+        "nr": "491",
+        "tipo1": "dark",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "emboar-mega",
+        "nr": "500",
+        "tipo1": "fire",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "excadrill-mega",
+        "nr": "530",
+        "tipo1": "ground",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "scolipede-mega",
+        "nr": "545",
+        "tipo1": "bug",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "scrafty-kkk",
+        "nr": "560",
+        "tipo1": "dark",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "eelektross-mega",
+        "nr": "604",
+        "tipo1": "electric",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "chandelure-mega",
+        "nr": "609",
+        "tipo1": "ghost",
+        "tipo2": "fire"
+    },
+    {
+        "pokemon": "golurk-mega",
+        "nr": "623",
+        "tipo1": "ground",
+        "tipo2": "ghost"
+    },
+    {
+        "pokemon": "chesnaught-mega",
+        "nr": "652",
+        "tipo1": "grass",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "delphox-mega",
+        "nr": "655",
+        "tipo1": "fire",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "greninja-mega",
+        "nr": "658",
+        "tipo1": "water",
+        "tipo2": "dark"
+    },
+    {
+        "pokemon": "pyroar-mega",
+        "nr": "668",
+        "tipo1": "fire",
+        "tipo2": "normal"
+    },
+    {
+        "pokemon": "floette-mega",
+        "nr": "670",
+        "tipo1": "fairy",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "meowstic-mega",
+        "nr": "678",
+        "tipo1": "psychic",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "malamar-mega",
+        "nr": "687",
+        "tipo1": "dark",
+        "tipo2": "psychic"
+    },
+    {
+        "pokemon": "barbaracle-mega",
+        "nr": "689",
+        "tipo1": "rock",
+        "tipo2": "fight"
+    },
+    {
+        "pokemon": "dragalge-mega",
+        "nr": "691",
+        "tipo1": "poison",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "hawlucha-mega",
+        "nr": "701",
+        "tipo1": "fight",
+        "tipo2": "flying"
+    },
+    {
+        "pokemon": "zygarde-mega",
+        "nr": "718",
+        "tipo1": "dragon",
+        "tipo2": "ground"
+    },
+    {
+        "pokemon": "crabominable-mega",
+        "nr": "740",
+        "tipo1": "fight",
+        "tipo2": "ice"
+    },
+    {
+        "pokemon": "golisopod-mega",
+        "nr": "768",
+        "tipo1": "bug",
+        "tipo2": "steel"
+    },
+    {
+        "pokemon": "drampa-mega",
+        "nr": "780",
+        "tipo1": "normal",
+        "tipo2": "dragon"
+    },
+    {
+        "pokemon": "magearna-mega",
+        "nr": "801",
+        "tipo1": "steel",
+        "tipo2": "fairy"
+    },
+    {
+        "pokemon": "zeraora-mega",
+        "nr": "807",
+        "tipo1": "electric",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "falinks-mega",
+        "nr": "870",
+        "tipo1": "fight",
+        "tipo2": ""
+    },
+    {
+        "pokemon": "scovillain-mega",
+        "nr": "952",
+        "tipo1": "grass",
+        "tipo2": "fire"
+    },
+    {
+        "pokemon": "glimmora-mega",
+        "nr": "970",
+        "tipo1": "rock",
+        "tipo2": "poison"
+    },
+    {
+        "pokemon": "tatsugiri-mega",
+        "nr": "978",
+        "tipo1": "dragon",
+        "tipo2": "water"
+    },
+    {
+        "pokemon": "baxcalibur-mega",
+        "nr": "998",
+        "tipo1": "dragon",
+        "tipo2": "ice"
     }
 ]
