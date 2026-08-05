@@ -531,7 +531,7 @@ function loadData() {
   });
 }
 
-async function saveSheetData2(sheetName) {
+async function saveSheetData2(type, sheetName) {
   const getCheckboxes = (prefix) => {
     const result = [];
     for (let i = 1; i <= 5; i++) {
@@ -572,7 +572,7 @@ async function saveSheetData2(sheetName) {
       size: document.getElementById('size')?.value || '',
       weight: document.getElementById('weight')?.value || '',
       profile_picture: document.getElementById('poke-img')?.getAttribute('src') || '',
-      
+
       // Mantenuti campi trainer se presenti in altri schemi
       id: document.getElementById('id')?.innerText.trim() || '',
       team: document.getElementById('team')?.value || '',
@@ -690,12 +690,20 @@ async function saveSheetData2(sheetName) {
 
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const { db, error } = await supabaseclient
-    .from('Characters')
-    .update([
-      { name: filename, value: jsonString }
-    ])
-    .eq('name', 'Wilton');
+  if (type === 'I') {
+    const { db, error } = await supabaseclient
+      .from('Characters')
+      .insert([
+        { name: filename, value: jsonString }
+      ])
+    elseif(type === 'U')
+    const { db, error } = await supabaseclient
+      .from('Characters')
+      .update([
+        { name: filename, value: jsonString }
+      ])
+      .eq('name', 'Wilton');
+  }
 }
 
 // Helper function to fill the form elements with JSON data
@@ -942,7 +950,7 @@ container.addEventListener('input', (event) => {
   const target = event.target;
   if (target.type !== 'checkbox' && target.type !== 'radio') {
     //console.log(`Input Modified [${target.name || target.id}]:`, target.value);
-    saveSheetData2('Wilton');
+    saveSheetData2('U', 'Wilton');
   }
 });
 
@@ -951,7 +959,7 @@ container.addEventListener('change', (event) => {
   const target = event.target;
   if (target.type === 'checkbox' || target.type === 'radio') {
     //console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
-    saveSheetData2('Wilton');
+    saveSheetData2('U', 'Wilton');
   }
 });
 
