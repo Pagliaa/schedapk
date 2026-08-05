@@ -624,7 +624,7 @@ async function saveSheetData2(sheetName) {
   // 3. Salva i dati nella tabella 'contatti'
   const { db, error } = await supabaseclient
     .from('Characters')
-    .insert([
+    .update([
       { name: filename, value: jsonString }
     ]);
 }
@@ -863,7 +863,8 @@ const container = document.querySelector('.fullpage');
 container.addEventListener('input', (event) => {
   const target = event.target;
   if (target.type !== 'checkbox' && target.type !== 'radio') {
-    console.log(`Input Modified [${target.name || target.id}]:`, target.value);
+    //console.log(`Input Modified [${target.name || target.id}]:`, target.value);
+    saveSheetData2('Wilton');
   }
 });
 
@@ -871,7 +872,8 @@ container.addEventListener('input', (event) => {
 container.addEventListener('change', (event) => {
   const target = event.target;
   if (target.type === 'checkbox' || target.type === 'radio') {
-    console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
+    //console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
+    saveSheetData2('Wilton');
   }
 });
 
