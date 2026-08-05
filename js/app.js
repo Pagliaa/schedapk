@@ -690,20 +690,9 @@ async function saveSheetData2(type, sheetName) {
 
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  if (type === 'I') {
-    const { db, error } = await supabaseclient
-      .from('Characters')
-      .insert([
-        { name: filename, value: jsonString }
-      ])
-    elseif(type === 'U')
-    const { db, error } = await supabaseclient
-      .from('Characters')
-      .update([
-        { name: filename, value: jsonString }
-      ])
-      .eq('name', 'Wilton');
-  }
+  const { data, error } = await supabaseclient
+  .from('Characters')
+  .upsert([{ name: filename, value: jsonString }]);
 }
 
 // Helper function to fill the form elements with JSON data
