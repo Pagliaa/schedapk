@@ -690,7 +690,7 @@ async function saveSheetData2(type, sheetName) {
 
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const { data, error } = await supabaseclient
+  const { dbs, error } = await supabaseclient
   .from('Characters')
   .upsert([{ name: filename, value: jsonString }]);
 }
