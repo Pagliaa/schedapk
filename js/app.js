@@ -626,7 +626,8 @@ async function saveSheetData2(sheetName) {
     .from('Characters')
     .update([
       { name: filename, value: jsonString }
-    ]);
+    ])
+    .eq('name', 'Wilton');
 }
 
 
