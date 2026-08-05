@@ -5414,7 +5414,7 @@
     {
         "pokemon": "sneasler",
         "nr": "903",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": "poison"
     },
     {
@@ -5529,13 +5529,13 @@
         "pokemon": "pawmo",
         "nr": "922",
         "tipo1": "electric",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "pawmot",
         "nr": "923",
         "tipo1": "electric",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "tandemaus",
@@ -5835,7 +5835,7 @@
         "pokemon": "flamigo",
         "nr": "973",
         "tipo1": "flying",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "cetoddle",
@@ -5870,7 +5870,7 @@
     {
         "pokemon": "annihilape",
         "nr": "979",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": "ghost"
     },
     {
@@ -5901,7 +5901,7 @@
         "pokemon": "great-tusk",
         "nr": "984",
         "tipo1": "ground",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "scream-tail",
@@ -5925,7 +5925,7 @@
         "pokemon": "slither-wing",
         "nr": "988",
         "tipo1": "bug",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "sandy-shocks",
@@ -5948,7 +5948,7 @@
     {
         "pokemon": "iron-hands",
         "nr": "992",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": "electric"
     },
     {
@@ -6033,12 +6033,12 @@
         "pokemon": "iron-valiant",
         "nr": "1006",
         "tipo1": "fairy",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "koraidon",
         "nr": "1007",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": "dragon"
     },
     {
@@ -6081,7 +6081,7 @@
         "pokemon": "okidogi",
         "nr": "1014",
         "tipo1": "poison",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "munkidori",
@@ -7040,7 +7040,7 @@
     {
         "pokemon": "staraptor-mega",
         "nr": "398",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": "flying"
     },
     {
@@ -7052,7 +7052,7 @@
     {
         "pokemon": "lucario-mega-z",
         "nr": "448",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": "steel"
     },
     {
@@ -7077,7 +7077,7 @@
         "pokemon": "emboar-mega",
         "nr": "500",
         "tipo1": "fire",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "excadrill-mega",
@@ -7095,7 +7095,7 @@
         "pokemon": "scrafty-kkk",
         "nr": "560",
         "tipo1": "dark",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "eelektross-mega",
@@ -7119,7 +7119,7 @@
         "pokemon": "chesnaught-mega",
         "nr": "652",
         "tipo1": "grass",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "delphox-mega",
@@ -7161,7 +7161,7 @@
         "pokemon": "barbaracle-mega",
         "nr": "689",
         "tipo1": "rock",
-        "tipo2": "fight"
+        "tipo2": "fighting"
     },
     {
         "pokemon": "dragalge-mega",
@@ -7172,7 +7172,7 @@
     {
         "pokemon": "hawlucha-mega",
         "nr": "701",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": "flying"
     },
     {
@@ -7184,7 +7184,7 @@
     {
         "pokemon": "crabominable-mega",
         "nr": "740",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": "ice"
     },
     {
@@ -7214,7 +7214,7 @@
     {
         "pokemon": "falinks-mega",
         "nr": "870",
-        "tipo1": "fight",
+        "tipo1": "fighting",
         "tipo2": ""
     },
     {
