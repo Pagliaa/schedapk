@@ -906,10 +906,12 @@ async function loadSheetData2() {
 
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+  const name = document.getElementById('trainer')?.innerText.trim() || 'trainer';
+
   const { data, error } = await supabaseclient
     .from('Characters')
     .select('*')
-    .eq('name', 'Wilton');
+    .eq('name', name);
 
   if (error) {
     console.error('Error fetching data:', error);
