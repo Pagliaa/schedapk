@@ -531,7 +531,7 @@ function loadData() {
   });
 }
 
-async function saveSheetData2(type, sheetName) {
+async function saveSheetData2(sheetName) {
   const getCheckboxes = (prefix) => {
     const result = [];
     for (let i = 1; i <= 5; i++) {
@@ -939,7 +939,7 @@ container.addEventListener('input', (event) => {
   const target = event.target;
   if (target.type !== 'checkbox' && target.type !== 'radio') {
     //console.log(`Input Modified [${target.name || target.id}]:`, target.value);
-    saveSheetData2('U', 'Wilton');
+    saveSheetData2('Trainer');
   }
 });
 
@@ -948,7 +948,7 @@ container.addEventListener('change', (event) => {
   const target = event.target;
   if (target.type === 'checkbox' || target.type === 'radio') {
     //console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
-    saveSheetData2('U', 'Wilton');
+    saveSheetData2('Trainer');
   }
 });
 
