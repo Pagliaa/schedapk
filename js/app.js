@@ -683,12 +683,14 @@ async function saveSheetData2(sheetType) {
 
   // Generazione del JSON e invio a Supabase
   const jsonString = JSON.stringify(data, null, 4);
+  const trainer = document.getElementById('trainer')?.innerText.trim();
+  const name = document.getElementById('name')?.innerText.trim();
   var filename;
   if (sheetType === 'trainer') {
-    filename = document.getElementById('trainer')?.innerText.trim() || 'trainer';
+    filename = trainer || 'trainer';
   }
   else {
-    filename = document.getElementById('trainer')?.innerText.trim() && document.getElementById('name')?.innerText.trim() || 'poke';
+    filename = [trainer, name].filter(Boolean).join('_') || 'poke';
   }
 
   const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
