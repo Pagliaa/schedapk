@@ -683,7 +683,7 @@ async function saveSheetData2(sheetType) {
 
   // Generazione del JSON e invio a Supabase
   const jsonString = JSON.stringify(data, null, 4);
-  const filename = '';
+  var filename;
   if (sheetName = 'trainer') {
     filename = document.getElementById('trainer')?.innerText.trim() || 'trainer';
   }
