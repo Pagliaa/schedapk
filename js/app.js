@@ -941,16 +941,21 @@ async function loadSheetData2() {
 // Change input
 // Change 'form' to '.fullpage' or 'document.body'
 const container = document.querySelector('.fullpage');
-var save;
+const autosaveCheckbox = document.getElementById('autosave');
+let save = autosaveCheckbox ? autosaveCheckbox.checked : false;
+
+autosaveCheckbox.addEventListener('change', (e) => {
+  save = e.target.checked; // Updates save whenever the user clicks the box
+});
 
 // 1. Tracks typing in text inputs, textareas, etc.
 container.addEventListener('input', (event) => {
   const target = event.target;
   if (target.type !== 'checkbox' && target.type !== 'radio') {
     //console.log(`Input Modified [${target.name || target.id}]:`, target.value);
-    save = document.getElementById('autosave');
-    console.log(save);
-    saveSheetData2('Trainer');
+    if (save) {
+      saveSheetData2('Trainer');
+    }
   }
 });
 
@@ -959,9 +964,9 @@ container.addEventListener('change', (event) => {
   const target = event.target;
   if (target.type === 'checkbox' || target.type === 'radio') {
     //console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
-    save = document.getElementById('autosave').value;
-    console.log(save);
-    saveSheetData2('Trainer');
+    if (save) {
+      saveSheetData2('Trainer');
+    }
   }
 });
 
