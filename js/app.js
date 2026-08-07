@@ -531,7 +531,7 @@ function loadData() {
   });
 }
 
-async function saveSheetData2(sheetName) {
+async function saveSheetData2(sheetType) {
   const getCheckboxes = (prefix) => {
     const result = [];
     for (let i = 1; i <= 5; i++) {
@@ -683,7 +683,13 @@ async function saveSheetData2(sheetName) {
 
   // Generazione del JSON e invio a Supabase
   const jsonString = JSON.stringify(data, null, 4);
-  const filename = document.getElementById('trainer')?.innerText.trim() || 'trainer';
+  const filename;
+  if (sheetName = 'trainer') {
+    filename = document.getElementById('trainer')?.innerText.trim() || 'trainer';
+  }
+  else {
+    filename = document.getElementById('trainer')?.innerText.trim() && document.getElementById('name')?.innerText.trim() || 'poke';
+  }
 
   const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
@@ -691,8 +697,8 @@ async function saveSheetData2(sheetName) {
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const { db, error } = await supabaseclient
-  .from('Characters')
-  .upsert([{ name: filename, value: jsonString }]);
+    .from('Characters')
+    .upsert([{ name: filename, value: jsonString }]);
 }
 
 // Helper function to fill the form elements with JSON data
