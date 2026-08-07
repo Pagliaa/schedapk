@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scheda Trainer</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <div class="fullpage">
+
+        <!-- Title + img -->
+        <div class="div-box">
+            <div class="full">
+                <div class="div-data-pg">
+                    <div class="flex flex-space-between">
+                        <h1 id="trainer" contenteditable="true">Trainer</h1>
+                        <h2 id="id" class="text-right" contenteditable="true">#A1B2C</h2>
+                    </div>
+
+                    <div class="flex">
+                        <h4 style="width:102px;">Rank</h4>
+                        <button id="rank-btn" class="btn-noborder" onclick="rank_change()">
+                            <img src="../img/rank/beginner.png" id="rank-img" class="img-rank">
+                        </button>
+                        <ul id="popupRank" class="ul-rank hidden">
+                        </ul>
+                    </div>
+
+                    <div style="margin:10px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Team</h4>
+                            <input type="text" id="team" class="inp-small inp-textend" size="4">
+                        </div>
+                    </div>
+
+                    <div style="margin:10px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Age</h4>
+                            <input type="text" id="age" class="inp-small inp-textend" size="1">
+                        </div>
+                    </div>
+
+                    <div style="margin:3px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Money</h4>
+                            <input type="text" id="money" class="inp-small inp-textend" size="8">
+                        </div>
+                    </div>
+
+                    <div style="margin:3px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Reputation</h4>
+                            <input type="text" id="rep" class="inp-small inp-textend" size="8">
+                        </div>
+                    </div>
+
+                    <div style="margin:3px; float:left;"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">HP</h4>
+                            <input type="text" id="hpact" class="inp-small inp-textend" size="1">
+                            <h4 style="float:left; margin:0 5px;"> | </h4>
+                            <input type="text" id="hptot" class="inp-small" size="1">
+                        </div>
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <div class="full">
+                        <div class="flex">
+                            <h4 class="h4-qr">Will</h4>
+                            <input type="text" id="willact" class="inp-small inp-textend" size="1">
+                            <h4 style="float:left; margin:0 5px;"> | </h4>
+                            <input type="text" id="willtot" class="inp-small" size="1">
+                        </div>
+                    </div>
+
+                    <div style="margin:10px; float:left;"></div>
+                </div>
+                <div class="div-propic">
+                    <button class="btn-noborder" onclick="img_change()">
+                        <img src="" id="poke-img" class="img-propic-pg"
+                            onerror="this.src='https://static.wikia.nocookie.net/pokemon/images/7/79/Brendan_Omega_Ruby_and_Alpha_Sapphire.png/revision/latest?cb=20220812081012'">
+                    </button>
+                </div>
+            </div>
+            <div id="popupPokeList" class="popup hidden">
+                <input type="text" id="pokeSearch" placeholder="Search Pokémon...">
+                <ul id="pokeList">
+                </ul>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Nature-->
+        <h3 class="color-bg">Nature</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-nature')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-nature" class="div-box">
+            <input id="nature" type="text" name="nature" placeholder="Nature..." class="inp-small">
+            <button class="btn-search" onclick="search('nature', '')">Search</button>
+            <div class="margin3"></div>
+            <div class="full">
+                <!--<textarea id="nature-d" name="nature-d" rows="5" cols="76" class="inp-small"></textarea>-->
+                <h4 id="h4-nat-name" class="hidden"></h4>
+                <h4 id="h4-nat-conf" class="hidden"></h4>
+                <h4 id="h4-nat-key" class="hidden"></h4>
+                <p id="p-nat-text" class="hidden"></p>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Pokemon-->
+        <h3 class="color-bg">Pokemon</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-poke')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-poke" class="div-box">
+            <input id="pk1" type="text" name="pk1" placeholder="Pokemon..." class="inp-small">
+            <button class="btn-search hidden" onclick="search('nature', '')" class="btn-toggle">Search</button>
+
+            <div class="margin3"></div>
+            <input id="pk2" type="text" name="pk2" placeholder="Pokemon..." class="inp-small">
+
+            <div class="margin3"></div>
+            <input id="pk3" type="text" name="pk3" placeholder="Pokemon..." class="inp-small">
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Stats-->
+        <h3 class="color-bg">Attributes</h3>
+        <div class="div-box">
+
+            <div class="flex">
+                <!--<span class="spa-stat-label">Strength</span>-->
+                <h3 class="h3-stat-label">Strength</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_str1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_str5" type="checkbox" class="checkbox-round" />
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_str')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_str')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Dexterity</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_dex1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_dex2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_dex3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_dex4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_dex5" type="checkbox" class="checkbox-round" />
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_dex')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_dex')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Vitality</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_vit1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_vit2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_vit3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_vit4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_vit5" type="checkbox" class="checkbox-round" />
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_vit')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_vit')">+</button>
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Insight</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_ins1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_ins2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_ins3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_ins4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_ins5" type="checkbox" class="checkbox-round" />
+                </div>
+                <div class="div-stat-btn flex flex-space-between">
+                    <button class="btn-forcb" onclick="removeCircle('cb_ins')">-</button>
+                    <button class="btn-forcb" onclick="addCircle('cb_ins')">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Social attributes-->
+        <h3 class="color-bg">Social attributes</h3>
+        <div class="div-box">
+            <div class="flex">
+                <h3 class="h3-stat-label">Tough</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_tou1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_tou2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_tou3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_tou4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_tou5" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Cool</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_coo1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_coo2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_coo3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_coo4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_coo5" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Beauty</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_bea1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_bea2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_bea3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_bea4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_bea5" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Cute</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_cut1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_cut2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_cut3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_cut4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_cut5" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex">
+                <h3 class="h3-stat-label">Clever</h3>
+                <div class="div-stat-check flex">
+                    <input name="cb_cle1" type="checkbox" class="checkbox-round" />
+                    <input name="cb_cle2" type="checkbox" class="checkbox-round" />
+                    <input name="cb_cle3" type="checkbox" class="checkbox-round" />
+                    <input name="cb_cle4" type="checkbox" class="checkbox-round" />
+                    <input name="cb_cle5" type="checkbox" class="checkbox-round" />
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <!--Skill (issue)-->
+        <h3 class="color-bg">Skills</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-skills')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-skills" class="div-box">
+            <div class="flex flex-space-evenly">
+                <div class="div-box-half text-center">
+                    <h3 class="">Fight</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Brawl</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_bra1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_bra2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_bra3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_bra4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_bra5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Throw</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_thr1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_thr2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_thr3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_thr4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_thr5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Evasion</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_eva1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_eva2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_eva3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_eva4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_eva5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Weapons</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_wea1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_wea2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_wea3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_wea4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_wea5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+                </div>
+
+                <div class="div-box-half text-center">
+                    <h3>Survival</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Alert</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ale1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ale2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ale3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ale4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ale5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Athletic</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ath1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ath2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ath3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ath4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ath5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Nature</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_nat1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_nat2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_nat3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_nat4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_nat5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Stealth</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ste1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ste2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ste3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ste4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ste5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="margin20"></div>
+            <div class="flex flex-space-evenly">
+                <div class="div-box-half text-center">
+                    <h3>Social</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Empathy</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_emp1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_emp2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_emp3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_emp4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_emp5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Etiquette</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_eti1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_eti2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_eti3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_eti4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_eti5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Intimidate</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_int1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_int2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_int3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_int4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_int5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Perform</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_per1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_per2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_per3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_per4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_per5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+                </div>
+
+                <div class="div-box-half text-center">
+                    <h3>Knowledge</h3>
+                    <div class="margin10"></div>
+
+                    <h4>Crafts</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_cra1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_cra2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_cra3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_cra4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Lore</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ins1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Medicine</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ins1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+
+                    <div class="margin3"></div>
+
+                    <h4>Science</h4>
+                    <div class="flex flex-space-evenly">
+                        <input name="cb_ins1" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins2" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins3" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins4" type="checkbox" class="checkbox-round checkbox-small" />
+                        <input name="cb_ins5" type="checkbox" class="checkbox-round checkbox-small" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Bag</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-bag')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-bag" class="div-box">
+            <div class="flex">
+                <h3 style="text-align:start; min-width:150px;">Potion</h3>
+                <input type="text" id="pot" class="inp-small" size="1">
+            </div>
+
+            <div class="margin3"></div>
+
+            <div class="flex">
+                <h3 style="text-align:start; min-width:150px;">Super Potion</h3>
+                <input type="text" id="spo" class="inp-small" size="1">
+            </div>
+
+            <div class="margin3"></div>
+
+            <div class="flex">
+                <h3 style="text-align:start; min-width:150px;">Hyper Potion</h3>
+                <input type="text" id="hpo" class="inp-small" size="1">
+            </div>
+
+            <div class="margin10"></div>
+
+            <div class="flex flex-space-between">
+                <div class="div-box-half">
+                    <input type="text" id="bag-l1" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l2" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l3" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l4" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l5" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l6" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l7" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l8" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l9" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l10" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l11" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l12" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l13" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l14" class="inp-small inp-bag" size="32">
+                    <input type="text" id="bag-l15" class="inp-small inp-bag" size="32">
+
+                </div>
+                <div class="div-box-half">
+                    <input type="text" id="bag-r1" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r2" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r3" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r4" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r5" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r6" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r7" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r8" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r9" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r10" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r11" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r12" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r13" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r14" class="inp-small inp-bag right" size="32">
+                    <input type="text" id="bag-r15" class="inp-small inp-bag right" size="32">
+                </div>
+            </div>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Background</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-background')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-background" class="div-box">
+            <textarea style="width: 894px; height:300px;" class="inp-small"></textarea>
+        </div>
+
+        <div class="margin10"></div>
+
+        <h3 class="color-bg">Conoscenze personali</h3>
+        <div class="margin3"></div>
+        <div class="flex flex-center">
+            <button onclick="toggleTypeEff('div-conoscenze')" class="btn-toggle">Hide</button>
+        </div>
+        <div class="margin3"></div>
+        <div id="div-conoscenze" class="div-box">
+            <textarea style="width: 894px; height:300px;" class="inp-small"></textarea>
+        </div>
+
+        <div class="margin10"></div>
+
+        <input type="checkbox" id="autosave" value="autosave" class="checkbox-round">
+        <label for="autosave"> Autosave</label><br>
+        <button class="btn-toggle" onclick="saveSheetData2('trainer')" style="margin-left: 20px; font-size: 1.5rem;">Save Sheet</button>
+        <button class="btn-toggle" onclick="loadSheetData2()" style="margin-left: 20px; font-size: 1.5rem;">Load Sheet</button>
+
+        <!-- Script -->
+        <script src="../js/app.js"></script>
+</body>
+
+</html>
