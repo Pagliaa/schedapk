@@ -914,12 +914,20 @@ async function loadSheetData2() {
 
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const name = document.getElementById('trainer')?.innerText.trim() || 'trainer';
+  const trainer = document.getElementById('trainer')?.innerText.trim();
+  const name = document.getElementById('name')?.innerText.trim();
+  var filename;
+  if (sheetType === 'trainer') {
+    filename = trainer || 'trainer';
+  }
+  else {
+    filename = [trainer, name].filter(Boolean).join('_') || 'poke';
+  }
 
   const { data, error } = await supabaseclient
     .from('Characters')
     .select('*')
-    .eq('name', name);
+    .eq('name', filename);
 
   if (error) {
     console.error('Error fetching data:', error);
