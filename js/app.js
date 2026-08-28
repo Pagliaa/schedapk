@@ -910,35 +910,32 @@ function populateSheet(data) {
 
 async function loadSheetData2(sheetType) {
   const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6210MTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
 
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const trainer = document.getElementById('trainer')?.innerText.trim();
   const name = document.getElementById('name')?.innerText.trim();
-  var filename;
-  if (sheetType === 'trainer') {
-    filename = trainer || 'trainer';
-  }
-  else {
-    filename = [trainer, name].filter(Boolean).join('_') || 'poke';
-  }
+  
+  let filename = sheetType === 'trainer' 
+    ? (trainer || 'trainer') 
+    : ([trainer, name].filter(Boolean).join('_') || 'poke');
 
-  const { data, error } = await supabaseclient
-    .from('Characters')
-    .select('*')
-    .eq('name', filename);
+  try {
+    const { data, error } = await supabaseclient
+      .from('Characters')
+      .select('value')
+      .eq('name', filename)
+      .single();
 
-  if (error) {
-    console.error('Error fetching data:', error);
-  } else {
-    console.log('Fetched characters:', data);
+    if (error) throw error;
 
-    data.forEach(item => {
-      const parsedValue = JSON.parse(item.value);
-      populateSheet(parsedValue);
-      console.log(`Character ${item.name}:`, parsedValue);
-    });
+    if (data && data.value) {
+      const parsedData = typeof data.value === 'string' ? JSON.parse(data.value) : data.value;
+      populateSheet(parsedData);
+    }
+  } catch (err) {
+    console.error("Failed to load sheet data:", err);
   }
 }
 
