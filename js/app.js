@@ -1,11 +1,15 @@
 let TYPE_CHART = {};
 let ranks = [];
+// Assets live at the repository root. Resolving them from this script makes the
+// same code work both in /characters and /pokemon, as well as in the home page.
+const ROOT_URL = new URL('../', document.currentScript?.src || window.location.href);
+const assetUrl = (path) => new URL(path.replace(/^\.\.\//, ''), ROOT_URL).href;
 
 // --- Helper Functions ---
 
 function poke_list() {
   const popup = document.getElementById("popupPokeList");
-  popup.classList.toggle('hidden');
+  if (popup) popup.classList.toggle('hidden');
 }
 
 function img_change() {
@@ -27,6 +31,7 @@ function typeEff(t1, t2) {
   const listImm = document.getElementById('imm');
 
   // Reset current lists
+  if (![listRes, listDeb, listImm].every(Boolean)) return;
   [listRes, listDeb, listImm].forEach(el => el.innerHTML = '');
 
   const multipliers = {};
@@ -98,7 +103,8 @@ function removeCircle(prefix) {
 
 function toggleTypeEff(id) {
   const div = document.getElementById(id);
-  const btn = event.currentTarget; // Prende il bottone che ha scatenato l'evento
+  const btn = typeof event !== 'undefined' ? event.currentTarget : document.activeElement;
+  if (!div || !btn) return;
 
   div.classList.toggle('hidden');
 
@@ -111,11 +117,12 @@ function toggleTypeEff(id) {
 
 function initRanks() {
   const listContainer = document.getElementById('popupRank');
+  if (!listContainer) return;
 
   // Generate the list items
   const listHtml = ranks.map(rank => `
-        <li onclick="selectRank('${rank.image}')">
-            <img src="${rank.image}" alt="${rank.label}" class="img-rank">
+        <li onclick="selectRank('${assetUrl(rank.image)}')">
+            <img src="${assetUrl(rank.image)}" alt="${rank.label}" class="img-rank">
         </li>
     `).join('');
 
@@ -125,16 +132,19 @@ function initRanks() {
 // Function to handle clicking the main button
 function rank_change() {
   const popup = document.getElementById('popupRank');
-  popup.classList.toggle('hidden');
   const img = document.getElementById('rank-btn');
-  img.classList.toggle('hidden');
+  if (popup) popup.classList.toggle('hidden');
+  if (img) img.classList.toggle('hidden');
 }
 
 // Function to change the main image when a rank is selected
 function selectRank(imgSrc) {
-  document.getElementById('rank-img').src = imgSrc;
-  document.getElementById('popupRank').classList.add('hidden');
-  document.getElementById('rank-btn').classList.remove('hidden');
+  const rankImg = document.getElementById('rank-img');
+  const popup = document.getElementById('popupRank');
+  const button = document.getElementById('rank-btn');
+  if (rankImg) rankImg.src = imgSrc;
+  if (popup) popup.classList.add('hidden');
+  if (button) button.classList.remove('hidden');
 }
 
 /*function rank_change() {
@@ -147,9 +157,10 @@ function addMove(prefix) {
   // 1. Find the input with a name starting with the prefix to locate the correct container
   const currentCount = document.querySelectorAll(`input[name^="${prefix}"]`).length;
 
-  num = currentCount + 1;
+  const num = currentCount + 1;
 
   const container = document.getElementById('div-moves'); // The parent element where you want to add this
+  if (!container) return;
 
   const moveBoxHTML = `
     <div class="margin10"></div>
@@ -183,6 +194,7 @@ function addMove(prefix) {
 // Function to remove moves
 function removeMove() {
   const container = document.getElementById('div-moves');
+  if (!container) return;
   const moves = container.querySelectorAll('.div-single-move');
 
   if (moves.length > 1) {
@@ -211,12 +223,14 @@ function toTitleCase(val) {
 async function search(id, prog) {
   // 1. Get the raw value from input
   const idprog = id + prog;
-  const raw = document.getElementById(idprog).value;
+  const input = document.getElementById(idprog);
+  if (!input) return;
+  const raw = input.value;
 
   // 2. Format it to Title Case (e.g., "icy wind" -> "Icy Wind")
   const name = toTitleCase(raw);
 
-  //const filelocation = '';
+  let filelocation = '';
 
   switch (id) {
     case "move":
@@ -230,7 +244,8 @@ async function search(id, prog) {
       break;
   }
 
-  const file = `${filelocation}${name}.json`;
+  if (!filelocation || !name.trim()) return;
+  const file = assetUrl(`${filelocation}${name}.json`);
 
   try {
     // 2. Fetch the file (Wait for the response)
@@ -256,9 +271,9 @@ async function search(id, prog) {
           document.getElementById(idprog + '_damage2').textContent = 'Damage: ' + json.Damage1 + ' + ' + json.Damage2;
         }
         if (json.Accuracy2 === '') {
-          document.getElementById(idprog + '_damage1').textContent = 'Accuracy: ' + json.Accuracy1;
+          document.getElementById(idprog + '_accuracy1').textContent = 'Accuracy: ' + json.Accuracy1;
         } else {
-          document.getElementById(idprog + '_damage2').textContent = 'Accuracy: ' + json.Accuracy1 + ' + ' + json.Accuracy2;
+          document.getElementById(idprog + '_accuracy2').textContent = 'Accuracy: ' + json.Accuracy1 + ' + ' + json.Accuracy2;
         }
         document.getElementById(idprog + '_target').textContent = 'Target: ' + json.Target;
         document.getElementById(idprog + '_effect').textContent = 'Effect: ' + json.Effect;
@@ -306,6 +321,7 @@ function setupPokeUI(allPokemon) {
   const type1Text = document.getElementById('type1-text');
   const type2Display = document.getElementById('type2');
   const type2Text = document.getElementById('type2-text');
+  if (![listContainer, searchInput, popup, nameDisplay, nrDisplay, type1Display, type1Text, type2Display, type2Text].every(Boolean)) return;
 
   const renderList = (pokemonArray) => {
     listContainer.innerHTML = '';
@@ -363,10 +379,14 @@ async function init() {
   try {
     // 1. Fetch all data concurrently
     const [typeRes, rankRes, pokeRes] = await Promise.all([
-      fetch('../json/type_chart.json'),
-      fetch('../json/ranks.json'),
-      fetch('../json/poke_list.json')
+      fetch(assetUrl('json/type_chart.json')),
+      fetch(assetUrl('json/ranks.json')),
+      fetch(assetUrl('json/poke_list.json'))
     ]);
+
+    if (![typeRes, rankRes, pokeRes].every(response => response.ok)) {
+      throw new Error('Unable to load the application data.');
+    }
 
     // 2. Assign to variables
     TYPE_CHART = await typeRes.json();
@@ -532,6 +552,7 @@ function loadData() {
 }
 
 async function saveSheetData2(sheetType) {
+  const normalizedSheetType = String(sheetType).toLowerCase();
   const getCheckboxes = (prefix) => {
     const result = [];
     for (let i = 1; i <= 5; i++) {
@@ -686,7 +707,7 @@ async function saveSheetData2(sheetType) {
   const trainer = document.getElementById('trainer')?.innerText.trim();
   const name = document.getElementById('name')?.innerText.trim();
   var filename;
-  if (sheetType === 'trainer') {
+  if (normalizedSheetType === 'trainer') {
     filename = trainer || 'trainer';
   }
   else {
@@ -696,11 +717,18 @@ async function saveSheetData2(sheetType) {
   const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
 
+  if (!window.supabase) {
+    console.error('Supabase client is unavailable. Check that its script is loaded.');
+    return;
+  }
+
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const { db, error } = await supabaseclient
+  const { error } = await supabaseclient
     .from('Characters')
     .upsert([{ name: filename, value: jsonString }]);
+
+  if (error) console.error('Error saving sheet data:', error);
 }
 
 // Helper function to fill the form elements with JSON data
@@ -909,15 +937,21 @@ function populateSheet(data) {
 }
 
 async function loadSheetData2(sheetType) {
+  const normalizedSheetType = String(sheetType).toLowerCase();
   const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
+
+  if (!window.supabase) {
+    console.error('Supabase client is unavailable. Check that its script is loaded.');
+    return;
+  }
 
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const trainer = document.getElementById('trainer')?.innerText.trim();
   const name = document.getElementById('name')?.innerText.trim();
   var filename;
-  if (sheetType === 'trainer') {
+  if (normalizedSheetType === 'trainer') {
     filename = trainer || 'trainer';
   }
   else {
@@ -954,28 +988,30 @@ const container = document.querySelector('.fullpage');
 const autosaveCheckbox = document.getElementById('autosave');
 let save = autosaveCheckbox ? autosaveCheckbox.checked : false;
 
-autosaveCheckbox.addEventListener('change', (e) => {
-  save = e.target.checked; // Updates save whenever the user clicks the box
-});
+if (autosaveCheckbox) {
+  autosaveCheckbox.addEventListener('change', (e) => {
+    save = e.target.checked;
+  });
+}
 
 // 1. Tracks typing in text inputs, textareas, etc.
-container.addEventListener('input', (event) => {
+container?.addEventListener('input', (event) => {
   const target = event.target;
   if (target.type !== 'checkbox' && target.type !== 'radio') {
     //console.log(`Input Modified [${target.name || target.id}]:`, target.value);
     if (save) {
-      saveSheetData2('Trainer');
+      saveSheetData2(document.getElementById('pokename') ? 'poke' : 'trainer');
     }
   }
 });
 
 // 2. Tracks checkboxes and radio buttons on toggle
-container.addEventListener('change', (event) => {
+container?.addEventListener('change', (event) => {
   const target = event.target;
   if (target.type === 'checkbox' || target.type === 'radio') {
     //console.log(`Checkbox Toggle [${target.name || target.id}]:`, target.checked);
     if (save) {
-      saveSheetData2('Trainer');
+      saveSheetData2(document.getElementById('pokename') ? 'poke' : 'trainer');
     }
   }
 });
