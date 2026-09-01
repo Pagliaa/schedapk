@@ -916,26 +916,29 @@ async function loadSheetData2(sheetType) {
 
   const trainer = document.getElementById('trainer')?.innerText.trim();
   const name = document.getElementById('name')?.innerText.trim();
-  
-  let filename = sheetType === 'trainer' 
-    ? (trainer || 'trainer') 
-    : ([trainer, name].filter(Boolean).join('_') || 'poke');
+  var filename;
+  if (sheetType === 'trainer') {
+    filename = trainer || 'trainer';
+  }
+  else {
+    filename = [trainer, name].filter(Boolean).join('_') || 'poke';
+  }
 
-  try {
-    const { data, error } = await supabaseclient
-      .from('Characters')
-      .select('value')
-      .eq('name', filename)
-      .single();
+  const { data, error } = await supabaseclient
+    .from('Characters')
+    .select('*')
+    .eq('name', filename);
 
-    if (error) throw error;
+  if (error) {
+    console.error('Error fetching data:', error);
+  } else {
+    console.log('Fetched characters:', data);
 
-    if (data && data.value) {
-      const parsedData = typeof data.value === 'string' ? JSON.parse(data.value) : data.value;
-      populateSheet(parsedData);
-    }
-  } catch (err) {
-    console.error("Failed to load sheet data:", err);
+    data.forEach(item => {
+      const parsedValue = JSON.parse(item.value);
+      populateSheet(parsedValue);
+      console.log(`Character ${item.name}:`, parsedValue);
+    });
   }
 }
 
