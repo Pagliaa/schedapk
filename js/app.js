@@ -910,7 +910,7 @@ function populateSheet(data) {
 
 async function loadSheetData2(sheetType) {
   const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6210MTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
 
   const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
