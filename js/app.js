@@ -924,7 +924,7 @@ async function loadSheetData2(sheetType) {
     filename = [trainer, name].filter(Boolean).join('_') || 'poke';
   }
 
-  let { data: Characters, error } = await supabaseclient
+  const { data, error } = await supabaseclient
     .from('Characters')
     .select('*')
     .eq('name', filename);
