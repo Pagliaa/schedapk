@@ -912,7 +912,7 @@ async function loadSheetData2(sheetType) {
   const SUPABASE_URL = 'https://lzppgwqfahqrcgsjyybl.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6cHBnd3FmYWhxcmNnc2p5eWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3NjgxMzMsImV4cCI6MjEwMTM0NDEzM30.eTTTCnQ0usjEHnILcc9yboMMI_uC8nS8WdpcA1N_-5k';
 
-  const supabaseclient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const supabaseclient = window.supabase.createClient(SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
   const trainer = document.getElementById('trainer')?.innerText.trim();
   const name = document.getElementById('name')?.innerText.trim();
@@ -924,7 +924,7 @@ async function loadSheetData2(sheetType) {
     filename = [trainer, name].filter(Boolean).join('_') || 'poke';
   }
 
-  const { data, error } = await supabaseclient
+  let { data: Characters, error } = await supabaseclient
     .from('Characters')
     .select('*')
     .eq('name', filename);
